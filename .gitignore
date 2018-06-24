@@ -1,0 +1,6 @@
+logs/
+*.lock
+*.LCK
+*.jpg
+*.png
+*.gif
