@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang=ja>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift_jis">
+<!-- CGI Expire -->
+<link href="/engawa/form_parts/base.css" rel="stylesheet" type="text/css">
+<script src="/engawa/form_parts/des.js"></script>
+</HEAD>
+<BODY onLoad="setupDes();">
+
+<FORM ACTION="./form.cgi" METHOD="post">
+<TABLE width="596px" BORDER="1" CELLPADDING="4" CELLSPACING="0" style="font-size:14px; table-layout:fixed">
+<TR>
+	<TD style="width:169px;">お名前（フルネーム）</TD>
+	<TD width="405px">
+<!-- お名前（フルネーム） -->
+<INPUT TYPE="text" NAME="Page01:01" VALUE="木村　太郎">
+	</TD>
+</TR>
+<TR>
+	<TD>フリガナ（フルネーム）</TD>
+	<TD>
+<!-- フリガナ（フルネーム） -->
+<INPUT TYPE="text" NAME="Page01:02" VALUE="キムラ　タロウ">
+	</TD>
+</TR>
+<TR>
+	<TD>住所</TD>
+	<TD>
+<!-- 住所 -->
+<INPUT TYPE="text" NAME="Page01:03" VALUE="例）大阪府大阪市" size="70" style="width:405px;">
+	</TD>
+</TR>
+<TR>
+	<TD>E-Mail</TD>
+	<TD>
+<!-- E-Mail -->
+<INPUT TYPE="text" NAME="Page01:04:1" VALUE="engawa@kimuko.net" size="40"><BR>
+<INPUT TYPE="text" NAME="Page01:04:2" VALUE="" size="40">(確認)<BR>
+	</TD>
+</TR>
+<TR>
+	<TD>差し支えなければ電話番号<br>
+	  をおねがいします</TD>
+	<TD>
+<!-- 差し支えなければ電話番号をおねがいします -->
+<INPUT TYPE="text" NAME="Page01:05" VALUE="06-6751-4414">
+	</TD>
+</TR>
+<TR>
+	<TD>年齢<span style="font-size:12px; color:#EF5807;"><br>
+	  お手数ですが<br>
+	  出来ればお教え下さい</span></TD>
+	<TD>
+<!-- 年齢 -->
+<SELECT NAME="Page01:06">
+	<OPTION VALUE="10代">10代</OPTION>
+	<OPTION VALUE="20代">20代</OPTION>
+	<OPTION VALUE="30代">30代</OPTION>
+	<OPTION VALUE="40代">40代</OPTION>
+	<OPTION VALUE="50代">50代</OPTION>
+	<OPTION VALUE="60代">60代</OPTION>
+	<OPTION VALUE="70代">70代</OPTION>
+	<OPTION VALUE="80代">80代</OPTION>
+	<OPTION VALUE="90代">90代</OPTION>
+	<OPTION VALUE="" SELECTED></OPTION>
+</SELECT></TD>
+</TR>
+<TR>
+	<TD>性別<span style="font-size:12px; color:#EF5807;"><br>
+	  お手数ですが<br>
+	  出来ればお教え下さい</span></TD>
+	<TD>
+<!-- 性別 -->
+<INPUT TYPE="radio" NAME="Page01:07" VALUE="男性">男性<BR>
+<INPUT TYPE="radio" NAME="Page01:07" VALUE="女性">女性<BR>
+	</TD>
+</TR>
+<TR>
+	<TD height="226"><p>お問い合わせ内容</p>
+	  <p style="font-size:12px; color:#EF5807;">ワークショップ予約を<br>
+	    ご希望の方も<br>
+	    こちらへどうぞ<br>
+	    <br>
+	    
+	    例）○○○ワークショップ予約<br>
+	    ワークショップ参加人数／<br>
+      来客人数</p></TD>
+	<TD>
+<!-- お問い合わせ内容 -->
+<TEXTAREA NAME="Page01:08" cols="48" rows="15" style="font-size:14px; width:405px;">例)○○○ワークショップ予約
+子供１名／大人２名　子供１名</TEXTAREA>
+	</TD>
+</TR>
+<TR>
+	<TD height="80">当サイトをどこで<br>
+	  お知りになりましたか？</TD>
+	<TD>
+<!-- 当サイトをどこでお知りになりましたか？ -->
+<INPUT TYPE="radio" NAME="Page01:09" VALUE="検索サイトで">検索サイトで
+<INPUT TYPE="radio" NAME="Page01:09" VALUE="Web上のリンクで">Web上のリンクで<BR>
+<INPUT TYPE="radio" NAME="Page01:09" VALUE="雑誌で">雑誌で
+<INPUT TYPE="radio" NAME="Page01:09" VALUE="紹介で">紹介で
+<INPUT TYPE="radio" NAME="Page01:09" VALUE="SNSで">SNSで<BR>
+	</TD>
+</TR>
+</TABLE>
+
+<INPUT TYPE="hidden" NAME="Session" VALUE="<!-- CGI Session -->">
+<INPUT TYPE="hidden" NAME="Code" VALUE="workshop">
+<INPUT TYPE="hidden" NAME="Page" VALUE="1">
+<INPUT TYPE="submit" VALUE="確認画面へ">&nbsp;&nbsp;<INPUT TYPE="reset" VALUE="リセット">
+</FORM>
+
+
+</BODY>
+</HTML>
