@@ -1,0 +1,194 @@
+body { margin: 0px; border: 0; padding: 0; background-color: #FFFFFF; text-align: center; } 
+a { text-decoration: none; }
+ a:link { color: #36414d; }
+ a:visited { color: #36414d; }
+ a:active { color: #36414d; }
+ a:hover { color: #36414d; font-size: 9pt;}
+ h1, h2, h3 { margin: 0px 0px 5px 0px ; padding: 0px; font-weight: normal; }
+
+ #container
+ { 
+line-height: 140%; 
+margin-right: auto; 
+margin-left: auto; 
+text-align: left; 
+padding: 0px; 
+width: 960px; 
+background-color: #FFFFFF;
+ } 
+
+#banner
+ {
+display: none;  
+font-family: Georgia, Times, serif; 
+color: #333333; 
+background-color: #FFFFFF; 
+text-align: left; 
+padding: 15px; 
+
+}
+
+a#banner-img { display: block;
+background-image: url("http://www.kimuko.net/blog/img/kitchen-head2.png"); 
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #FFF;
+	margin-bottom: 1px;
+    height: 120px;
+	}
+.banner-alt {
+display: none;
+}
+ #banner a { color: #333333; text-decoration: none; }
+ #banner h1 { font-size: x-large; }
+ #banner h2 { font-size: small; }
+ #center { float: left; width: 680px; overflow: hidden; }
+ .content {
+	padding: 15px 15px 5px 8px;
+	background-color: #FFFFFF;
+	color: #333333;
+	/*font-family: Georgia, 'Times New Roman', serif; */
+	font-family: '¥Ò¥é¥®¥Î³Ñ¥´ Pro W3','Hiragino Kaku Gothic Pro','¥á¥¤¥ê¥ª',Meiryo,'£Í£Ó £Ð¥´¥·¥Ã¥¯','MS PGothic',sans-serif;
+	font-size: small;
+} 
+
+textarea#comment-text { width: 470px; }
+
+ #right 
+{ 
+float: left; 
+width: 280px; 
+overflow: hidden; 
+}
+
+ .content p { color: #333333; 
+font-family: '£Í£Ó £Ð¥´¥·¥Ã¥¯','MS PGothic',sans-serif;
+font-size: small; 
+font-weight: normal; 
+line-height: 200%; 
+text-align: left; 
+margin-bottom: 10px; }
+
+ .content p a { 
+color: #333333; 
+font-family: '£Í£Ó £Ð¥´¥·¥Ã¥¯','MS PGothic',sans-serif;
+ }
+
+h3#archive-title { 
+color: #36414d; 
+font-family: '£Í£Ó £Ð¥´¥·¥Ã¥¯','MS PGothic',sans-serif;
+font-size: medium; 
+font-weight: bold; 
+ }
+
+ .content blockquote { line-height: 200%; }
+ .content li { line-height: 200%; }
+
+ .content hc 
+	{
+color: #fff; 
+font-family: Georgia, 'Times New Roman', serif; 
+font-size: large; 
+border-bottom: 1px solid #fff; 
+text-align: left; 
+margin-bottom: 10px; p
+adding: 3px; }
+
+ .content h2 {
+	display: block;
+    margin-top: 0;
+/*    border-left: 7px solid #36414d;*/
+    border-bottom: 1px dotted #999999;
+/*    padding: 4px 0px 8px 4px;*/
+    color: #ff9607;
+    font-size: 31px;
+    font-weight:100;
+	line-height: 1.2em;
+    font-family:"¥Ò¥é¥®¥Î³Ñ¥´ Pro W3", "Hiragino Kaku Gothic Pro", "¥á¥¤¥ê¥ª", Meiryo, Osaka, "£Í£Ó £Ð¥´¥·¥Ã¥¯", "MS PGothic", sans-serif;
+}
+
+ .content h3 { color: #666666; font-family: Georgia, 'Times New Roman', serif; font-size: medium; text-align: left; margin-bottom: 10px; }
+ .content p.posted { clear: both; color: #000000; font-family: Verdana, Arial, sans-serif; font-size: x-small; text-align: left; margin-bottom: 25px; line-height: normal; clear: both; }
+ .sidebar { 
+ padding: 0px 8px 15px 8px;
+ 
+ 
+  }
+ #calendar { line-height: 140%; color: #333333; font-family: Verdana, Arial, sans-serif; font-size: x-small; padding: 2px; text-align: center; margin-bottom: 30px; }
+ #calendar table { padding: 2px; border-collapse: collapse; border: 0px; width: 100%; } 
+#calendar caption { color: #336600; font-family: Georgia, 'Times New Roman', serif; font-size: small; text-align: left; text-transform: uppercase; letter-spacing: .3em; }
+ #calendar th { text-align: center; font-weight: normal; }
+ #calendar td { text-align: center; }
+
+ .sidebar h2 
+{ 
+color: #fff; 
+font-family: "¥Ò¥é¥®¥Î³Ñ¥´ Pro W3", "Hiragino Kaku Gothic Pro", "¥á¥¤¥ê¥ª", Meiryo, Osaka, "£Í£Ó £Ð¥´¥·¥Ã¥¯", "MS PGothic", sans-serif; 
+font-weight: 100;
+font-size:12px;
+letter-spacing: .1em; 
+padding-left: 10px;
+background: #666666;
+} 
+
+ .sidebar h2 a { color: #fff; }
+ .sidebar h2 a:hover { color: #fff; }
+
+.sidebar ul { padding-left: 0px; margin: 0px; margin-bottom: 30px; }
+ .sidebar li { color: #333333; font-family: Verdana, Arial, sans-serif; font-size: x-small; text-align: left; line-height: 150%; margin-top: 10px; list-style-type: none; }
+ .sidebar img { border: 0px solid #333333; } 
+.photo { text-align: right; margin-bottom: 20px; } 
+
+.link-note { 
+font-family: Verdana, Arial, sans-serif; 
+font-size: x-small; line-height: 150%; 
+text-align: left; 
+padding: 2px; 
+margin-bottom: 15px; 
+background-color:#fff; 
+}
+
+.sss{
+background-color:#fff; 
+font-size: small;
+padding: 5px;
+
+}
+
+.sssm{
+background-color:#fff; 
+text-align: center;
+}
+
+.sssm img{
+border-top: #fff solid 5px;
+border-bottom: #fff solid 5px;
+}
+
+ #powered { font-family: Verdana, Arial, sans-serif; font-size: x-small; line-height: 150%; text-align: left; color: #333333; margin-top: 50px; } 
+#comment-data { float: left; width: 180px; padding-right: 15px; margin-right: 15px; text-align: left; border-right: 1px dotted #BBB; }
+ textarea { font-family: "£Í£Ó £Ð¥´¥·¥Ã¥¯", "¥Ò¥é¥®¥Î³Ñ¥´ Pro W3", "Osaka", "£Í£Ó £ÐÌÀÄ«", "¥Ò¥é¥®¥ÎÌÀÄ« Pro W3", verdana, arial, sans-serif; } 
+textarea[id="comment-text"] { width: 80%; } 
+.image-full { width: 470px; }
+ .image-thumbnail { float: left; width: 130px; margin-bottom: 10px; }
+ .image-thumbnail img { width: 115px; height: 115px; } 
+span{ line-height: 150%; } 
+
+/**********¿§¤Î»ØÄê**********/
+.gre-whit{background-color:#cccccc ; color:#fff;}
+.gre-red{background-color:#cccccc ; color:#990000;}
+.gre-yelow{background-color:#cccccc ; color:#ffff00;}
+.orange{color:#FF9900;font-weight: 100;}
+.whit-red{color:#990000;}
+.whit-yelow{color:#ffff00;}
+
+/****¥¿¥¤¥È¥ë*****************************************/
+.point{padding:0;}
+
+
+#right .sidebar .sssm a img {
+	border: 1px solid #CCC;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 3px;
+}

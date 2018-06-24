@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+   <title>木村工務店とは？（テスト運用）</title>
+   <link rel="alternate" type="text/html" href="http://www.kimuko.net/about_us/" />
+   <link rel="self" type="application/atom+xml" href="http://www.kimuko.net/about_us/atom.xml" />
+   <id>tag:www.kimuko.net,2011:/about_us/4</id>
+   <updated>2011-02-20T09:00:46Z</updated>
+   <subtitle>会社概要・沿革のページです（テスト運用）</subtitle>
+   <generator uri="http://www.sixapart.com/movabletype/">Movable Type 3.34</generator>
+
+<entry>
+   <title>木村工務店のヒストリー</title>
+   <link rel="alternate" type="text/html" href="http://www.kimuko.net/about_us/2011/02/post.html" />
+   <id>tag:www.kimuko.net,2011:/about_us//4.351</id>
+   
+   <published>2011-02-20T08:59:15Z</published>
+   <updated>2011-02-20T09:00:46Z</updated>
+   
+   <summary>●創業者、木村精一●  　明治４４年２月、現在の三重県一志郡美杉村小西にて誕生幼...</summary>
+   <author>
+      <name>長谷川俊一</name>
+      
+   </author>
+   
+   
+   <content type="html" xml:lang="ja" xml:base="http://www.kimuko.net/about_us/">
+      <![CDATA[●創業者、木村精一● 
+　明治４４年２月、現在の三重県一志郡美杉村小西にて誕生幼児にして父と死別のため母の姻戚をたどって
+現在の愛知県碧南市新川に移住する。
+ 
+●大正１３年３月●
+　新川小学校卒業、碧南市大浜「大清商店村上家」（建築と木材業）にて 大工見習いとして弟子入り、修行に励む。
+ 
+
+<img alt="seiichi_1.gif" src="http://www.kimuko.net/company/seiichi_1.gif" width="360" height="553" />
+昭和の始め頃の普請方の出で立ち
+（写真右側が創業者の木村精一） 
+ 
+小学校を卒業して、大工の頭領に弟子入りしてから5〜6年
+年季が明けて待望の「職人」となると、こんな服装ができる
+町屋大工の典型的なユニフォーム  
+]]>
+      
+   </content>
+</entry>
+
+</feed>

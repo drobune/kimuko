@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+
+
+table {
+   border-collapse: collapse;
+}
+
+table th {
+
+   border:1px solid #999;
+}
+
+table td {
+   border:1px solid #999;
+}
+
+.toptable {
+	width:963px;
+}
+
+
+/*******************************************************************/
+
+ul#navigation {
+    width:961px;
+    margin:0;
+    overflow:hidden;　/*float解除*/
+    zoom:100%;　/*float解除*/
+}
+ul#navigation li {
+    float:left; 
+    list-style:none; 
+}
+ul#navigation li a {
+    display:block; 
+    height:71px; 
+    width:153px; 
+	font-size:5px;
+    text-align:center; 
+    letter-spacing:1px; 
+    text-indent:-9999px; 
+    background-image:url(../img/top-icon_n.png); 
+    background-repeat:no-repeat; 
+}
+
+
+ul#navigation a.iedukuri {background-position:-20px -70px;width:153px;}
+ul#navigation li a.iedukuri:hover {background-position:-20 0px;}
+ 
+ul#navigation a.voice {background-position:-173px -70px;}
+ul#navigation li a.voice:hover {background-position:-173px 0px;}
+ 
+ul#navigation li a.publish {background-position:-326px -70px;}
+ul#navigation li a.publish:hover {background-position:-326px 0px;}
+ 
+ul#navigation li a.genba {background-position:-479px -70px;}
+ul#navigation li a.genba:hover {background-position:-479px 0px;}
+ 
+ul#navigation li a.syacyo {background-position:-632px -70px;}
+ul#navigation li a.syacyo:hover {background-position:-632px 0px;}
+ 
+ul#navigation li a.about {background-position:-789px -70px;}
+ul#navigation li a.about:hover {background-position:-789px 0px;}
+ 
+
+

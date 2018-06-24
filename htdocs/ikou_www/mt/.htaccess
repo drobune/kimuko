@@ -1,0 +1,11 @@
+
+
+<Files mt.cfg>
+<Limit GET>
+deny from all
+</Limit>
+</Files>
+
+#---‚±‚±‚©‚ç---#
+php_flag mbstring.encoding_translation off
+#---‚±‚±‚Ü‚Å---#

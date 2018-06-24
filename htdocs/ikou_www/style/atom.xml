@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed version="0.3" xmlns="http://purl.org/atom/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:lang="ja">
+<title>木村工務店Style</title>
+<link rel="alternate" type="text/html" href="http://www.kimuko.net/style/" />
+<modified>2006-01-27T12:32:15Z</modified>
+<tagline></tagline>
+<id>tag:www.kimuko.net,2006:/style//3</id>
+<generator url="http://www.movabletype.org/" version="3.151-ja">Movable Type</generator>
+<copyright>Copyright (c) 2006, 木村貴一</copyright>
+<entry>
+<title>テスト</title>
+<link rel="alternate" type="text/html" href="http://www.kimuko.net/style/archives/2006/01/post.html" />
+<modified>2006-01-27T12:32:15Z</modified>
+<issued>2006-01-27T12:31:03Z</issued>
+<id>tag:www.kimuko.net,2006:/style//3.97</id>
+<created>2006-01-27T12:31:03Z</created>
+<summary type="text/plain">ああああああ いいいいいい うううううううう ええええええ おおおおおお ...</summary>
+<author>
+<name>木村貴一</name>
+<url>http://www.kimuko.net/home/</url>
+<email>kimutaka@kimuko.co.jp</email>
+</author>
+<dc:subject>テスト</dc:subject>
+<content type="text/html" mode="escaped" xml:lang="ja" xml:base="http://www.kimuko.net/style/">
+<![CDATA[<p>ああああああ<br />
+いいいいいい<br />
+うううううううう<br />
+ええええええ<br />
+おおおおおお<br />
+</p>]]>
+
+</content>
+</entry>
+
+</feed>

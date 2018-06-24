@@ -1,0 +1,28 @@
+<HTML>
+<BODY>
+<H3>■ アンケート(Mail) サンプル</H3>
+<HR>
+以下の項目にお答えください。<BR>
+<FORM ACTION="/cgi-bin/csvmail+no/csvmail+no.cgi" METHOD="POST">
+	<INPUT TYPE="HIDDEN" NAME="ng_file" VALUE="ng.html">
+	<INPUT TYPE="HIDDEN" NAME="confirm_file" VALUE="confirm.html">
+	<INPUT TYPE="HIDDEN" NAME="number_file" VALUE="thank.html">
+	<INPUT TYPE="HIDDEN" NAME="file" VALUE="csvmail+no.csv">
+	<INPUT TYPE="HIDDEN" NAME="seqfile" VALUE="csvmail+no.seq">
+	<INPUT TYPE="HIDDEN" NAME="html_kanji" VALUE="euc">
+	<INPUT TYPE="HIDDEN" NAME="mail_address" VALUE="postmaster@vf.ksi.ne.jp">
+	<INPUT TYPE="HIDDEN" NAME="subject" VALUE="Enquate Mail CSV TEST">
+お名前(漢字)(必須)：<INPUT TYPE="TEXT" SIZE="15" NAME="CHECK:名前(漢字)"><BR>
+E-mailアドレス(必須)：<INPUT TYPE="TEXT" SIZE="30" NAME="CSVCHECK:E-Mailアドレス"><BR>
+質問A(必須):<INPUT TYPE="TEXT" SIZE="12" NAME="CSVCHECK:質問A"><BR>
+質問B:<INPUT TYPE="TEXT" SIZE="12" NAME="CSV:質問B"><BR>
+質問C:<INPUT TYPE="TEXT" SIZE="12" NAME="質問C"><BR>
+質問D:どこでみました？<BR>
+<INPUT TYPE="RADIO" NAME="どこでみた？" VALUE="テレビ">テレビで
+<INPUT TYPE="RADIO" NAME="どこでみた？" VALUE="雑誌">雑誌で<BR>
+<INPUT TYPE="reset" VALUE="Reset message">
+<INPUT TYPE="submit" VALUE="Send message">
+</FORM>
+<HR>
+</BODY>
+</HTML>

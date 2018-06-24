@@ -1,0 +1,17 @@
+/*  $Id: styles.css 59874 2007-08-01 03:26:05Z bsmith $  */
+
+/* codebase */
+@import url("css/reset.css");
+/*@import url("css/fonts.css");*/
+
+/* layout */
+@import url("css/structure.css");
+
+/* messaging */
+@import url("css/messaging.css");
+
+/* branding */
+/*@import url("css/paint.css");*/
+
+/* utilities */
+@import url("css/utilities.css");

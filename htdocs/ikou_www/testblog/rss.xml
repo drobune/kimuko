@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<rss version="2.0">
+    <channel>
+        <title>testblog</title>
+        <link>http://www.kimuko.net/testblog/</link>
+        <description></description>
+        <language>ja</language>
+        <copyright>Copyright 2007</copyright>
+        <lastBuildDate>Fri, 05 Oct 2007 13:11:56 +0900</lastBuildDate>
+        <generator>http://www.sixapart.com/movabletype/</generator>
+        <docs>http://www.rssboard.org/rss-specification</docs>
+        
+        <item>
+            <title>test1</title>
+            <description><![CDATA[<p>
+<form class="mt-enclosure mt-enclosure-image" mt:asset-id="4"><a onclick="window.open('http://www.kimuko.net/testblog/P10706091.html','popup','width=2048,height=1360,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false" href="http://www.kimuko.net/testblog/P10706091.html"><img class="mt-image-left" style="FLOAT: left; MARGIN: 0px 20px 20px 0px" height="199" alt="P1070609.JPG" src="http://www.kimuko.net/testblog/P1070609-thumb-300x199.jpg" width="300" /></a></form>aaaa</p>
+<p>aaaa</p>
+<p>&nbsp;</p>
+<p>aaaa</p>
+<p>&nbsp;</p>
+<p>aaaa</p>
+<p>aaaa
+<form class="mt-enclosure mt-enclosure-image" mt:asset-id="4"><a onclick="window.open('http://www.kimuko.net/testblog/P10706091.html','popup','width=2048,height=1360,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false" href="http://www.kimuko.net/testblog/P10706091.html"></a>&nbsp;</form></p>]]></description>
+            <link>http://www.kimuko.net/testblog/2007/10/test1.html</link>
+            <guid>http://www.kimuko.net/testblog/2007/10/test1.html</guid>
+            
+            
+            <pubDate>Fri, 05 Oct 2007 13:11:56 +0900</pubDate>
+        </item>
+        
+    </channel>
+</rss>

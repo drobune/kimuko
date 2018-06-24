@@ -1,0 +1,9 @@
+subject	施工例のお問い合わせ
+file	toiawase.csv
+html_kanji	sjis
+comment	toiawase
+ng_file	error.html
+from	POINTER::E-Mailアドレス
+msg_file	thank.html
+mail_address	postmaster@kimuko.net
+confirm_file	confirm.html

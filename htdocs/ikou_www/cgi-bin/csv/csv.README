@@ -1,0 +1,96 @@
+/* $Id: csv.README,v 1.2 1999/08/17 01:47:49 morikawa Exp morikawa $ */
+
+○FORM-CSV形式保存CGI -  csv.cgi
+
+★はじめに
+  このスクリプトは、FORMで指定された項目の全てを、指定されたファイルに
+  CSV形式で書き出すCGIプログラムである。
+  CSV形式とは、各データがカンマ区切りで構成されるデータ形式である。
+  これにより、ウェッブから入力されたデータをExcel等で編集／加工を行う
+  ことはできる。
+
+★インストール
+  1.ウェブサーバーがCGIを利用できるパスにcsv.cgiを置く。
+    例 : ftp.独自のドメイン名: /www/cgi-bin/csv の下 など。
+
+  2.csv.htmlをウェッブから参照できるディレクトリ内におく。
+    例 : ftp.独自のドメイン名: /www の下 など。
+    csv.htmlはサンプルであり、実際に利用する時にはカスタマイズを施して
+    使用する。
+
+
+★出力形式
+  FORMで入力されたデータは、変数"file"で指定されたファイルに以下の形式で
+  保存される。
+
+  INPUTで指定した入力項目順に CSV 形式で入力内容が出力される
+          ：
+    例：htmlのFORM内で、NAME="data1"と指定され、入力された値が 5 で、
+        NAME="date2"と指定され、入力された値が ABC の場合 
+    
+        "5","ABC"
+
+        といった形で、ファイルに保存される。
+
+★アクセスログファイル
+  ftp.独自のドメイン名:~/logs/csv.log にアクセスログが記録される。
+  ●注意 このファイルはデータファイルではなく、アクセス時間等を
+         記録するファイルです。 実際のデータは 変数"file"で指定
+         されたファイルに保存されます。
+
+  出力内容:
+    日付 / リーモートホスト名(REMOTE_HOST) < リーモートホストのアドレス(REMOTE_ADDR) : プロキシサーバのアドレス(HTTP_X_FORWARDED_FOR > csv
+
+      REMOTE_HOST, REMOTE_ADDR,  HTTP_X_FORWARDED_FORは
+      ブラウザからの変数から取得
+  
+
+★カスタマイズ
+  予約変数は以下に掲げるものがある。
+
+    msg_file    アンケートに答えた後に表示されるhtmlファイルのあり
+                かを示す。
+    file        アンケート結果をCSV出力する先のファイル名
+                ファイルは ftp.独自のドメイン名:~/logsディレクトリに作成される
+                ●注意 "csv.log" というファイル名はアクセスログ用に予約済
+                       なので使用出来ない。
+
+
+★注意 JIS X0201 KANA characters "いわゆる半角カナ"は使用できません。
+       文字化けします。(漢字コード自動認識に失敗する為)
+
+★HTML例
+
+  例：以下は csv.html のサンプルである。
+
+<HTML>
+<H3>■ CSV サンプル</H3>
+
+<!-- ここの ACTION に csv.cgi のありかを示す -->
+<FORM ACTION="/cgi-bin/csv/csv.cgi" METHOD="POST">
+
+<!-- ここの VALUE に FORM 入力が完了したのちに表示するhtmlファイルを示す -->
+<INPUT TYPE="HIDDEN" NAME="msg_file" VALUE="http://localhost/~foo/thank.html">
+
+<!-- ここの VALUE に FORM から入力されたデータをcsv形式で保存する -->
+<!-- ファイル先を示す。 ~/logs ディレクトリに保存される -->
+<!-- csv.log というファイル名はアクセスログ用に予約済 -->
+<INPUT TYPE="HIDDEN" NAME="file" VALUE="csv.dat">
+
+<!-- 適当に質問項目を指定する -->
+メールアドレス：</TD><TD><INPUT TYPE="TEXT" SIZE="12" NAME="email">
+質問A:</TD><TD> <INPUT TYPE="TEXT" SIZE="12" NAME="subject">
+
+<!-- フォームを送るボタン表示 -->
+<INPUT TYPE="submit" VALUE="Send message">
+
+<!-- フォームをクリアするボタン表示 -->
+<INPUT TYPE="reset" VALUE="Reset message">
+</FORM>
+
+</HTML>
+
+以上が最低限必要なFORMの指定例である。
+あとは、自分なりの飾りつけをすれば良い。
+
+

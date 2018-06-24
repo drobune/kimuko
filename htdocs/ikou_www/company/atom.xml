@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+   <title>木村工務店とは</title>
+   <link rel="alternate" type="text/html" href="http://www.kimuko.net/company/" />
+   <link rel="self" type="application/atom+xml" href="http://www.kimuko.net/company/atom.xml" />
+   <id>tag:www.kimuko.net,2011:/company//6</id>
+   <updated></updated>
+   <subtitle>株式会社木村工務店　会社概要・沿革</subtitle>
+   <generator uri="http://www.sixapart.com/movabletype/">Movable Type 3.34</generator>
+
+
+</feed>

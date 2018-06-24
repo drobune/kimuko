@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<rsd version="1.0" xmlns="http://archipelago.phrasewise.com/rsd">
+<service>
+<engineName>Movable Type Publishing Platform 4.0</engineName>
+<engineLink>http://www.sixapart.com/movabletype/</engineLink>
+<homePageLink>http://www.kimuko.net/syojistyle/</homePageLink>
+<apis>
+<api name="MetaWeblog" preferred="true" apiLink="http://www.kimuko.net/mt4/mt-xmlrpc.cgi" blogID="5" />
+<api name="MovableType" preferred="false" apiLink="http://www.kimuko.net/mt4/mt-xmlrpc.cgi" blogID="5" />
+<api name="Blogger" preferred="false" apiLink="http://www.kimuko.net/mt4/mt-xmlrpc.cgi" blogID="5" />
+<api name="Atom" preferred="false" apiLink="http://www.kimuko.net/mt4/mt-atom.cgi/weblog" blogID="5" />
+</apis>
+</service>
+</rsd>

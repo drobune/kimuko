@@ -1,0 +1,103 @@
+body { margin: 0px 0px 20px 0px; border: 0; padding: 0; background-color: #FFFFFF; text-align: center; } 
+a { text-decoration: underline; }
+ a:link { color: #003366; }
+ a:visited { color: #003366; }
+ a:active { color: #003366; }
+ a:hover { color: #003366; }
+ h1, h2, h3 { margin: 0px; padding: 0px; font-weight: normal; }
+ #container 
+{
+line-height: 140%; 
+margin-right: auto; 
+margin-left: auto; 
+text-align: left; 
+padding: 0px; 
+width: 750px; 
+background-color: #fff;
+ } 
+
+#banner {display: none;  font-family: Georgia, Times, serif; color: #333333; background-color: #FFFFFF; text-align: left; padding: 15px; }
+a#banner-img { display: block;
+background-image: url("http://www.kimuko.net/home/syuno/kitchin-syuunou-t.jpg"); 
+	background-repeat: no-repeat;
+	background-position: center;
+               height: 80px;}
+.banner-alt {
+display: none;
+}
+ #banner a { color: #333333; text-decoration: none; }
+ #banner h1 { font-size: x-large; }
+ #banner h2 { font-size: small; }
+ #center 
+{ 
+float: left; 
+width: 550px; 
+overflow: hidden;
+background-color: #fff;
+ }
+
+ .content
+ { 
+width: 550px;
+padding: 15px 0px 0px 0px; 
+text-align: center; 
+background-color: #fff
+color: #333333; 
+/*font-family: Georgia, 'Times New Roman', serif; */
+font-family: '£Í£Ó £Ð¥´¥·¥Ã¥¯','MS PGothic',sans-serif;
+font-size: small;
+overflow: hidden; 
+ } 
+
+textarea#comment-text { width: 470px; }
+
+ #right
+ { 
+float: left; 
+width: 180px; 
+background-color: #fff;
+margin-left: 20px; 
+overflow: hidden; 
+}
+
+ .content p { color: #333333; 
+font-family: '£Í£Ó £Ð¥´¥·¥Ã¥¯','MS PGothic',sans-serif;
+font-size: small; 
+font-weight: normal; 
+line-height: 200%; 
+text-align: left; 
+margin-bottom: 10px; }
+
+ .content blockquote { line-height: 200%; }
+ .content li { line-height: 200%; }
+ .content hc { color: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: large; border-bottom: 1px solid #fff; text-align: left; margin-bottom: 10px; padding: 3px; }
+ .content h2 { color: #333333; font-family: Georgia, 'Times New Roman', serif; font-size: large; border-bottom: 1px solid #333333; text-align: left; margin-bottom: 10px; padding: 3px; }
+ .content h3 { color: #666666; font-family: Georgia, 'Times New Roman', serif; font-size: medium; text-align: left; margin-bottom: 10px; }
+ .content p.posted { clear: both; color: #000000; font-family: Verdana, Arial, sans-serif; font-size: x-small; text-align: left; margin-bottom: 25px; line-height: normal; clear: both; }
+ .sidebar { padding: 15px; }
+ #calendar { line-height: 140%; color: #333333; font-family: Verdana, Arial, sans-serif; font-size: x-small; padding: 2px; text-align: center; margin-bottom: 30px; }
+ #calendar table { padding: 2px; border-collapse: collapse; border: 0px; width: 100%; } 
+#calendar caption { color: #336600; font-family: Georgia, 'Times New Roman', serif; font-size: small; text-align: left; text-transform: uppercase; letter-spacing: .3em; }
+ #calendar th { text-align: center; font-weight: normal; }
+ #calendar td { text-align: center; }
+ .sidebar h2 { color: #336600; font-family: Georgia, 'Times New Roman', serif; font-size: small; text-align: left; text-transform: uppercase; letter-spacing: .3em; } 
+.sidebar ul { padding-left: 0px; margin: 0px; margin-bottom: 30px; }
+ .sidebar li { color: #333333; font-family: Verdana, Arial, sans-serif; font-size: x-small; text-align: left; line-height: 150%; margin-top: 10px; list-style-type: none; }
+ .sidebar img { border: 1px solid #333333; } 
+.photo { text-align: right; margin-bottom: 20px; } 
+.link-note { font-family: Verdana, Arial, sans-serif; font-size: x-small; line-height: 150%; text-align: left; padding: 2px; margin-bottom: 15px; }
+ #powered { font-family: Verdana, Arial, sans-serif; font-size: x-small; line-height: 150%; text-align: left; color: #333333; margin-top: 50px; } 
+#comment-data { float: left; width: 180px; padding-right: 15px; margin-right: 15px; text-align: left; border-right: 1px dotted #BBB; }
+ textarea { font-family: "£Í£Ó £Ð¥´¥·¥Ã¥¯", "¥Ò¥é¥®¥Î³Ñ¥´ Pro W3", "Osaka", "£Í£Ó £ÐÌÀÄ«", "¥Ò¥é¥®¥ÎÌÀÄ« Pro W3", verdana, arial, sans-serif; } 
+textarea[id="comment-text"] { width: 80%; } 
+.image-full { width: 470px; }
+ .image-thumbnail { float: left; width: 130px; margin-bottom: 10px; }
+ .image-thumbnail img { width: 115px; height: 115px; } 
+span{ line-height: 150%; } 
+.gre-whit{background-color:#cccccc ; color:#fff;}
+.gre-red{background-color:#cccccc ; color:#990000;}
+.gre-yelow{background-color:#cccccc ; color:#ffff00;}
+.orange{color:#FF9900;font-weight:600;}
+.whit-red{color:#990000;}
+.whit-yelow{color:#ffff00;}
+.point{padding:5pt 7pt;}

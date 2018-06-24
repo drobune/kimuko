@@ -1,0 +1,33 @@
+<!-- $Id: guest.html,v 1.1 1999/08/04 08:30:39 morikawa Exp morikawa $ -->
+<HTML>
+<CENTER>
+<TITLE></TITLE>
+
+<body bgcolor="#FFFFFF" text="000000" link="#A0C0C0" alink="#ffffff" vlink="#A0C0C0" >
+
+<FONT SIZE=6><B>GUEST BOOK</B></FONT>
+<BR><HR><BR>
+<form action="/cgi-bin/guest/guest.cgi" method="post">
+<TABLE BORDER="0">
+<TR><TD>お名前：<BR></TD><TD><INPUT TYPE="text" NAME="name" size=50></TD></TR>
+<TR><TD>E-mailアドレス：</TD><TD><INPUT TYPE="text" NAME="mail" size=50></TD></TR>
+<TR><TD>Your Home Page URL：</TD><TD><INPUT TYPE="text" NAME="url" value="http://" size=50></TD></TR>
+<TR><TD>コメント：</TD><TD><TEXTAREA NAME="comment" ROWS="4" COLS="55" ></TEXTAREA></TD></TR>
+</TABLE>
+<INPUT TYPE="hidden" NAME="count" value="1">
+<INPUT TYPE="submit" VALUE="書き込む">
+<INPUT TYPE="reset" VALUE="やりなおし">
+</form>
+<form action="/cgi-bin/guest/guest.cgi" method="GET">
+<input type="submit" value="GUEST BOOKを見る">
+</FORM>
+<form action="/cgi-bin/guest/guest.cgi" method="post">
+<INPUT TYPE="hidden" NAME="count" value="2">
+オーナーの方はメンテナンス用のパスワードを入力してください<BR>
+<INPUT TYPE="password" NAME="pass" >
+<INPUT TYPE="submit" VALUE="  ok  ">
+</FORM>
+<HR>
+</CENTER>
+</BODY>
+</HTML>

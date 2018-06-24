@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<rss version="2.0">
+   <channel>
+      <title>小路スタイル</title>
+      <link>http://www.kimuko.net/home/shoji-style/</link>
+      <description>大阪の下町「小路」の町をご紹介</description>
+      <language>ja</language>
+      <copyright>Copyright 2011</copyright>
+      <lastBuildDate>Mon, 09 May 2011 16:46:07 +0900</lastBuildDate>
+      <generator>http://www.sixapart.com/movabletype/</generator>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs> 
+
+            <item>
+         <title></title>
+         <description><![CDATA[<img src="http://www.kimuko.net/blog/img/ss_map.jpg">]]></description>
+         <link>http://www.kimuko.net/home/shoji-style/2011/05/post.html</link>
+         <guid>http://www.kimuko.net/home/shoji-style/2011/05/post.html</guid>
+        
+        
+         <pubDate>Mon, 09 May 2011 16:46:07 +0900</pubDate>
+      </item>
+      
+   </channel>
+</rss>

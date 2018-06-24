@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>こだわりを聞いて欲しい</title>
+    <link rel="alternate" type="text/html" href="http://www.kimuko.net/kodawari/" />
+    <link rel="self" type="application/atom+xml" href="http://www.kimuko.net/kodawari/atom.xml" />
+    <id>tag:www.kimuko.net,2007-10-04:/kodawari//3</id>
+    <updated>2007-10-04T10:48:13Z</updated>
+    
+    <generator uri="http://www.sixapart.com/movabletype/">Movable Type Publishing Platform 4.0</generator>
+
+<entry>
+    <title>テスト１</title>
+    <link rel="alternate" type="text/html" href="http://www.kimuko.net/kodawari/2007/10/post.html" />
+    <id>tag:www.kimuko.net,2007:/kodawari//3.4</id>
+
+    <published>2007-10-04T10:44:09Z</published>
+    <updated>2007-10-04T10:48:13Z</updated>
+
+    <summary><![CDATA[ テスト テスト テスト &nbsp;...]]></summary>
+    <author>
+        <name>木村貴一</name>
+        
+    </author>
+    
+    
+    <content type="html" xml:lang="ja" xml:base="http://www.kimuko.net/kodawari/">
+        <![CDATA[<p>
+<form class="mt-enclosure mt-enclosure-image" mt:asset-id="1"><a onclick="window.open('http://www.kimuko.net/kodawari/P1070721.html','popup','width=640,height=480,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false" href="http://www.kimuko.net/kodawari/P1070721.html"><img class="mt-image-left" style="FLOAT: left; MARGIN: 0px 20px 20px 0px" height="270" alt="P1070721.JPG" src="http://www.kimuko.net/kodawari/P1070721-thumb-360x270.jpg" width="360" /></a></form>テスト</p>
+<p>テスト</p>
+<p>テスト</p>
+<p>&nbsp;</p>]]>
+        
+    </content>
+</entry>
+
+</feed>

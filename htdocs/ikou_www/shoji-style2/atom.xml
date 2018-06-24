@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+   <title>小路スタイル</title>
+   <link rel="alternate" type="text/html" href="http://www.kimuko.net/shoji-style2/" />
+   <link rel="self" type="application/atom+xml" href="http://www.kimuko.net/shoji-style2/atom.xml" />
+   <id>tag:www.kimuko.net,2011:/shoji-style2/8</id>
+   <updated>2011-05-15T19:23:19Z</updated>
+   <subtitle>大阪の下町「小路」の町をご紹介</subtitle>
+   <generator uri="http://www.sixapart.com/movabletype/">Movable Type 3.34</generator>
+
+<entry>
+   <title>メニューのことならワンズ・キコーへ</title>
+   <link rel="alternate" type="text/html" href="http://www.kimuko.net/shoji-style2/2011/05/post_2.html" />
+   <id>tag:www.kimuko.net,2011:/shoji-style//8.445</id>
+   
+   <published>2011-05-15T04:54:05Z</published>
+   <updated>2011-05-15T19:23:19Z</updated>
+   
+   <summary>メニュー制作のおしながき”おいしい”を伝えたい!! その想いをカタチに!! 当社...</summary>
+   <author>
+      <name>長谷川俊一</name>
+      
+   </author>
+         <category term="ワンズ・キコー" scheme="http://www.sixapart.com/ns/types#category" />
+   
+   
+   <content type="html" xml:lang="ja" xml:base="http://www.kimuko.net/shoji-style2/">
+      <![CDATA[<strong>メニュー制作のおしながき</strong>”おいしい”を伝えたい!!
+その想いをカタチに!!
+
+当社は、デザイン・企画を得意とする印刷会社です。創業以来20年間
+飲食店様を中心としたお得意様のお手伝いをさせて頂いております。
+打合せから撮影・制作まで一貫して行うシステムによりお客様が持つイメージをより的確にカタチにしていきます。
+
+弊社ホームページは<a href="http://www.oneskiko.com/">こちら</a>]]>
+      
+   </content>
+</entry>
+<entry>
+   <title>株式会社木村工務店　SimpleStyle 新築 大規模リフォーム 木造 自然素材 建築家との協働</title>
+   <link rel="alternate" type="text/html" href="http://www.kimuko.net/shoji-style2/2011/05/post_1.html" />
+   <id>tag:www.kimuko.net,2011:/shoji-style//8.444</id>
+   
+   <published>2011-05-15T04:37:31Z</published>
+   <updated>2011-05-15T19:23:20Z</updated>
+   
+   <summary>「こんなライフスタイルで暮らしたい」「こんな家づくりをしたい」といった、お客様の...</summary>
+   <author>
+      <name>長谷川俊一</name>
+      
+   </author>
+         <category term="木村工務店" scheme="http://www.sixapart.com/ns/types#category" />
+   
+   
+   <content type="html" xml:lang="ja" xml:base="http://www.kimuko.net/shoji-style2/">
+      <![CDATA[「こんなライフスタイルで暮らしたい」「こんな家づくりをしたい」といった、お客様の想いを最大限に反映させるために、何度も繰り返し、打ち合わせを重ねていきます。 それは木村工務店では家づくりを「お客様と私たちとの協働作業」と考えているからです。
+
+<strong><a href="http://www.kimuko.net/home/">株式会社木村工務店</a></strong>]]>
+      
+   </content>
+</entry>
+
+</feed>

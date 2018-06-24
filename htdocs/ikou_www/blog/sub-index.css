@@ -1,0 +1,125 @@
+body { margin: 0px 0px 20px 0px; border: 0; padding: 0; background-color: #FFFFFF; text-align: center; } 
+a { text-decoration: none; }
+ a:link { color: #003366; }
+ a:visited { color: #003366; }
+ a:active { color: #003366; }
+ a:hover { color: #003366; }
+ h1, h2, h3 { margin: 0px; padding: 0px; font-weight: normal; }
+ #container {
+	line-height: 140%;
+	text-align: left;
+	padding: 0px;
+	width: 480px;
+	background-color: #FFFFFF;
+} 
+#banner {display: none;  font-family: Georgia, Times, serif; color: #333333; background-color: #FFFFFF; text-align: left; padding: 15px; }
+a#banner-img { display: block;
+background-image: url("http://www.kimuko.net/kim_image/voice-kimura.gif"); 
+background-repeat: no-repeat;
+background-position: center;
+               height: 60px;}
+               
+               
+img {
+ border-style: none;
+}
+
+.banner-alt {
+display: none;
+}
+ #banner a { color: #333333; text-decoration: none; }
+ #banner h1 { font-size: x-large; }
+ #banner h2 { font-size: small; }
+ #center {
+	float: left;
+	width: 480px;
+	overflow: hidden;
+}
+ .content {
+	padding: 5px;
+	background-color: #FFFFFF;
+	color: #333333;
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: small;
+} 
+textarea#comment-text { width: 470px; }
+ #right { float: left; width: 200px; background-color: #FFFFFF; overflow: hidden; }
+ .content p
+ { color: #333333; 
+/*font-family: Georgia, 'Times New Roman', serif; */
+/*font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;*/
+font-family: 'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+font-weight: normal; 
+line-height: 190%; 
+/*text-indent: 8pt;*/
+text-align: justify;
+text-justify: inter-ideograph;
+margin-bottom: 10px; }
+
+ .content blockquote { line-height: 200%; }
+ .content li { line-height: 200%; }
+ .content h2 { color: #333333; 
+font-family: Georgia, 'Times New Roman', serif; font-size: large; 
+border-bottom: 1px solid #333333; 
+text-align: left; margin-bottom: 10px; padding: 3px; }
+ .content h3 { color: #666666; 
+/*font-family: Georgia, 'Times New Roman', serif; */
+/*font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;*/
+font-family: 'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+font-size: medium; text-align: left; margin-bottom: 10px; }
+ .content p.posted {
+	clear: both;
+	color: #000000;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: x-small;
+	margin-bottom: 25px;
+	line-height: normal;
+	width: 100%;
+}
+
+.l_name {
+	float:left;
+}
+
+.r_next {
+	float:right;
+	font-size:x-small;
+}
+
+ .sidebar { padding: 15px; }
+ #calendar { line-height: 140%; color: #333333; font-family: Verdana, Arial, sans-serif; font-size: x-small; padding: 2px; text-align: center; margin-bottom: 30px; }
+ #calendar table { padding: 2px; border-collapse: collapse; border: 0px; width: 100%; } 
+#calendar caption { color: #336600; font-family: Georgia, 'Times New Roman', serif; font-size: small; text-align: left; text-transform: uppercase; letter-spacing: .3em; }
+ #calendar th { text-align: center; font-weight: normal; }
+ #calendar td { text-align: center; }
+ .sidebar h2 { color: #336600; font-family: Georgia, 'Times New Roman', serif; font-size: small; text-align: left; text-transform: uppercase; letter-spacing: .3em; } 
+.sidebar ul { padding-left: 0px; margin: 0px; margin-bottom: 30px; }
+ .sidebar li { color: #333333; font-family: Verdana, Arial, sans-serif; font-size: x-small; text-align: left; line-height: 150%; margin-top: 10px; list-style-type: none; }
+ .sidebar img { border: 1px solid #333333; }
+ .sidebar img2 { border: 0px; }
+.photo { text-align: right; margin-bottom: 20px; } 
+.link-note { font-family: Verdana, Arial, sans-serif; font-size: x-small; line-height: 150%; text-align: left; padding: 2px; margin-bottom: 15px; }
+ #powered { font-family: Verdana, Arial, sans-serif; font-size: x-small; line-height: 150%; text-align: left; color: #333333; margin-top: 50px; } 
+#comment-data { float: left; width: 180px; padding-right: 15px; margin-right: 15px; text-align: left; border-right: 1px dotted #BBB; }
+ textarea { font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", "Osaka", "ＭＳ Ｐ明朝", "ヒラギノ明朝 Pro W3", verdana, arial, sans-serif; } 
+textarea[id="comment-text"] { width: 80%; } 
+.image-full { width: 470px; }
+ .image-thumbnail { float: left; width: 130px; margin-bottom: 10px; }
+ .image-thumbnail img { width: 115px; height: 115px; } 
+span{ line-height: 150%; } 
+
+
+#footer {
+	text-align:center;
+	vertical-align: bottom;
+	padding-bottom: 0px;
+	padding-top: 20px;
+	width: 100%;
+    font-family: verdana, 'trebuchet ms', sans-serif;
+    font-size: 12px;
+	clear: both;
+	border-bottom-width: 7px;
+	border-bottom-style: solid;
+	border-bottom-color: #328ccd;
+	background-color: #dae0e6;
+	}

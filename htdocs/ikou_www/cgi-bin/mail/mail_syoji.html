@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML lang=ja>
+
+<HEAD>
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+
+<LINK REV=MADE HREF="mailto:support@firstserver.ne.jp"> 
+
+<TITLE>◆メール入力フォーム◆</TITLE>
+
+</HEAD>
+
+<BODY bgcolor="#FFFFFF">
+
+<HR align="center">
+
+<div align="center"><img src="../../syoji/image/syoji2_t.gif" width="292" height="57"> 
+</div>
+
+<FORM ACTION="/cgi-bin/mail/maili.cgi" METHOD="POST">
+
+  <div align="center">
+
+    <table width="550" border="1" cellspacing="3" cellpadding="5">
+      <tr align="center" bgcolor="#FF9933"> 
+        <td colspan="2"><font color="#FFFFFF"><b>◆メール入力フォーム◆</b></font></td>
+      </tr>
+      <tr> 
+        <td align="right" width="299" nowrap> 
+          <input type="HIDDEN" name="msg_file" value="oki_syoji.html">
+          <input type="HIDDEN" name="mail_address" value="postmaster@kimuko.net">
+          <input type="HIDDEN" name="subject" value="小路スタイル">
+          <font face="ＭＳ Ｐゴシック, Osaka" size="3" color="#000000"><b>お名前：</b></font><br>
+          <font size="2" face="ＭＳ ゴシック, Osaka－等幅">ニックネームだけでも<br>
+          かまいません。</font> </td>
+        <td align="left" width="388"> <b><font face="ＭＳ Ｐゴシック, Osaka" size="3" color="#000000">（漢　　字）</font></b> 
+          <input type="TEXT" size="15" name="名前(漢字)">
+          &nbsp;<br>
+          <b><font face="ＭＳ Ｐゴシック, Osaka" size="3" color="#000000">（フリガナ）</font></b> 
+          <input type="text" name="名前フリガナ" size="25">
+          <br>
+          <b><font face="ＭＳ Ｐゴシック, Osaka" size="3" color="#000000">（ニックネーム）</font></b> 
+          <input type="text" name="ニックネーム" size="30">
+        </td>
+      </tr>
+      <tr> 
+        <td align="right" width="299"><font face="ＭＳ Ｐゴシック, Osaka" size="3" color="#000000"><b>E-mailアドレス：</b></font></td>
+        <td align="left" width="388"> 
+          <input type="TEXT" size="50" name="e-mailアドレス">
+        </td>
+      </tr>
+      <tr> 
+        <td align="right" width="299"><font face="ＭＳ Ｐゴシック, Osaka" size="3" color="#000000"><b>メール内容：</b></font></td>
+        <td align="left" width="388"> 
+          <select name="メール内容" size="1">
+            <option value="質問">ご質問</option>
+            <option value="広告">広告掲載依頼</option>
+            <option value="イベント">イベント告知</option>
+            <option value="情報" selected>おもしろ情報</option>
+          </select>
+        </td>
+      </tr>
+      <tr> 
+        <td align="right" width="299"><font face="ＭＳ Ｐゴシック, Osaka" size="3" color="#000000"><b>情報内容：</b></font><br>
+          <font size="2" face="ＭＳ ゴシック, Osaka－等幅">広告・イベント等の<br>
+          掲載希望の方も、</font><br>
+          <font face="ＭＳ ゴシック, Osaka－等幅" size="2">こちらから入力<br>
+          お願いします。 </font></td>
+        <td align="left" width="388"> 
+          <textarea cols="60" name="お問い合わせ内容" rows="15"></textarea>
+        </td>
+      </tr>
+      <tr valign="middle">
+        <td align="center" colspan="2"><font size="2" face="ＭＳ ゴシック, Osaka－等幅">★もう一度内容確認の上「送ります」ボタンを押してください。★</font> 
+        </td>
+      </tr>
+      <tr valign="middle"> 
+        <td align="center" colspan="2"> 
+          <input type="submit" value="送ります" name="submit">
+          <input type="reset" value="リセットします" name="reset">
+        </td>
+      </tr>
+      <tr bgcolor="#FF9933"> 
+        <td align="center" colspan="2"><!-- #BeginLibraryItem "/Library/copy.lbi" --><font size="-1" color="#666666">Copyright(C) 2001 Syojistyle Internet Website 
+All Rights Reserved.</font><!-- #EndLibraryItem --></td>
+      </tr>
+    </table>
+
+  </div>
+
+</FORM>
+
+<HR align="center">
+
+</BODY>
+
+</HTML>

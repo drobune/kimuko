@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<rss version="2.0">
+    <channel>
+        <title>職人さんと現場監督</title>
+        <link>http://www.kimuko.net/home/staff/</link>
+        <description></description>
+        <language>ja</language>
+        <copyright>Copyright 2007</copyright>
+        <lastBuildDate>Tue, 28 Aug 2007 19:30:07 +0900</lastBuildDate>
+        <generator>http://www.sixapart.com/movabletype/</generator>
+        <docs>http://www.rssboard.org/rss-specification</docs>
+        
+        <item>
+            <title>test1</title>
+            <description><![CDATA[<p>aaaa</p>
+<p>bbbb</p>
+<p>cccc</p>
+<p>&nbsp;</p>]]></description>
+            <link>http://www.kimuko.net/home/staff/2007/08/test1.html</link>
+            <guid>http://www.kimuko.net/home/staff/2007/08/test1.html</guid>
+            
+            
+            <pubDate>Tue, 28 Aug 2007 19:30:07 +0900</pubDate>
+        </item>
+        
+        <item>
+            <title>Movable Type 4.0 へようこそ！</title>
+            <description>このブログ記事は、Movable Type 4のインストール完了時に、システムによって自動的に作成されたブログ記事です。 新しくなったMT4の管理画面で、早速ブログを更新してみましょう。</description>
+            <link>http://www.kimuko.net/home/staff/2007/08/movable-type-40.html</link>
+            <guid>http://www.kimuko.net/home/staff/2007/08/movable-type-40.html</guid>
+            
+            
+            <pubDate>Tue, 28 Aug 2007 19:29:38 +0900</pubDate>
+        </item>
+        
+    </channel>
+</rss>

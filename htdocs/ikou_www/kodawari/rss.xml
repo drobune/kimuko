@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<rss version="2.0">
+    <channel>
+        <title>こだわりを聞いて欲しい</title>
+        <link>http://www.kimuko.net/kodawari/</link>
+        <description></description>
+        <language>ja</language>
+        <copyright>Copyright 2009</copyright>
+        <lastBuildDate>Thu, 04 Oct 2007 19:44:09 +0900</lastBuildDate>
+        <generator>http://www.sixapart.com/movabletype/</generator>
+        <docs>http://www.rssboard.org/rss-specification</docs>
+        
+        <item>
+            <title>テスト１</title>
+            <description><![CDATA[<p>
+<form class="mt-enclosure mt-enclosure-image" mt:asset-id="1"><a onclick="window.open('http://www.kimuko.net/kodawari/P1070721.html','popup','width=640,height=480,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false" href="http://www.kimuko.net/kodawari/P1070721.html"><img class="mt-image-left" style="FLOAT: left; MARGIN: 0px 20px 20px 0px" height="270" alt="P1070721.JPG" src="http://www.kimuko.net/kodawari/P1070721-thumb-360x270.jpg" width="360" /></a></form>テスト</p>
+<p>テスト</p>
+<p>テスト</p>
+<p>&nbsp;</p>]]></description>
+            <link>http://www.kimuko.net/kodawari/2007/10/post.html</link>
+            <guid>http://www.kimuko.net/kodawari/2007/10/post.html</guid>
+            
+            
+            <pubDate>Thu, 04 Oct 2007 19:44:09 +0900</pubDate>
+        </item>
+        
+    </channel>
+</rss>

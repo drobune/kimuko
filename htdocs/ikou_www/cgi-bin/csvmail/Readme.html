@@ -1,0 +1,395 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML lang="ja">
+<HEAD>
+<TITLE>確認付きメールゲートウェイ+CSV形式保存CGI - csvmail.cgi</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=EUC-JP">
+<LINK rev="made" href="mailto:anthrax@anthrax.ksi.ne.jp">
+</HEAD>
+<BODY>
+<CENTER>
+<HR>
+<H1>
+確認付きメールゲートウェイCGI+CSV形式保存 - csvmail.cgi
+</H1>
+<HR>
+</CENTER>
+
+<A HREF="#prologue">★はじめに</A><BR>
+<A HREF="#filelist">★ファイルリスト</A><BR>
+<A HREF="#customize">★カスタマイズ</A><BR>
+<A HREF="#example">★メールの例</A><BR>
+<A HREF="#csv">★CSVの例</A><BR>
+<A HREF="#install">★インストール</A><BR>
+<A HREF="#test">★テスト</A><BR>
+
+<HR><A NAME="prologue"><H2>★はじめに</H2>
+  このスクリプトは、FORMに書いてもらった結果を一度内容をユーザーに開示し、<BR>
+  内容を確認の上、指定されたE-mailアドレスにメールを送るCGIです。<BR>
+  必須項目の指定も可能です。<BR>
+  さらに指定されたファイルにCSV形式で書き出すものです。<BR>
+  (CSV形式とは、各データがカンマ区切りで構成されるデータ形式のことです。)<BR>
+  これにより、WebのFORMから入力されたデータをExcel等で編集／加工を行うことができます。<BR>
+  アンケートページ、資料請求ページなどへの利用が考えられます。<BR>
+  <BR>
+<OL>
+<LI>資料請求ページにて、FORMに記入してもらう
+<LI>書いてもらった内容を表示する<BR>
+(必ず記入しなければならない項目に記入されていなければ、書いてもらうよう表示する)
+<LI>OKならば、その内容を指定したメールアドレスにメールを送信し、次のページに飛ぶ
+</OL>
+という利用を想定しています。
+<BR>
+
+<HR><A NAME="filelist"><H2>★ファイルリスト</H2>
+<OL>
+このCGIは以下の場所にあります。<BR>
+<PRE>
+    /cgi-bin/csvmail/confirm.html       記入内容確認時のサンプルページ
+                      csvmail.html      アンケート等のサンプルページ
+                      csvmail.cgi       CGI本体
+                      ng.html            必須項目への記入が無かった場合のサンプルページ
+                      Readme.html        本マニュアル
+</PRE>
+</OL>
+
+<HR><A NAME="customize"><H2>★カスタマイズ</H2>
+ファイルを、カスタマイズしましょう。<BR>
+ここでは各ファイル毎に説明します。<BR>
+
+<OL>
+<LI>csvmail.html<BR>
+	これは記入してもらいたいFORMの入ったHTMLファイルです。<BR>
+	以下のように表示されます。
+<HR>
+<H3>■ アンケート(Mail) サンプル</H3>
+<HR>
+以下の項目にお答えください。<BR>
+<FORM>
+	<INPUT TYPE="HIDDEN" NAME="ok_url" VALUE="http://www.ksi.ne.jp/">
+	<INPUT TYPE="HIDDEN" NAME="ng_file" VALUE="ng.html">
+	<INPUT TYPE="HIDDEN" NAME="confirm_file" VALUE="confirm.html">
+	<INPUT TYPE="HIDDEN" NAME="file" VALUE="csvmail.csv">
+	<INPUT TYPE="HIDDEN" NAME="html_kanji" VALUE="euc">
+	<INPUT TYPE="HIDDEN" NAME="mail_address" VALUE="postmaster@vf.ksi.ne.jp">
+	<INPUT TYPE="HIDDEN" NAME="subject" VALUE="Enquate Mail CSV TEST">
+お名前(漢字)(必須)：<INPUT TYPE="TEXT" SIZE="15" NAME="CHECK:名前(漢字)" VALUE="山田太郎"><BR>
+E-mailアドレス(必須)：<INPUT TYPE="TEXT" SIZE="30" NAME="CSVCHECK:E-Mailアドレス" VALUE="tyama@ksi.ne.jp"><BR>
+質問A(必須):<INPUT TYPE="TEXT" SIZE="12" NAME="CSVCHECK:質問A" VALUE=レモン50個分"><BR>
+質問B:<INPUT TYPE="TEXT" SIZE="12" NAME="CSV:質問B" VALUE="肉の勝負"><BR>
+質問C:<INPUT TYPE="TEXT" SIZE="12" NAME="質問C" VALUE="焼きソバ飯"><BR>
+質問D:どこでみました？<BR>
+<INPUT TYPE="RADIO" NAME="どこでみた？" VALUE="テレビ">テレビで
+<INPUT TYPE="RADIO" NAME="どこでみた？" VALUE="雑誌" CHECKED>雑誌で<BR>
+<INPUT TYPE="reset" VALUE="Reset message">
+<INPUT TYPE="submit" VALUE="Send message">
+</FORM>
+<HR>
+
+このファイルの中身は以下のようになっています。<BR>
+<HR>
+&lt;HTML&gt;<BR>
+&lt;BODY&gt;<BR>
+&lt;H3&gt;■ アンケート(Mail) サンプル&lt;/H3&gt;<BR>
+&lt;HR&gt;<BR>
+以下の項目にお答えください。&lt;BR&gt;<BR>
+    &lt;FORM ACTION="./csvmail.cgi" METHOD="POST"&gt;<FONT COLOR="#FF0000"> ……… (1)</FONT><BR>
+	&lt;INPUT TYPE="HIDDEN" NAME="ok_url" VALUE="http://www.ksi.ne.jp/"&gt;<FONT COLOR="#FF0000"> ……… (2)</FONT><BR>
+	&lt;INPUT TYPE="HIDDEN" NAME="ng_file" VALUE="ng.html"&gt;<FONT COLOR="#FF0000"> ……… (3)</FONT><BR>
+	&lt;INPUT TYPE="HIDDEN" NAME="confirm_file" VALUE="confirm.html"&gt;<FONT COLOR="#FF0000"> ……… (4)</FONT><BR>
+	&lt;INPUT TYPE="HIDDEN" NAME="file" VALUE="csvmail.csv"&gt;<FONT COLOR="#FF0000"> ……… (5)</FONT><BR>
+	&lt;INPUT TYPE="HIDDEN" NAME="html_kanji" VALUE="euc"&gt;<FONT COLOR="#FF0000"> ……… (6)</FONT><BR>
+	&lt;INPUT TYPE="HIDDEN" NAME="mail_address" VALUE="postmaster@vf.ksi.ne.jp"&gt;<FONT COLOR="#FF0000"> ……… (7)</FONT><BR>
+	&lt;INPUT TYPE="HIDDEN" NAME="subject" VALUE="Enquate Mail CSV TEST"&gt;<FONT COLOR="#FF0000"> ……… (8)</FONT><BR>
+お名前(漢字)(必須)：&lt;INPUT TYPE="TEXT" SIZE="15" NAME="<FONT COLOR="#FF0000">CHECK:</FONT>名前(漢字)"&gt;&lt;BR&gt;<FONT COLOR="#FF0000"> ……… (9)</FONT><BR>
+E-mailアドレス(必須)：&lt;INPUT TYPE="TEXT" SIZE="30" NAME="<FONT COLOR="#FF0000">CSVCHECK:</FONT>E-Mailアドレス"&gt;&lt;BR&gt;<FONT COLOR="#FF0000"> ……… (10)</FONT><BR>
+質問A(必須):&lt;INPUT TYPE="TEXT" SIZE="12" NAME="<FONT COLOR="#FF0000">CSVCHECK:</FONT>質問A"&gt;&lt;BR&gt;<FONT COLOR="#FF0000"> ……… (10)</FONT><BR>
+質問B:&lt;INPUT TYPE="TEXT" SIZE="12" NAME="<FONT COLOR="#FF0000"<FONT COLOR="#FF0000">CSV:</FONT>質問B"&gt;&lt;BR&gt;<FONT COLOR="#FF0000"> ……… (11)</FONT><BR>
+質問C:&lt;INPUT TYPE="TEXT" SIZE="12" NAME="質問C"&gt;&lt;BR&gt;<FONT COLOR="#FF0000"> ……… (12)</FONT><BR>
+質問D:どこでみました？&lt;BR&gt;<BR>
+&lt;INPUT TYPE="RADIO" NAME="どこでみた？" VALUE="テレビ"&gt;テレビで<BR>
+&lt;INPUT TYPE="RADIO" NAME="どこでみた？" VALUE="雑誌"&gt;雑誌で&lt;BR&gt;<BR>
+&lt;INPUT TYPE="reset" VALUE="Reset message"&gt;<FONT COLOR="#FF0000"> ……… (13)</FONT><BR>
+&lt;INPUT TYPE="submit" VALUE="Send message"&gt;<FONT COLOR="#FF0000"> ……… (14)</FONT><BR>
+&lt;/FORM&gt;<FONT COLOR="#FF0000"> ……… (15)</FONT><BR>
+&lt;HR&gt;<BR>
+&lt;/BODY&gt;<BR>
+&lt;/HTML&gt;<BR>
+<HR>
+
+では、上から順番に見ていきましょう。<BR>
+<BR>
+<OL>
+<LI><STRONG>&lt;FORM ACTION="./csvmail.cgi" METHOD="POST"&gt;</STRONG><BR>
+	<BR>
+	これは、FORM文の始まりを表すHTMLタグです。<BR>
+	サブミットボタンが押されたときに、<BR>
+	FORMに入力した内容を、どのCGIに渡すかをここで記述してあります。<BR>
+	これは変更しないでください。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="HIDDEN" NAME="ok_url" VALUE="http://www.ksi.ne.jp/"&gt;</STRONG><BR>
+	<BR>
+	ここではHIDDEN属性(画面上には表示せずに、固定した値を送る)で、<BR>
+	入力も確認もOKだったときに飛ばす先の<STRONG>URL</STRONG>をVALUE値で指定します。<BR>
+	この例では、http://www.ksi.ne.jp/ というサイトに飛ぶように設定されています。<BR>
+	資料請求で使う場合であれば、「請求ありがとうございました」的なページを作り、<BR>
+	そのURLを指定しておくのがいいでしょう。<BR>
+	ルートディレクトリに thanks.htmlというページを作ったならば、<BR>
+	<STRONG>&lt;INPUT TYPE="HIDDEN" NAME="ok_url" VALUE="http://www.ドメイン名/thanks.html"&gt;</STRONG><BR>
+	という記述になります。(ドメイン名の部分には、あなたのドメインを入れてください)<BR>
+	<BR>
+<LI><STRONG>&lt;INPUT TYPE="HIDDEN" NAME="ng_file" VALUE="ng.html"&gt;</STRONG><BR>
+	<BR>
+	ここでは、必須項目に指定したFORMに入力されていない個所があった場合に表示する<BR>
+	ページの<STRONG>ファイル名</STRONG>を指定します。<BR>
+	VALUE="ng.html" という個所で指定します。<BR>
+	<STRONG>(※URLの指定はできません。ファイル名を指定して下さい。)</STRONG><BR>
+	例では、ng.htmlというファイルを指定していますね。<BR>
+	違う名前のファイル名を指定したい場合は、ng.htmlの部分を変更しましょう。<BR>
+	なお、必須項目の指定方法は、このあと説明します。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="HIDDEN" NAME="confirm_file" VALUE="confirm.html"&gt;</STRONG><BR>
+	<BR>
+	ここでは、FORMに記入した内容を表示して、確認を促すページの<STRONG>ファイル名</STRONG>を指定しています。<BR>
+	VALUE="confirm.html"という個所で指定します。<BR>
+	<STRONG>(※URLの指定はできません。ファイル名を指定して下さい。)</STRONG><BR>
+	例では、confirm.htmlというファイルを指定しています。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="HIDDEN" NAME="file" VALUE="csvmail.csv"&gt;</STRONG><BR>
+	<BR>
+	ここでは、アンケート結果をCSV出力する先の<STRONG>ファイル名</STRONG>を指定しています。<BR>
+	ファイルは ~/logs/以下に作成されます。<BR>
+	VALUE="csvmail.csv"という個所で指定します。<BR>
+	例では、csvmail.csvというファイルを指定しています。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="HIDDEN" NAME="html_kanji" VALUE="euc"&gt;</STRONG><BR>
+	<BR>
+	ここでは、ng_fileとconfirm_fileで指定されたHTML文書の<STRONG>漢字コード</STRONG>を指定しています。<BR>
+	指定は "euc" (EUC-JP)と "sjis" (Shift_JIS、MS漢字)の2種類です。<BR>
+	VALUE="euc"という個所で指定します。<BR>
+	例では、EUC-JPコードを指定しています。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="HIDDEN" NAME="mail_address" VALUE="postmaster@vf.ksi.ne.jp"&gt;</STRONG><BR>
+	<BR>
+	ここでは、メールの送信先のメールアドレスを指定します。<BR>
+	VALUE="postmaster@vf.ksi.ne.jp"の個所で指定します。<BR>
+	例では、postmaster@vf.ksi.ne.jp宛てにメールが届くように指定してあります。<BR>
+	ここを変更しないと、KSIのサーバ管理者宛てにメールが届いてしまいます(^^;<BR>
+	必ず変更しましょう。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="HIDDEN" NAME="subject" VALUE="Enquate Mail CSV TEST"&gt;</STRONG><BR>
+	<BR>
+	ここでは、送付するメールのサブジェクトを指定します。<BR>
+	VALUE="Enquate Mail CSV TEST"の個所で指定します。<BR>
+	例では Enquate Mail CSV TEST というサブジェクトでメールを送る設定になっています。<BR>
+	もちろん日本語も使えますので、ご自由に指定して下さい。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="TEXT" SIZE="15" NAME="<FONT COLOR="#FF0000">CHECK:</FONT>名前(漢字)"&gt;&lt;BR&gt;</STRONG><BR>
+	<BR>
+	ここでは、必須項目の指定をしています。<BR>
+	NAME="CHECK:〜" という設定がされていますが、<BR>
+	この例のように必須項目に指定したいNAMEの頭に、CHECK: を足しておけば、<BR>
+	その項目は必須項目として扱われます。<BR>
+	送付されるメールは、CHECK: という文字が外されて届くようになっています。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="TEXT" SIZE="30" NAME="<FONT COLOR="#FF0000">CSVCHECK:</FONT>E-Mailアドレス"&gt;&lt;BR&gt;</STRONG><BR>
+	<STRONG>&lt;INPUT TYPE="TEXT" SIZE="12" NAME="<FONT COLOR="#FF0000">CSVCHECK:</FONT>質問A"&gt;&lt;BR&gt;</STRONG><BR>
+	<BR>
+	ここでは、必須項目でかつCSV形式で出力する指定をしています。<BR>
+	NAME="CSVCHECK:〜" という設定がされていますが、<BR>
+	この例のように必須かつCSV出力の項目に指定したいNAMEの頭に、CSVCHECK: を足しておけば、<BR>
+	その項目は必須かつCSV出力項目として扱われます。<BR>
+	送付されるメールは、CSVCHECK: という文字が外されて届くようになっています。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="TEXT" SIZE="12" NAME="<FONT COLOR="#FF0000">CSV:</FONT>質問B"&gt;&lt;BR&gt;</STRONG><BR>
+	<BR>
+	ここでは、CSV形式で出力する指定をしています。<BR>
+	NAME="CSV:〜" という設定がされていますが、<BR>
+	この例のように必須項目に指定したいNAMEの頭に、CSV: を足しておけば、<BR>
+	その項目はCSV形式で出力する項目として扱われます。<BR>
+	送付されるメールは、CSV: という文字が外されて届くようになっています。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="TEXT" SIZE="12" NAME="質問C"&gt;&lt;BR&gt;</STRONG><BR>
+	<BR>
+	上のものとは違い、CHECK: の記述がないですね？<BR>
+	ここでは、必須項目でないFORMの設定しています。<BR>
+	このような感じで、好きなようにFORMを作ってください。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="reset" VALUE="Reset message"&gt;</STRONG><BR>
+	<BR>
+	これはリセットボタンの指定です。<BR>
+	押すとFORMに書かれた内容がクリアされます。<BR>
+<BR>
+<LI><STRONG>&lt;INPUT TYPE="submit" VALUE="Send message"&gt;</STRONG><BR>
+	<BR>
+	これはサブミットボタンの指定です。<BR>
+	これを押すことにより、CGIにFORMに入力された値を渡すことになります。<BR>
+<BR>
+<LI><STRONG>&lt;/FORM&gt;</STRONG><BR>
+	<BR>
+	これは、FORM文の終わりを指定するHTMLタグです。<BR>
+</OL>
+<BR><BR>
+<BR>
+  FORMのNAME属性について、このCGIで予約されているNAMEは、以下にかかげるものがあります。<BR>
+  予約されているNAMEは、FORM文で自由に使えませんのでご注意ください。<BR>
+<BR>
+<TABLE BORDER="1">
+<TR>
+<TD><STRONG>ok_url</STRONG></TD><TD>メールを送付した後に表示するページの指定<STRONG>(必須)</STRONG></TD>
+</TR>
+<TR>
+<TD><STRONG>confirm_file<STRONG></TD><TD>記入内容を確認するページのファイル名の指定<STRONG>(必須)</STRONG></TD>
+</TR>
+<TR>
+<TD><STRONG>file<STRONG></TD><TD>CSV形式で出力するファイル名の指定<STRONG>(必須)</STRONG></TD>
+</TR>
+<TR>
+<TD><STRONG>html_kanji<STRONG></TD><TD>HTML文書の漢字コードの指定<STRONG>(必須) [euc, sjis]</STRONG></TD>
+</TR>
+<TR>
+<TD><STRONG>ng_file<STRONG></TD><TD>必須項目に記入洩れがあった時に表示するファイルの指定<STRONG>(必須)</STRONG></TD>
+</TR>
+<TR>
+<TD><STRONG>mail_address<STRONG></TD><TD>送付先のE-mailアドレスを指定する<STRONG>(必須)</STRONG></TD>
+</TR>
+<TR>
+<TD>subject</TD><TD>メールのサブジェクトを指定する</TD>
+</TR>
+<TR>
+<TD>cc</TD><TD>メールを同報する宛先のE-mailアドレスを指定する</TD>
+</TR>
+<TR>
+<TD>bcc</TD><TD>メールを匿名で同報する宛先のE-mailアドレスを指定する</TD>
+</TR>
+<TR>
+<TD>from</TD><TD>このメールの差出人(From:)の欄に書かれるE-mailアドレス</TD>
+</TR>
+</TABLE>
+
+必須と書かれたものについては必ず設定するようにしてください。<BR>
+以上で csvmail.htmlの説明は終わりです。<BR>
+
+<BR><BR>
+<LI>confirm.html, ng.html<BR>
+confirm.htmlは、記入内容を確認するときに表示するページ、<BR>
+ng.htmlは、必須項目への記入漏れがあった場合に表示するページを<BR>
+それぞれ表しています。<BR>
+これらは、上で説明した confirmnail.html内にて、<BR>
+	<STRONG>
+	&lt;INPUT TYPE="HIDDEN" NAME="ok_url" VALUE="http://www.ksi.ne.jp/"&gt;<BR>
+	&lt;INPUT TYPE="HIDDEN" NAME="ng_file" VALUE="ng.html"&gt;<BR>
+	</STRONG>
+というふうに指定されたものです。<BR>
+このファイル名にこだわる必要はないです。<BR>
+HTML文書の漢字コードは<STRONG>html_kanji</STRONG>で指定したコードで作成してください。<BR>
+以下が confirm.htmlの内容です。<BR>
+<HR>
+&lt;HTML&gt;<BR>
+	&lt;HEAD&gt;<BR>
+		&lt;TITLE&gt;確認&lt;/TITLE&gt;<BR>
+	&lt;/HEAD&gt;<BR>
+	&lt;BODY&gt;<BR>
+		&lt;H1&gt;確認&lt;/H1&gt;<BR>
+		以下の内容でよろしければ、OKボタンを押してください。&lt;BR&gt;<BR>
+		修正される場合は、ブラウザのBACKボタンにて戻り、修正をお願いします。&lt;BR&gt;<BR>
+<FONT COLOR="#FF0000">&lt;!--insert here--&gt;</FONT><BR>
+	&lt;/BODY&gt;<BR>
+&lt;/HTML&gt;<BR>
+<HR>
+&lt;!--insert here--&gt;<BR>
+という記述に注目してください。<BR>
+
+これは、実際にはFORMに入力された内容がこの&lt;!--insert here--&gt;と置き換わって出力されます。<BR>
+実際の出力は以下のようになります。<BR>
+<HR>
+		<H1>確認</H1>
+		以下の内容でよろしければ、OKボタンを押してください。<BR>
+		修正される場合は、ブラウザのBACKボタンにて戻り、修正をお願いします。<BR>
+
+<FORM>
+<BR>
+<TABLE BORDER="1">
+<TR><TD>必須</TD><TD>名前(漢字)</TD><TD>山田太郎</TD></TR>
+<INPUT TYPE="HIDDEN" NAME="名前(漢字)" VALUE="山田太郎">
+<TR><TD>必須</TD><TD>E-Mailアドレス</TD><TD>tyama@ksi.ne.jp</TD></TR>
+<INPUT TYPE="HIDDEN" NAME="E-Mailアドレス" VALUE="tyama@ksi.ne.jp">
+<TR><TD>必須</TD><TD>質問A</TD><TD>レモン50個分</TD></TR>
+<INPUT TYPE="HIDDEN" NAME="質問A" VALUE="レモン50個分">
+<TR><TD><BR></TD><TD>質問B</TD><TD>肉の勝負</TD></TR>
+<INPUT TYPE="HIDDEN" NAME="質問B" VALUE="肉の勝負">
+<TR><TD><BR></TD><TD>質問C</TD><TD>焼きソバ飯</TD></TR>
+<INPUT TYPE="HIDDEN" NAME="質問B" VALUE="焼きソバ飯">
+<TR><TD><BR></TD><TD>どこでみた？</TD><TD>雑誌</TD></TR>
+<INPUT TYPE="HIDDEN" NAME="どこでみた？" VALUE="雑誌">
+</TABLE><BR>
+<INPUT TYPE="SUBMIT" VALUE="   OK   ">
+<HR>
+ng.htmlファイルも同様、
+&lt;!--insert here--&gt;の部分に記入された内容が置き換わって出力されます。<BR>
+confirm.htmlと同じようにカスタマイズしてください。<BR>
+<BR>
+<STRONG>※注意※<BR>
+&lt;!--insert here--&gt; は必ず行の先頭に書き、その行には他に何も書かないようにしてください。<BR>
+空白が入ってもいけません</STRONG><BR>
+<BR>
+csvmail.html内にて違うファイル名が指定されている場合は、<BR>
+そのファイル名のものを用意する必要があります。<BR>
+<BR>
+<BR>
+</OL>
+<HR><A NAME="example"><H2>★メールの例</H2>
+  サンプルより出されたメールは以下のようになります。<BR>
+  (ヘッダは一部省略)<BR>
+  <BR>
+Subject: Enquate Mail CSV TEST<BR>
+To: postmaster@vf.ksi.ne.jp<BR>
+Date: Fri, 11 Sep 1998 15:05:40 +0900<BR>
+Content-Type: text/plain; charset=ISO-2022-JP<BR>
+Content-Transfer-Encoding: 7bit<BR>
+X-Mailer: [KSI-csvmail] 164.46.224.130(164.46.224.130:)<BR>
+<BR>
+ 名前(漢字)=山田太郎<BR>
+ E-Mailアドレス=tyama@ksi.ne.jp<BR>
+ 質問A=レモン50個分<BR>
+ 質問B=肉の勝負<BR>
+ 質問C=焼きソバ飯<BR>
+ どこでみた？=雑誌<BR>
+
+<BR>
+<HR><A NAME="csv"><H2>★CSVの例</H2>
+  サンプルより出されたCSVファイルは以下のようになります。<BR>
+  サンプルでは CSVファイルは ~/logs/csvmail.csv で保存されます。<BR>
+  <BR>
+  "tyama@ksi.ne.jp","レモン50個分","肉の勝負"
+<BR><BR>
+漢字コードは<STRONG>Shift_JIS</STRONG>で、改行コードは<STRONG>LF</STRONG>(UNIX標準)で出力されます。
+<BR>
+<HR><A NAME="install"><H2>★インストール</H2>
+
+カスタマイズが終わりましたら、あなたのWebサイトのcgi-binの下に、<BR>
+	FTPにて~/www/cgi-bin/csvmailディレクトリに転送してください。<BR>
+    サンプルと同じファイル名での構成の場合、以下のようになります。<BR>
+<PRE>
+    /cgi-bin/csvmail/confirm.html
+                      csvmail.html
+                      csvmail.cgi
+                      ng.html
+                      Readme.html
+</PRE>
+無事に転送できましたら、テストしてみましょう。<BR>
+<BR>
+<BR>
+<HR><A NAME="test"><H2>★テスト</H2>
+では、テストしてみましょう。<BR>
+<BR>
+http://www.あなたのドメイン/cgi-bin/csvmail/csvmail.html<BR>
+に、アクセスしてみてください。<BR>
+<BR>
+無事に動きましたか？<BR>
+動きがおかしいと感じた場合は、もう一度このマニュアルを見て、<BR>
+各ファイルを調べてみてください。<BR>
+
+<HR>
+$Id: Readme.html,v 1.1 1999/08/05 01:38:20 morikawa Exp morikawa $
+</BODY>
+</HTML>

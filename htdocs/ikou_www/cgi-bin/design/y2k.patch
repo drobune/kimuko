@@ -1,0 +1,25 @@
+--- wwwboard.pl	Wed Sep  9 18:12:26 1998
++++ wwwboard.pl.new	Tue Jun  1 13:48:49 1999
+@@ -262,15 +262,19 @@
+ 
+    @months = ("January","February","March","April","May","June","July","August","September","October","November","December");
+ 
++   $syear = $year;
++   $syear =~ s/(.*)(\d\d)/$2/;	
++   $lyear = 1900 + $year;
++
+    if ($use_time == 1) {
+-      $date = "$year/$month/$mday $hour\:$min\:$sec";
++      $date = "$syear/$month/$mday $hour\:$min\:$sec";
+    }
+    else {
+-      $date = "$year/$month/$mday";
++      $date = "$syear/$month/$mday";
+    }
+    chop($date) if ($date =~ /\n$/);
+ 
+-   $long_date = "19$year 年 $month 月 $mday 日 $hour\:$min\:$sec";
++   $long_date = "$lyear 年 $month 月 $mday 日 $hour\:$min\:$sec";
+ }      
+ 
+ #####################

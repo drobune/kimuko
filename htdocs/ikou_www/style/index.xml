@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title>木村工務店Style</title>
+<link>http://www.kimuko.net/style/</link>
+<description></description>
+<language>ja</language>
+<copyright>Copyright 2006</copyright>
+<lastBuildDate>Fri, 27 Jan 2006 21:31:03 +0900</lastBuildDate>
+<generator>http://www.movabletype.org/?v=3.151-ja</generator>
+<docs>http://blogs.law.harvard.edu/tech/rss</docs> 
+
+<item>
+<title>テスト</title>
+<description><![CDATA[<p>ああああああ<br />
+いいいいいい<br />
+うううううううう<br />
+ええええええ<br />
+おおおおおお<br />
+</p>]]></description>
+<link>http://www.kimuko.net/style/archives/2006/01/post.html</link>
+<guid>http://www.kimuko.net/style/archives/2006/01/post.html</guid>
+<category>テスト</category>
+<pubDate>Fri, 27 Jan 2006 21:31:03 +0900</pubDate>
+</item>
+
+
+</channel>
+</rss>
