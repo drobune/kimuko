@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Sudo Slider | Creative navigation 2</title>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<link rel="STYLESHEET" type="text/css" href="../css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.sudoSlider.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var oldt = 0;
+		    var sudoSlider = $("#slider").sudoSlider({
+                effect: "boxRainGrowInUpLeft",
+                speed: 600,
+				ajax: [
+					'../images/01.jpg',
+					'../images/02.jpg',
+					'../images/03.jpg',
+					'../images/04.jpg',
+					'../images/05.jpg',
+					'../images/06.jpg',
+					'../images/07.jpg',
+					'../images/08.jpg',
+					'../images/09.jpg',
+					'../images/10.jpg',
+					'../images/11.jpg',
+					'../images/12.jpg'				
+				],
+				prevNext:true,
+				beforeAnimation: function(t){
+					var scroll = -t+2;
+					if (scroll == 1) scroll = 0;
+					if (scroll < -3) scroll = -5;
+					var scroll = scroll * $('.custom').eq(0).outerHeight(true);
+                    var speed = 300;
+					$('#slidemenu ul').animate(
+						{ marginTop: scroll },
+						{
+							queue:false,
+							duration:speed
+						}
+					);
+					var substract = $('#slidemenu ul').offset();
+                    var position = $('#slidemenu ul li').eq(t-1).offset();
+                    var marginTop =  position.top - substract.top;
+                    $('#slidemenu ul li.currentone').animate(
+                        { marginTop: marginTop },
+						{
+							queue:false,
+							duration:speed
+						}
+					);
+		        },
+		        customLink: '.custom',
+				continuous:true,
+				preloadAjax:true
+		   });
+		});
+	</script>
+
+
+<style>
+#slider, #slider div, #slider, #slider img {
+	width:700px;
+	height:482px;
+} /* The height rule is only for IE, all other browsers does not need it! */
+
+
+
+#slidemenu {
+	width:184px;
+	height:482px;
+	background:grey;
+	float:left;
+	overflow:hidden;
+}
+#slidemenu ul{margin: 0;padding: 0;list-style-type: none;font-weight: bold;}
+#slidemenu ul li{
+	float:left;
+	display:block;
+	position:relative;
+	height:68px;
+	width:183px;
+	background-color: #FFFFFF;
+	border-bottom-width: 1px;
+	border-left-width: 10px;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-bottom-color: #F2F2F2;
+	border-left-color: #F90;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-top-color: #F2F2F2;
+	border-right-color: #F2F2F2;
+}
+#slidemenu ul li a{
+	z-index:40;
+	float: left;
+	text-decoration: none;
+	color: #333;
+	background: transparent;
+	position:relative;
+	font-size:12px;
+	padding-top: 5px;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 5px;
+}
+#slidemenu ul li .hover{
+	height:68px;
+	position:absolute;
+	width:174px;
+	z-index:20;
+	padding:0;
+	border-left-width: 10px;
+	border-left-style: solid;
+	border-left-color: #3CF;
+	background-color: #ECFEFF;
+}
+#slidemenu ul li.currentone{border:0;}
+</style>
+
+</head>
+<body>
+<div id="container">
+
+	<div style="position:relative;">
+		<div id="slidemenu">
+			<ul>
+				<li class="custom" data-target="1" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">1月　ありがとうございました</span>
+                    <br />18日(土)<br />「ついて・まるめて・たべて！」</span></a>
+				</li>
+				<li class="custom" data-target="2" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">2月　ありがとうございました</span>
+                    <br />23日（日）板金ワークショップ<br />｢ガルバリウム鋼板で小物入れ｣</span></a>
+				</li>
+				<li class="custom" data-target="3" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">3月　ありがとうございました</span>
+                    <br />2日（日）貼り絵で絵本ワークショップ<br />｢谷口智則さんがやってくる！」</span></a>
+				</li>
+				<li class="custom" data-target="4" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">4月　ありがとうございました</span>
+                    <br />20日（日）輸入壁紙ワークショップ<br />｢輸入壁紙でつくるエコバック｣ </a>
+                 
+				</li>
+				<li class="custom" data-target="5" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">5月　ありがとうございました</span>
+                    <br />18日（日）植栽ワークショップ<br />｢土でつくる版築風プランター｣</span></a>
+				</li>
+                
+
+                                
+				<li class="custom" data-target="6" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">6月　ありがとうございました</span>
+                    <br />15日（日）左官ワークショップ<br />「光るどろだんご総選挙！」</span></a>
+				</li>
+				<li class="custom" data-target="7" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">7月　ありがとうございました</span>
+                    <br />6日（日）トリノイエワークショップ<br />建築家 林敬一</span></a>
+				</li>
+				<li class="custom" data-target="8" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">8月　ありがとうございました</span>
+                    <br />24日（日）模型ワークショップ<br />木村工務店設計部</span></a>
+				</li>
+				<li class="custom" data-target="9" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">9月　ありがとうございました</span>
+                    <br />21日 (日)写真ワークショップ<br />写真家 多田ユウコ</span></a>
+				</li>
+				<li class="custom" data-target="10" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">10月　ありがとうございました</span>
+                    <br />11･12･13日 木村家本舗<br />10月19日（日）整理整頓セミナー</span></a>
+				</li>
+                                
+				<li class="custom" data-target="11" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">11月　ありがとうございました</span>
+                    <br />16日（日）建築家と大工ワークショップ<br />建築家 矢部</span></a>
+				</li>
+				<li class="custom" data-target="12" >
+					<a href="#"><span style="color:#F90; font-weight:bold;">12月　ありがとうございました</span>
+                    <br />7日（日）丹波遠足<br />関西大学佐治スタジオ</span></a>
+				</li>
+
+				</li>                
+				<li style="position: absolute; left: 0px; " class="currentone">
+					<a class="hover" href="#"></a>
+				</li>
+			</ul>
+		</div>
+		<div id="slider"></div>
+	</div>
+
+
+
+
+
+</div>
+
+
+
+</body>
+</html>
