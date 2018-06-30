@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=EUC-JP">
+<!--鶯と龜-->
+<TITLE>WWWBoard バージョン 2.0!</TITLE>
+</HEAD>
+
+<BODY BACKGROUND="2bgpaper.gif" TEXT="#000000" BGCOLOR="#BADDFF" LINK="#CC0000" VLINK="#0000CC" ALINK="#CCFF33">
+<CENTER><IMG SRC="2casualtitle.gif" WIDTH="220" HEIGHT="100" ALT="伝言板"></CENTER>
+
+
+<P><HR SIZE=7 WIDTH=90%>
+
+<CENTER><A HREF="#post"><IMG SRC="2postmessage.gif" WIDTH="168" HEIGHT="28" BORDER="0" ALT="メッセージを投稿"></A></CENTER>
+<HR SIZE=7 WIDTH=90%>
+
+
+<UL>
+<!--begin-->
+</UL>
+
+<P><HR SIZE=7 WIDTH=90%>
+
+
+<IMG SRC="2pencil.gif" WIDTH="35" HEIGHT="35" HSPACE="3" BORDER="0" ALT="Pencil"><A NAME="post"><FONT SIZE=5 COLOR="#CC0066"><STRONG>メッセージを投稿</STRONG></FONT></A>
+
+<FORM METHOD=POST ACTION="/cgi-bin/design/2board/wwwboard.pl">
+<FONT COLOR="#CC0066">氏名:</FONT> <INPUT TYPE=text NAME="name" SIZE=50><BR>
+<FONT COLOR="#CC0066">E メール:</FONT> <INPUT TYPE=text NAME="email" SIZE=50><P>
+<FONT COLOR="#CC0066">件名:</FONT> <INPUT TYPE=text NAME="subject" SIZE=50><P>
+<FONT COLOR="#CC0066">メッセージ:</FONT><BR>
+<TEXTAREA COLS=55 ROWS=10 NAME="body"></TEXTAREA><P>
+<FONT COLOR="#CC0066">リンクの URL (任意):</FONT> <INPUT TYPE=text NAME="url" SIZE=45><BR>
+<FONT COLOR="#CC0066">リンクの題名:</FONT> <INPUT TYPE=text NAME="url_title" SIZE=50><BR>
+<FONT COLOR="#CC0066">画像の URL (任意):</FONT> <INPUT TYPE=text NAME="img" SIZE=45><P>
+<INPUT TYPE=submit VALUE="メッセージを投稿"> <INPUT TYPE=reset VALUE="リセット">
+</FROM><P>
+
+</BODY></HTML>
+
