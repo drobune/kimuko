@@ -1,0 +1,286 @@
+# Translation of Themes - BasePress in Japanese
+# This file is distributed under the same license as the Themes - BasePress package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-07-30 11:59:41+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Themes - BasePress\n"
+
+#. Theme Name of the plugin/theme
+msgid "BasePress"
+msgstr "BasePress"
+
+#: inc/customizer/class-basepress-customizer.php:229
+msgid "Link / Button Color"
+msgstr "リンク / ボタンの色"
+
+#: inc/base-template-functions.php:417
+msgid "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i> "
+msgstr "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i> "
+
+#: inc/base-template-functions.php:327 inc/base-template-functions.php:362
+#: inc/base-template-functions.php:995
+msgid "Pages:"
+msgstr "ページ: "
+
+#: template-parts/content-none.php:25
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "検索キーワードに一致するものが見つかりませんでした。 別のキーワードで試してみてください。"
+
+#: template-parts/content-none.php:21
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "最初の投稿を公開する準備はできましたか ? <a href=\"%1$s\">ここから始めましょう</a>。"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "見つかりません"
+
+#: inc/base-template-functions.php:20
+msgid "Skip to content"
+msgstr "コンテンツへスキップ"
+
+#. translators: %s: Name of current post
+#: inc/base-template-functions.php:539 inc/base-template-functions.php:1168
+#: template-parts/content-page.php:30
+msgid "Edit %s"
+msgstr "%sの編集"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/base-template-functions.php:402 inc/base-template-functions.php:762
+#: inc/base-template-functions.php:1145
+msgid ", "
+msgstr "、"
+
+#: inc/base-template-functions.php:1110
+msgctxt "post author"
+msgid "by %s"
+msgstr "投稿者: %s"
+
+#: inc/class-base.php:98
+msgid "Primary Menu"
+msgstr "メインメニュー"
+
+#: comments.php:80
+msgid "Comments are closed."
+msgstr "コメントは受け付けていません。"
+
+#: comments.php:44 comments.php:67
+msgid "Newer Comments"
+msgstr "新しいコメント"
+
+#: comments.php:43 comments.php:66
+msgid "Older Comments"
+msgstr "過去のコメント"
+
+#: comments.php:40 comments.php:63
+msgid "Comment navigation"
+msgstr "コメントナビゲーション"
+
+#: comments.php:31
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "&ldquo;%2$s&rdquo; への%1$s件のフィードバック"
+
+#: 404.php:21
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr "ここには何も見つかりませんでした。以下のリンクまたは検索をお試しください。"
+
+#: template-parts/content-none.php:31
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "こちらには何もありません。検索をお試しください。"
+
+#. translators: %1$s: smiley
+#: 404.php:29
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "月別アーカイブを探してみてください: %1$s"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "お探しのページが見つかりません。"
+
+#: search.php:23
+msgid "Search Results for: %s"
+msgstr "「%s」の検索結果"
+
+#: inc/base-template-functions.php:785
+msgid "% Comments"
+msgstr "%件のコメント"
+
+#: inc/base-template-functions.php:727
+msgid "View all posts by %s"
+msgstr "%s のすべての投稿を表示"
+
+#: inc/customizer/class-basepress-customizer.php:246
+msgid "Footer"
+msgstr "フッター"
+
+#: comments.php:94
+msgid "Name"
+msgstr "お名前"
+
+#. Template Name of the plugin/theme
+msgid "Homepage"
+msgstr "ホームページ"
+
+#. Template Name of the plugin/theme
+msgid "Full Width Page"
+msgstr "全幅ページ"
+
+#: inc/customizer/class-basepress-customizer.php:315
+msgid "Layout"
+msgstr "レイアウト"
+
+#: inc/customizer/class-basepress-customizer.php:327
+msgid "General Layout"
+msgstr "全般レイアウト"
+
+#: inc/customizer/class-basepress-customizer.php:260
+msgid "Background color"
+msgstr "背景色"
+
+#: inc/customizer/class-basepress-customizer.php:305
+msgid "Link color"
+msgstr "リンクの色"
+
+#: inc/customizer/class-basepress-customizer.php:238
+msgid "Header background image"
+msgstr "ヘッダー背景画像"
+
+#: inc/customizer/class-basepress-customizer.php:214
+#: inc/customizer/class-basepress-customizer.php:290
+msgid "Text color"
+msgstr "テキスト色"
+
+#: inc/customizer/class-basepress-customizer.php:199
+#: inc/customizer/class-basepress-customizer.php:275
+msgid "Heading color"
+msgstr "見出しの色"
+
+#: inc/customizer/class-basepress-customizer.php:186
+msgid "Color"
+msgstr "色"
+
+#: inc/customizer/class-basepress-customizer.php:152
+msgid "Header"
+msgstr "ヘッダー"
+
+#: inc/customizer/class-basepress-customizer.php:148
+msgid "Background"
+msgstr "背景"
+
+#: inc/class-base.php:185
+msgid "Footer %d"
+msgstr "フッター %d"
+
+#: inc/class-base.php:166
+msgid "Sidebar"
+msgstr "サイドバー"
+
+#: inc/base-template-functions.php:1147
+msgid "%1$s"
+msgstr "%1$s"
+
+#: inc/base-template-functions.php:1104
+msgctxt "post date"
+msgid "%s"
+msgstr "%s"
+
+#: inc/base-template-functions.php:945
+msgid "%1$s designed by %2$s."
+msgstr "%1$s designed by %2$s."
+
+#: inc/base-template-functions.php:785
+msgid "One Comment"
+msgstr "1件のコメント"
+
+#: inc/base-template-functions.php:436
+msgid "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>"
+msgstr "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>"
+
+#: inc/base-template-functions.php:221
+msgid "<i class=\"fa fa-angle-right\"></i>"
+msgstr "<i class=\"fa fa-angle-right\"></i>"
+
+#: inc/base-template-functions.php:220
+msgid "<i class=\"fa fa-angle-left\"></i>"
+msgstr "<i class=\"fa fa-angle-left\"></i>"
+
+#: inc/base-template-functions.php:140
+msgid "Main Navigation"
+msgstr "メインナビゲーション"
+
+#: inc/base-template-functions.php:19
+msgid "Skip to navigation"
+msgstr "ナビゲーションへスキップ"
+
+#: comments.php:98
+msgid "Website"
+msgstr "ウェブサイト"
+
+#: comments.php:96
+msgid "Email"
+msgstr "メール"
+
+#: comments.php:90 inc/base-template-functions.php:785
+msgid "Leave a Comment"
+msgstr "コメントする"
+
+#: inc/base-template-functions.php:222
+msgid "Page"
+msgstr "ページ"
+
+#. translators: %s: Name of current post.
+#: inc/base-template-functions.php:312 inc/base-template-functions.php:353
+msgid "Continue Reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "%s の続きを読む<span class=\"meta-nav\">&rarr;</span>"
+
+#: inc/class-base.php:99
+msgid "Footer Menu"
+msgstr "フッターメニュー"
+
+#: inc/class-base.php:172
+msgid "Below Header"
+msgstr "ヘッダーの下"
+
+#. translators: %s: post title
+#: inc/base-template-functions.php:1159
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "<span class=\"screen-reader-text\">%s</span>にコメントする"
+
+#: inc/base-template-functions.php:609
+msgid "By "
+msgstr "By "
+
+#: comments.php:100
+msgid "Your Comment Here ..."
+msgstr "ここにあなたのコメントを..."
+
+#: inc/class-base.php:187
+msgid "Widgetized Footer Region %d."
+msgstr "フッターエリア %d をウィジェット化する。"
+
+#: inc/customizer/class-basepress-customizer.php:248
+msgid "Customise the look & feel of your web site footer."
+msgstr "サイトのフッターの外観をカスタマイズする。"
+
+#: inc/class-base.php:174
+msgid "Widgets added to this region will appear beneath the header and above the main content."
+msgstr "この領域に追加されたウィジェットは、ヘッダーの下と、メインコンテンツの上に表示されます。"
+
+#. Author URI of the plugin/theme
+msgid "https://themecountry.com"
+msgstr "https://themecountry.com"
+
+#. Author of the plugin/theme
+msgid "ThemeCountry"
+msgstr "ThemeCountry"
+
+#. Theme URI of the plugin/theme
+msgid "https://themecountry.com/basepress"
+msgstr "https://themecountry.com/basepress"

@@ -1,0 +1,41 @@
+<MTSetVarBlock name="TagName"><MTEntryTags><$MTTagName$></MTEntryTags></MTSetVarBlock>
+
+<MTIf name="TagName" ne="ウェルカムメッセージ">
+<MTIf name="TagName" ne="フリーエリアサイド">
+<MTIf name="TagName" ne="フリーエリアヘッダー">
+<MTIf name="TagName" ne="フリーエリアヘッダーメイン">
+<MTIf name="TagName" ne="フリーエリアメイン">
+<MTIf name="TagName" ne="会社概要">
+<div id="entry-<$MTEntryID$>" class="entry-asset asset">
+	<div class="asset-header">
+	<h2 class="asset-name"><a href="<$MTEntryPermalink$>"><$MTEntryTitle$></a></h2>
+	</div>
+	<div class="asset-content">
+		<MTIfNonEmpty tag="EntryBody">
+		<div class="asset-body">
+		<$MTEntryBody$>
+		</div>
+		</MTIfNonEmpty>
+		<MTIfTagSearch>
+		<$MTInclude module="タグ"$>
+		</MTIfTagSearch>
+		
+		<MTIfNonEmpty tag="EntryMore" convert_breaks="0">
+		<div class="asset-more-link">
+		<a href="<$MTEntryPermalink$>#more"><$MTEntryTitle$></a>の続きを読む
+		</div>
+		</MTIfNonEmpty>
+		
+		<div class="clear"></div>
+
+		<$MTInclude module="ブログ記事のメタデータ"$>	
+
+	</div>
+	<div class="asset-footer"></div>
+</div>
+</MTIf>
+</MTIf>
+</MTIf>
+</MTIf>
+</MTIf>
+</MTIf>

@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>「テラモス」ご注文フォーム！</title>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+</head>
+
+<body bgcolor="#FFFFFF">
+<div align="center"><b>［テラモス］ご注文フォーム</b><br>
+  <form method="post" action="/cgi-bin/csvmail/csvmail.cgi">
+    <table width="400" border="1" cellspacing="2" cellpadding="2">
+      <tr>
+        <td align="right" width="103">お名前</td>
+        <td width="289"> 
+          <input type="text" name="お名前" size="35">
+        </td>
+      </tr>
+      <tr>
+        <td align="right" width="103">e-mailアドレス</td>
+        <td width="289">
+          <input type="text" name="e-mailアドレス" size="35">
+        </td>
+      </tr>
+      <tr>
+        <td align="right" width="103">郵便番号</td>
+        <td width="289">
+          <input type="text" name="郵便番号" size="10" value="000-0000">
+        </td>
+      </tr>
+      <tr>
+        <td align="right" width="103">ご住所</td>
+        <td width="289">
+          <textarea name="ご住所" cols="35" rows="3"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td align="right" width="103">お電話番号</td>
+        <td width="289">
+          <input type="text" name="お電話番号" size="30">
+        </td>
+      </tr>
+      <tr>
+        <td align="right" width="103">ご注文商品</td>
+        <td width="289">
+          <input type="radio" name="teramoss" value="テラモスビー">
+          テラモスビー［170mm］<br>
+          <input type="radio" name="teramoss" value="テラモスエム">
+          テラモスエム［120mm］<br>
+          <input type="radio" name="teramoss" value="テラモスエス">
+          テラモスエム［100mm］ </td>
+      </tr>
+      <tr>
+        <td align="right" width="103">数量</td>
+        <td width="289">
+          <select name="数量" size="1">
+            <option value="1" selected>1個</option>
+            <option value="2">2個</option>
+            <option value="3">3個</option>
+            <option value="4">4個</option>
+            <option value="5">5個</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td align="right" width="103">　</td>
+        <td width="289">　</td>
+      </tr>
+      <tr>
+        <td align="right" width="103">　</td>
+        <td width="289">　</td>
+      </tr>
+      <tr>
+        <td align="right" width="103">　</td>
+        <td width="289">　</td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

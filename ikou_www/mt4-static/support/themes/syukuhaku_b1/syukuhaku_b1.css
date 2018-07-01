@@ -1,0 +1,1159 @@
+@charset "utf-8";
+
+/* 
+name: syukuhaku_b1
+designer: Firstserver
+designer_url: http://www.fsv.jp/ 
+layouts: layout-tw,layout-wt,layout-twt
+Ver1.01 2008/07/14
+*/
+
+
+/* ---------------------------------------------------------------------
+reset elements
+--------------------------------------------------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, pre, blockquote, fieldset, ul, ol, dl {
+	margin-bottom: .75em;
+}
+
+#header-inner, #content-inner, #footer-inner {
+	padding: 0;
+}
+
+#beta-innarchive-contenter, #gamma-inner {
+	padding: 0;
+}
+
+.widget-content {
+	margin:0;
+	padding:0;
+}
+
+/* ---------------------------------------------------------------------
+レイアウト
+--------------------------------------------------------------------- */
+
+/*2列左メニューの場合*/
+.layout-tw #alpha {
+	float: right;
+	width: 630px;
+	left: 0;
+}
+
+.layout-tw #beta {
+	float:left;
+	left: 0;
+	width: 200px;
+}
+
+/*2列右メニューの場合*/
+.layout-wt #alpha {
+	float: left;
+	width: 630px;
+	left: 0;
+}
+
+.layout-wt #beta {
+	float:right;
+	left: 0;
+	width: 200px;
+}
+
+/*3列メニューの場合*/
+.layout-twt #alpha {
+	float: left;
+	width: 430px;
+	left: 200px;
+	margin:0;
+	overflow: hidden;
+}
+
+.layout-twt #beta {
+	float:left;
+	left: -430px;
+	margin:0;
+	width: 200px;
+}
+
+.layout-twt #gamma {
+	float:left;
+	margin:0;
+	width: 200px;
+}
+
+/*共通*/
+#alpha-inner {
+	margin:0;
+	padding:10px 20px 0;
+}
+
+.layout-twt #alpha-inner {
+	padding:10px 10px 0;
+}
+
+#beta-inner {
+	margin:0;
+	padding:0;
+}
+
+#gamma-inner {
+	margin:0;
+	padding:0;
+
+}
+/* ---------------------------------------------------------------------
+ページ全体
+--------------------------------------------------------------------- */
+body {
+	text-align:center;
+	background:#fff;
+	color:#333;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: normal;
+	font-size:100%;
+	font-family:"ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+	background: url(bg_body.jpg) center repeat-y;
+}
+
+a {
+	color: #336699;
+}
+
+a:hover {
+	color: #3399CC;
+}
+
+.clear {
+	clear:both;
+}
+
+/* ---　ページトップ　--- */
+#gotop {
+	clear:both;
+	width:100%;
+	font-size:85% !important;
+	font-size:80%;
+	margin:0px 0;
+}
+
+#gotop a {
+	background: url(btn_pagetop.gif) no-repeat;
+	display: block;
+	height: 11px;
+	width: 101px;
+	text-indent: -9999px;
+	float: right;
+	overflow: hidden;
+}
+
+/* -----　パンくず　----- */
+.navi {
+	margin:5px 5px 10px;
+	text-align:left;
+	font-size:85% !important;
+	font-size:80%;
+}
+
+
+/* ---------------------------------------------------------------------
+container
+--------------------------------------------------------------------- */
+
+/*2列左メニューの場合*/
+.layout-tw #container {
+	line-height:1.6;
+	font-size:80%;
+	width:830px;
+	margin:0 auto;
+	text-align:left;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+	background: url(body_bg-tw.gif) 0 repeat-y;
+}
+
+/*2列右メニューの場合*/
+.layout-wt #container {
+	line-height:1.6;
+	font-size:80%;
+	width:830px;
+	margin:0 auto;
+	text-align:left;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+	background: url(body_bg-wt.gif) 0 repeat-y;
+}
+
+/*3列メニューの場合*/
+.layout-twt #container {
+	line-height:1.6;
+	font-size:80%;
+	width:830px;
+	margin:0 auto;
+	text-align:left;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+	background: url(body_bg-twt.gif) 0 repeat-y;
+}
+
+/*共通*/
+#container-inner {
+	position: relative;
+	width:830px;
+}
+
+/* ---------------------------------------------------------------------
+ヘッダー
+--------------------------------------------------------------------- */
+#header-module {
+	width:830px;
+}
+
+#header-module-inner {
+	width:830px;
+	background:#fff url(bg_header.jpg) bottom repeat-x;
+	padding-bottom:10px;
+	border-bottom:1px solid #fff;
+}
+
+#header-contents {
+	width:100%;
+}
+
+#header-contents .left {
+	width:60%;
+	float:left;
+}
+
+#header-contents .right {
+	width:40%;
+	float:right;
+	padding: 5px 0 0;
+}
+
+#header-description {
+	font-size:95% !important;
+	font-size:90%;
+	line-height: 1.2;
+	width:810px;
+	padding: 8px 10px 7px;
+	visibility: visible;
+}
+
+#head-main {
+	width:830px;
+}
+
+#head-main-inner {
+	background:#fff;
+}
+
+/* ---------------------------------------------------------------------
+Content
+--------------------------------------------------------------------- */
+#content {
+	_height:1px;
+	padding-top:10px;
+}
+
+/* ---------------------------------------------------------------------
+フッター
+--------------------------------------------------------------------- */
+#footer {
+	width:830px;
+	clear:both;
+	margin-top: 20px;
+	background:#F4F4F4;
+	color:#666;
+	padding-bottom:10px;
+}
+
+.designed {
+	text-align:right;
+	padding:0 15px 5px;
+	font-size:75%;
+}
+
+.designed a{
+	color:#666;
+}
+
+.designed a:hover{
+	text-decoration:none;
+}
+
+
+/* ---------------------------------------------------------------------
+投稿記事
+--------------------------------------------------------------------- */
+.archive-title {
+	padding:10px 0 10px 20px;
+	font-size:115% !important;
+	font-size:110%;
+	font-weight:bold;
+	background: url(bg_midashi1.jpg) 0 0 no-repeat;
+}
+
+.archive-title em {
+	font-style:normal;
+}
+
+
+.entry-asset {
+	margin:10px 0 20px;
+	border-bottom:1px solid #999;
+}
+
+.asset-header {
+	padding:0;
+}
+
+.asset-name {
+	margin:0 5px 2px 9px;
+	padding:0 0 3px 15px;
+	font-weight:bold;
+	line-height:1.2;
+	_height:1px;
+	font-size:105% !important;
+	font-size:100%;
+	background: url(arrow03.gif) 0 center no-repeat;
+}
+
+.page-asset .asset-name{
+	padding:10px 0 10px 20px;
+	font-size:115% !important;
+	font-size:110%;
+	font-weight:bold;
+	background: url(bg_midashi1.jpg) 0 0 no-repeat;
+}
+
+.asset-name a:link,
+.asset-name a:hover,
+.asset-name a:visited,
+.asset-name a:active {
+	text-decoration: none;
+}
+
+
+.asset-body {
+	margin:10px;
+}
+
+.asset-more {
+	margin:0 10px 10px;
+}
+
+.asset-more-link {
+	margin:10px;
+}
+
+.asset-meta {
+	text-align:right;
+	font-size:100%;
+}
+
+
+/* ---------------------------------------------------------------------
+トラックバック
+--------------------------------------------------------------------- */
+#trackbacks {
+	margin:10px 0;
+}
+
+#trackbacks .trackbacks-header {
+	padding:10px 0 10px 20px;
+	font-size:115% !important;
+	font-size:110%;
+	font-weight:bold;
+	background: url(bg_midashi1.jpg) 0 0 no-repeat;
+}
+
+.trackbacks-info {
+	padding:10px;
+}
+
+.trackback .inner {
+	padding:10px;
+	margin:0 10px;
+	border:1px solid #999;
+	background:#eee;
+}
+
+.trackback-footer {
+	text-align:right;
+	margin:0;
+	padding-top:5px;
+	border-top: 1px dotted #999;
+	font-size:95% !important;
+	font-size:90%;
+}
+
+/* ---------------------------------------------------------------------
+コメント
+--------------------------------------------------------------------- */
+#comments {
+	margin:10px 0 0;
+}
+
+#comments .comments-header {
+	_height:1px;
+	padding:8px 10px 10px 20px;
+	background: url(bg_midashi1.jpg) no-repeat left top;
+	font-size:120% !important;
+	font-size:115%;
+	font-weight:bold;
+}
+
+.comment {
+	margin:10px;
+}
+
+.comment .inner {
+	padding:5px 10px;
+	border:1px solid #999;
+	background:#eee;
+	_height:1px;
+}
+
+.comment .comment-header {
+	padding:0 5px;
+	margin:0 0 5px;
+}
+
+.comment .comment-content{
+	padding:0 5px;
+}
+
+.comments-open {
+	margin-top: 20px;
+}
+
+.comments-open-header {
+	_height:1px;
+	padding:8px 10px 10px 20px;
+	background: url(bg_midashi1.jpg) no-repeat left top;
+	font-size:120% !important;
+	font-size:115%;
+	font-weight:bold;
+}
+
+.comments-open-content {
+	padding:10px;
+}
+
+
+#comment-preview, #comment-submit, #comment-cancel {
+	font-size:95% !important;
+	font-size:90%;
+	color:#333333;
+	border:1px solid #C9C9C9;
+	background-color: #F4F4F4;
+	padding:2px;
+	height:1.7em;
+}
+
+
+.comment-footer {
+	text-align:right;
+	margin:0;
+	padding:5px;
+	border-top: 1px dotted #999;
+	font-size:95% !important;
+	font-size:90%;
+}
+
+
+/* ---------------------------------------------------------------------
+サイトマップ
+--------------------------------------------------------------------- */
+.archive-content {
+	padding:10px;
+	line-height:1.3;
+}
+
+.archive-content ul,
+.archive-content ol {
+	list-style:none;
+}
+
+.archive .archive-list-item .category_name {
+	border-bottom:1px solid #ccc;
+	margin-top:10px;
+	padding:6px 0 6px 14px;
+	font-weight:bold;
+	background:#eee url(arrow_sitemap01.gif) 10px center no-repeat;
+}
+
+.archive .archive-list-item a {
+	display:block;
+	text-decoration:none;
+	margin:0;
+	padding:0 8px;
+	
+}
+
+
+.archive .archive-list-item ul {
+	margin:0 0 20px 0;
+}
+
+.archive .archive-list-item li {
+	text-decoration:none;
+	margin:0;
+	padding:4px 12px;
+	background: url(arrow_sitemap02.gif) 10px center no-repeat;
+}
+
+/*サブカテゴリ*/
+.archive .archive-list-item .archive-list-item {
+	background:none;
+	border:none;
+	margin:0 0 0 20px;
+	padding:0;
+}
+
+.archive .archive-list-item .archive-list-item .category_name {
+	margin:0;
+}
+
+.archive .archive-list-item .archive-list-item a {
+	display:block;
+	text-decoration:none;
+	margin:0;
+	padding: 0 8px;
+}
+
+.archive .archive-list-item .archive-list-item ul{
+	margin:5px 0 20px;
+}
+
+.archive .archive-list-item .archive-list-item li {
+	margin:0;
+	padding:0 15px;
+}
+
+
+/* ---------------------------------------------------------------------
+コメントプレビュー/コメント完了
+--------------------------------------------------------------------- */
+.comment-title {
+	_height:1px;
+	padding:8px 10px 10px 20px;
+	background: url(bg_midashi1.jpg) no-repeat left top;
+	font-size:120% !important;
+	font-size:115%;
+	font-weight:bold;
+}
+
+.comment-container {
+	margin:10px 20px 200px;
+}
+
+/* ---------------------------------------------------------------------
+検索結果ページ
+--------------------------------------------------------------------- */
+.search-form-header {
+	_height:1px;
+	padding:8px 10px 10px 20px;
+	background: url(bg_midashi1.jpg) no-repeat left top;
+	font-size:120% !important;
+	font-size:115%;
+	font-weight:bold;
+}
+
+.search-form-content {
+	background:#eee;
+	padding:10px;
+	border:1px solid #666;
+	margin-bottom:15px;
+}
+
+.search-results-header {
+	margin:20px 0 5px;
+	font-size:115% !important;
+	font-size:110%;
+	font-weight:bold;
+	color:#000;
+}
+
+.search-results-header2 {
+	_height:1px;
+	padding:5px 10px;
+	background: #99b1cc;
+	color:#fff;
+	font-size:120% !important;
+	font-size:115%;
+	font-weight:bold;
+	margin-bottom:20px;
+	line-height:1.3;
+}
+
+.search-form-content .box {
+	width:200px;
+}
+
+.search-form-content .submit{
+	font-size:95% !important;
+	font-size:90%;
+	color:#333333;
+	border:1px solid #C9C9C9;
+	background-color: #F4F4F4;
+	padding:2px;
+	height:1.7em;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[ヘッダー]サイト名(ロゴ画像)
+--------------------------------------------------------------------- */
+.left h2 {
+	text-align:left;
+}
+
+.right h2 {
+	text-align:right;
+}
+
+#header-name {
+	color: #333;
+	font-size:135% !important;
+	font-size:130%;
+	font-weight:normal;
+	margin:10px;
+	line-height: 1.5;
+}
+
+#header-name a {
+	text-decoration: none;
+}
+
+#header-name a:hover {
+	text-decoration: underline;
+}
+
+.logo {
+	margin:10px 15px;
+	border:0;
+}
+
+
+/* ---------------------------------------------------------------------
+Widget：[ヘッダー]フリーエリア
+--------------------------------------------------------------------- */
+.right .free-content1 {
+	padding:0 15px 5px 0;
+	line-height:1.3;
+	font-size:85% !important;
+	font-size:80%;
+	word-wrap:break-word;
+	text-align:right;
+
+}
+
+/* ---------------------------------------------------------------------
+Widget：[ヘッダー]サイトマップ・お問合せリンク
+--------------------------------------------------------------------- */
+.sub-contents {
+	padding:0 15px 5px 25px;
+	font-size:85% !important;
+	font-size:80%;
+	text-align:right;
+}
+
+.sub-contents a:link,
+.sub-contents a:visited {
+	padding:0 0 0 10px;
+	margin-left:3px;
+	background: url(arrow01.gif) 0 center no-repeat;
+}
+
+.search-content form {
+	padding:0;
+	margin:0;
+	text-align: right;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[ヘッダー]検索フォーム
+--------------------------------------------------------------------- */
+.widget-header-search {
+	font-size:85% !important;
+	font-size:80%;
+
+}
+
+.widget-header-search .box {
+	width:120px;
+}
+
+.search-content {
+		padding:0 15px 5px 0;
+}
+
+.search-content label {
+	display:inline;
+}
+
+.widget-header-search .submit {
+	font-size:95% !important;
+	font-size:90%;
+	color:#333333;
+	border:1px solid #C9C9C9;
+	background-color: #F4F4F4;
+	padding:2px;
+	height:22px;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[ヘッダーメイン]フリーエリア
+--------------------------------------------------------------------- */
+.free-content2 {
+	font-size:95% !important;
+	font-size:90%;
+	padding:0;
+	border-bottom:1px solid #999;
+	background-color: #eee;
+}
+
+
+/* ---------------------------------------------------------------------
+Widget：[ヘッダーメイン]メイン画像
+--------------------------------------------------------------------- */
+#head-main-inner .main_image {
+	clear:both;
+	margin: 0;
+	padding: 0;
+	_height:1px;
+	text-align:center;
+}
+
+#head-main-inner .main_image img {
+	margin:0px;
+	vertical-align: bottom;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[メイン]メイン画像
+--------------------------------------------------------------------- */
+#alpha .main_image {
+	margin-bottom: 20px;
+}
+
+
+/* ---------------------------------------------------------------------
+Widget：[メイン]ウェルカムメッセージ
+--------------------------------------------------------------------- */
+#welcome_message {
+	margin-bottom:20px;
+}
+
+#welcome_message h3.title {
+	_height:1px;
+	padding:8px 10px 10px 20px;
+	background: url(bg_midashi1.jpg) no-repeat left top;
+	font-size:120% !important;
+	font-size:115%;
+	font-weight:bold;
+	margin: 0;
+}
+
+
+#welcome_message .content {
+	margin:0;
+	padding:10px;
+}
+
+
+/* ---------------------------------------------------------------------
+Widget：[メイン]新着記事一覧
+--------------------------------------------------------------------- */
+#top-news {
+	margin-bottom:20px;
+	padding:0 0 10px;
+}
+
+#top-news h3 {
+	margin: 0;
+	_height:1px;
+	padding:8px 10px 10px 20px;
+	background: url(bg_midashi1.jpg) no-repeat left top;
+	font-size:120% !important;
+	font-size:115%;
+	font-weight:bold;
+}
+
+#top-news .news {
+	padding:4px 10px 2px;
+	background: url(border_dot.gif) repeat-x left bottom;
+}
+
+#top-news .day {
+	float: left;
+	width: 70px;
+	color: #000;
+	font-size:115% !important;
+	font-size:110%;
+	background: url(arrow03.gif) no-repeat 0 center;
+	padding-left: 15px;
+}
+
+#top-news .title {
+	float: right;
+	padding-left:5px;
+	width: 450px;
+}
+
+.layout-twt #top-news .title {
+	width: 265px;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[メイン]トップ表示記事
+--------------------------------------------------------------------- */
+#top-entry {
+	margin-bottom:20px;
+}
+
+#top-entry h3.title {
+	margin: 0;
+	_height:1px;
+	padding:8px 10px 10px 20px;
+	background: url(bg_midashi1.jpg) no-repeat left top;
+	font-size:120% !important;
+	font-size:115%;
+	font-weight:bold;
+}
+
+
+#top-entry .content {
+	margin:0;
+	padding:10px;
+}
+
+#top-entry .asset-more-link {
+	font-size:85% !important;
+	font-size:80%;
+}
+
+
+/* ---------------------------------------------------------------------
+Widget：[メイン]カテゴリー表示記事
+--------------------------------------------------------------------- */
+#top-category {
+	margin-bottom:20px;
+}
+
+#top-category h3.title {
+	margin: 0;
+	_height:1px;
+	padding:10px 0 10px 20px;
+	font-size:115% !important;
+	font-size:110%;
+	font-weight:bold;
+	background: url(bg_midashi1.jpg) 0 0 no-repeat;
+}
+
+.top-category-content {
+	margin:0;
+	padding:0 0 10px 0;
+}
+
+.top-category-content h4.name {
+	margin:0 5px 2px 9px;
+	padding:0 0 3px 15px;
+	font-weight:bold;
+	line-height:1.2;
+	_height:1px;
+	font-size:105% !important;
+	font-size:100%;
+	background: url(arrow03.gif) 0 center no-repeat;
+}
+
+#top-category a{
+
+}
+
+#top-category .content {
+	margin:0;
+	padding:0 10px 15px 10px;
+	border-bottom:1px solid #cccccc;
+}
+
+#top-category .asset-more-link {
+	font-size:85% !important;
+	font-size:80%;
+}
+
+#top-category .content img {
+	background-color:#666666;
+	padding: 3px;
+}
+
+
+/* ---------------------------------------------------------------------
+Widget：[メイン]フリーエリア
+--------------------------------------------------------------------- */
+.free-content3 {
+	margin-bottom:20px;
+	padding:0;
+}
+
+
+/* ---------------------------------------------------------------------
+Widget：[サイド]メインメニュー
+--------------------------------------------------------------------- */
+.widget-main-menu {
+	width:180px;
+	margin:5px 0 15px 10px;
+	background: #F4F4F4;
+	padding: 5px 0 0;
+	border-top:2px solid #cccccc;
+}
+
+.widget-main-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style:none;
+}
+
+.widget-main-menu .menu-content {
+	font-size:105% !important;
+	font-size:100%;
+	width:180px;
+	margin: 0 0 0 0;
+}
+
+.widget-main-menu .menu-list-item {
+	width: 180px;
+}
+
+.widget-main-menu .menu-list-item a {
+	text-decoration:none;
+	display:block;
+	width:155px;
+	padding:4px 0 4px 25px;
+	border-bottom:1px solid #cccccc;
+	background:url(arrow05.jpg) no-repeat 10px center;
+}
+
+.widget-main-menu .menu-list-item a:hover {
+	text-decoration:underline;
+	display:block;
+	width:155px;
+	padding:4px 0 4px 25px;
+	border-bottom:1px solid #cccccc;
+	background:url(arrow05.jpg) no-repeat 10px center;
+	color: #3377FF;
+}
+
+.widget-main-menu .menu-list .menu-list a {
+	text-decoration:none;
+	display:block;
+	width:135px;
+	padding:4px 0 4px 45px;
+	border-bottom:1px solid #cccccc;
+	background:url(arrow05.jpg) no-repeat 30px center;
+}
+
+.widget-main-menu .menu-list .menu-list a:hover {
+	text-decoration:none;
+	display:block;
+	width:135px;
+	padding:4px 0 4px 45px;
+	border-bottom:1px solid #cccccc;
+	background:url(arrow05.jpg) no-repeat 30px center;
+	color: #3377FF;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[サイド]検索フォーム
+--------------------------------------------------------------------- */
+.widget-side-search {
+	width:180px;
+	margin:5px 0 15px 10px;
+}
+
+
+.widget-side-search .widget-header {
+	font-size: 115% !important;
+	font-size: 110%;
+	background:#F4F4F4 url(arrow06.gif) no-repeat 7px center;
+	padding: 3px 0 3px 18px;
+	border-top:1px solid #cccccc;
+	font-weight:bold;
+}
+
+.widget-side-search .widget-content {
+	font-size:90% !important;
+	font-size:85%;
+	width:170px;
+	padding:5px;
+}
+
+.widget-side-search .box {
+	width:110px;
+}
+
+.widget-side-search .submit {
+	font-size:95% !important;
+	font-size:90%;
+	color:#333333;
+	border:1px solid #C9C9C9;
+	background-color: #F4F4F4;
+	padding:2px;
+	height:22px;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[サイド]rss
+--------------------------------------------------------------------- */
+.rss {
+	width:168px;
+	margin:0 0 15px 10px;
+}
+
+.rss-content {
+	background: url(rss.gif) 0 center no-repeat;
+	padding-left:18px;
+}
+
+
+/* ---------------------------------------------------------------------
+Widget：[サイド]会社概要
+--------------------------------------------------------------------- */
+.widget-company {
+	font-size:90% !important;
+	font-size:85%;
+	width:158px;
+	background: #EFEFEF;
+	margin: 5px 0 15px 10px;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+}
+
+.widget-company .widget-content {
+	width: 100%;
+	overflow: hidden;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[サイド]フリーエリア
+--------------------------------------------------------------------- */
+.free-content4 {
+	font-size:90% !important;
+	font-size:85%;
+	width:158px;
+	background: #EFEFEF;
+	margin: 5px 0 15px 10px;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------------------
+Widget：[サイド]カレンダー
+--------------------------------------------------------------------- */
+.widget-calendar {
+	width:180px;
+	margin:5px 0 15px 5px;
+}
+
+.widget-calendar .widget-header {
+	font-size: 115% !important;
+	font-size: 110%;
+	background:#F4F4F4 url(arrow06.gif) no-repeat 7px center;
+	padding: 3px 0 3px 18px;
+	border-top:1px solid #cccccc;
+	font-weight:bold;
+	width:165px;
+}
+
+.widget-calendar .widget-content {
+	width:170px;
+	padding:5px;
+}
+
+.widget-calendar .widget-content table {
+	text-align:center;
+	margin:0 auto;
+}
+
+.widget-calendar .widget-content table td {
+	padding:1px 3px;
+	font-size: 105% !important;
+	font-size: 100%;
+}
+
+.widget-calendar .widget-content table td a {
+	font-weight:bold;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[サイド]ウェブページ一覧
+--------------------------------------------------------------------- */
+.widget-folders {
+	width:180px;
+	margin:5px 0 15px 10px;
+}
+.widget-folders .widget-content {
+	width:170px;
+	padding:5px;
+}
+
+.widget-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.widget-list .widget-list {
+	padding:0;
+	margin:0;
+}
+
+.widget-list-item {
+	_height:1px;
+	margin:0;
+	padding:0 0 0 15px;
+	background: url(arrow03.gif) no-repeat 0 center;
+}
+
+/* ---------------------------------------------------------------------
+Widget：[フッター]フッターメニュー
+--------------------------------------------------------------------- */
+.widget-footer-menu {
+	text-align:right;
+	width:100%;
+	background-color: #E6E6E6;
+}
+
+.widget-footer-menu ul {
+	padding:5px 10px;
+}
+
+.widget-footer-menu li {
+	display: inline;
+	padding: 0 5px 0 12px;
+	border-right: 1px solid #666;
+}
+
+
+
+/* ---------------------------------------------------------------------
+Widget：[フッター]コピーライト
+--------------------------------------------------------------------- */
+#widget-copyright {
+	width:100%;
+	text-align: right;
+}
+
+#widget-copyright .copyright-content {
+	padding:10px 15px 0;
+	font-size: 85% !important;
+	font-size: 80%;
+}

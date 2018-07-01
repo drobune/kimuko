@@ -1,0 +1,37 @@
+Changelog
+
+Quill 1.09
+----------------------
+- Updated TGMPA;
+- Updated widget constructors.
+
+Quill 1.08
+----------------------
+- Display Header Text checkbox removed from customizer (user should choose between logo or text);
+
+Quill 1.07
+----------------------
+- small fix ABOUT US SECTION not changing colors (styles.php, customizer.js);
+
+Quill 1.06
+----------------------
+- fp-services.php fix for Service READ MORE link not displaying custom URL;
+
+Quill 1.05
+----------------------
+- compatibility with the new Page Builder by Site Origin;
+
+Quill 1.04
+----------------------
+- few clearings fixes;
+
+Quill 1.03
+----------------------
+- added changelog.txt;
+- multicolumn support;
+- various CSS&JS improvements/fixes;
+- more options added in widgets;
+- removed Nicescroll files and license info;
+- add support for row styles for the Page Builder plugin;
+- added some missing sanitization in customizer.php;
+- reversed theme uri with author uri.

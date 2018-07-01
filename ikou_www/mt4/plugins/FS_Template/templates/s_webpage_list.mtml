@@ -1,0 +1,14 @@
+<MTIfArchiveTypeEnabled archive_type="Page">
+<div class="widget-folders">
+<div class="widget-content">
+	<MTArchiveList archive_type="Page">
+	<MTArchiveListHeader><ul class="widget-list"></MTArchiveListHeader>
+	<MTSetVarBlock name="TagName"><MTPageTags><$MTTagName$></MTPageTags></MTSetVarBlock>
+	<MTIf name="TagName" ne="ウェルカムメッセージ"><MTIf name="TagName" ne="フリーエリアサイド"><MTIf name="TagName" ne="フリーエリアヘッダー"><MTIf name="TagName" ne="フリーエリアヘッダーメイン"><MTIf name="TagName" ne="フリーエリアメイン"><MTIf name="TagName" ne="会社概要">
+	<li class="widget-list-item"><a href="<$MTArchiveLink$>" title="<$MTArchiveTitle$>"><$MTArchiveTitle$></a></li> 
+	</MTIf></MTIf></MTIf></MTIf></MTIf></MTIf>
+	<MTArchiveListFooter></ul></MTArchiveListFooter>
+	</MTArchiveList>
+</div>
+</div>
+</MTIfArchiveTypeEnabled>

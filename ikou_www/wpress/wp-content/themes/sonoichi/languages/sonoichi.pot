@@ -1,0 +1,221 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sonoichi\n"
+"POT-Creation-Date: 2013-09-02 17:05+0900\n"
+"PO-Revision-Date: 2013-09-02 17:05+0900\n"
+"Last-Translator: Takehiro Ichinohe <ichinohe@rokunana.com>\n"
+"Language-Team: rokunana <ichinohe@rokunana.com>\n"
+"Language: japanese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;__e;_nx;_e;_x\n"
+"X-Poedit-Basepath: /Applications/MAMP/htdocs/wp-check5/wp-content/themes/"
+"sonoichi/languages\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:11
+msgid "404 Not Found"
+msgstr ""
+
+#: ../404.php:15
+msgid ""
+"This is somewhat embarrassing, isn&rsquo;t it?<br>\n"
+"\t\t\t\t\t\t\t\t\t\tIt looks like nothing was found at this location. Maybe "
+"try a search?"
+msgstr ""
+
+#: ../comments.php:6 ../content.php:25
+msgid "1 Comment"
+msgstr ""
+
+#: ../comments.php:6
+#, php-format
+msgid "%1$s Comments"
+msgstr ""
+
+#: ../comments.php:9
+msgid "(Comments are closed.)"
+msgstr ""
+
+#: ../comments.php:27
+msgid "Comment navigation"
+msgstr ""
+
+#: ../comments.php:28
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../comments.php:29
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../content.php:15 ../content.php:19 ../functions.php:470
+msgid "(Edit)"
+msgstr ""
+
+#: ../content.php:25
+msgid "Leave a comment"
+msgstr ""
+
+#: ../content.php:25
+msgid "% Comments"
+msgstr ""
+
+#: ../content.php:34
+msgid "<span class=\"mod-readMore\">Read more</span>"
+msgstr ""
+
+#: ../content.php:35
+msgid "Pages:"
+msgstr ""
+
+#: ../footer.php:4
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: ../footer.php:4
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: ../functions.php:232
+msgid "M j, Y"
+msgstr ""
+
+#: ../functions.php:236
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../functions.php:241
+#, php-format
+msgid "Published on %1$s<span class=\"by-author\"> by %2$s</span>."
+msgstr ""
+
+#: ../functions.php:251
+#, php-format
+msgid ""
+"Posted on %3$s<span class=\"by-author\"> by %4$s</span>. Category: %1$s. "
+"Tag: %2$s."
+msgstr ""
+
+#: ../functions.php:253
+#, php-format
+msgid ""
+"Posted on %3$s<span class=\"by-author\"> by %4$s</span>. Category: %1$s."
+msgstr ""
+
+#: ../functions.php:255
+#, php-format
+msgid "Posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: ../functions.php:272
+#, php-format
+msgid "Category Archives:<span>%s</span>"
+msgstr ""
+
+#: ../functions.php:274
+#, php-format
+msgid "Tag Archives:<span>%s</span>"
+msgstr ""
+
+#: ../functions.php:276
+#, php-format
+msgid "Author Archives:<span>%s</span>"
+msgstr ""
+
+#: ../functions.php:278
+#, php-format
+msgid "Daily Archives:<span>%s</span>"
+msgstr ""
+
+#: ../functions.php:280
+#, php-format
+msgid "Monthly Archives:<span>%s</span>"
+msgstr ""
+
+#: ../functions.php:280
+msgid "F, Y"
+msgstr ""
+
+#: ../functions.php:282
+#, php-format
+msgid "Yearly Archives:<span>%s</span>"
+msgstr ""
+
+#: ../functions.php:282
+msgid "Y"
+msgstr ""
+
+#: ../functions.php:284
+msgid "Archives"
+msgstr ""
+
+#: ../functions.php:314 ../functions.php:366
+msgid "Previous"
+msgstr ""
+
+#: ../functions.php:315 ../functions.php:367
+msgid "Next"
+msgstr ""
+
+#: ../functions.php:393 ../functions.php:398
+msgid "%title"
+msgstr ""
+
+#: ../functions.php:411
+msgid "(Untitled)"
+msgstr ""
+
+#: ../functions.php:464
+#, php-format
+msgid "<span class=\"fn\">%s</span>"
+msgstr ""
+
+#: ../functions.php:467 ../functions.php:468
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../functions.php:473
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../functions.php:606
+msgid "Home"
+msgstr ""
+
+#: ../header.php:44
+msgid "MENU"
+msgstr ""
+
+#: ../header.php:45
+msgid "Skip to content"
+msgstr ""
+
+#: ../index.php:24
+msgid "Under Construction"
+msgstr ""
+
+#: ../index.php:28
+msgid "Sorry, please wait momentarily."
+msgstr ""
+
+#: ../search.php:9
+#, php-format
+msgid "Search Results for:<span>%s</span>"
+msgstr ""
+
+#: ../search.php:24
+msgid "Nothing Found"
+msgstr ""
+
+#: ../search.php:29
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""

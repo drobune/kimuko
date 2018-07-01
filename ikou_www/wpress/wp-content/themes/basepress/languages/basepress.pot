@@ -1,0 +1,312 @@
+# Copyright (C) 2017 ThemeCountry
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: BasePress 1.2.0\n"
+"Report-Msgid-Bugs-To: https://my.shopperwp.com/support\n"
+"POT-Creation-Date: 2017-09-08 06:24:15+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:21
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the "
+"links below or a search?"
+msgstr ""
+
+#: 404.php:29
+#. translators: %1$s: smiley
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: comments.php:40 comments.php:63
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:43 comments.php:66
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:44 comments.php:67
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:80
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:90 inc/base-template-functions.php:798
+msgid "Leave a Comment"
+msgstr ""
+
+#: comments.php:94
+msgid "Name"
+msgstr ""
+
+#: comments.php:96
+msgid "Email"
+msgstr ""
+
+#: comments.php:98
+msgid "Website"
+msgstr ""
+
+#: comments.php:100
+msgid "Your Comment Here ..."
+msgstr ""
+
+#: inc/base-template-functions.php:20
+msgid "Skip to navigation"
+msgstr ""
+
+#: inc/base-template-functions.php:21
+msgid "Skip to content"
+msgstr ""
+
+#: inc/base-template-functions.php:151
+msgid "Main Navigation"
+msgstr ""
+
+#: inc/base-template-functions.php:232
+msgid "<i class=\"fa fa-angle-left\"></i>"
+msgstr ""
+
+#: inc/base-template-functions.php:233
+msgid "<i class=\"fa fa-angle-right\"></i>"
+msgstr ""
+
+#: inc/base-template-functions.php:234
+msgid "Page"
+msgstr ""
+
+#: inc/base-template-functions.php:325 inc/base-template-functions.php:366
+#. translators: %s: Name of current post.
+msgid "Continue Reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: inc/base-template-functions.php:340 inc/base-template-functions.php:375
+#: inc/base-template-functions.php:1011
+msgid "Pages:"
+msgstr ""
+
+#: inc/base-template-functions.php:415 inc/base-template-functions.php:775
+#: inc/base-template-functions.php:1161
+#. translators: used between list items, there is a space after the comma
+msgid ", "
+msgstr ""
+
+#: inc/base-template-functions.php:430
+msgid "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i> "
+msgstr ""
+
+#: inc/base-template-functions.php:449
+msgid "<i class=\"fa fa-tags\" aria-hidden=\"true\"></i>"
+msgstr ""
+
+#: inc/base-template-functions.php:552 inc/base-template-functions.php:1184
+#: template-parts/content-page.php:30
+#. translators: %s: Name of current post
+msgid "Edit %s"
+msgstr ""
+
+#: inc/base-template-functions.php:622
+msgid "By "
+msgstr ""
+
+#: inc/base-template-functions.php:740
+msgid "View all posts by %s"
+msgstr ""
+
+#: inc/base-template-functions.php:798
+msgid "One Comment"
+msgstr ""
+
+#: inc/base-template-functions.php:798
+msgid "% Comments"
+msgstr ""
+
+#: inc/base-template-functions.php:960
+msgid "%1$s designed by %2$s"
+msgstr ""
+
+#: inc/base-template-functions.php:1163
+msgid "%1$s"
+msgstr ""
+
+#: inc/base-template-functions.php:1175
+#. translators: %s: post title
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: inc/class-base.php:98
+msgid "Primary Menu"
+msgstr ""
+
+#: inc/class-base.php:99
+msgid "Footer Menu"
+msgstr ""
+
+#: inc/class-base.php:166
+msgid "Sidebar"
+msgstr ""
+
+#: inc/class-base.php:172
+msgid "Below Header"
+msgstr ""
+
+#: inc/class-base.php:174
+msgid ""
+"Widgets added to this region will appear beneath the header and above the "
+"main content."
+msgstr ""
+
+#: inc/class-base.php:185
+msgid "Footer %d"
+msgstr ""
+
+#: inc/class-base.php:187
+msgid "Widgetized Footer Region %d."
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:149
+msgid "Background"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:153
+msgid "Header"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:187
+msgid "Color"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:200
+msgid "Primary color"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:215
+msgid "Secondary color"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:230
+#: inc/customizer/class-basepress-customizer.php:291
+msgid "Body text color"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:239
+msgid "Header background image"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:247
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:249
+msgid "Customise the look & feel of your web site footer."
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:261
+msgid "Background color"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:276
+msgid "Title heading color"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:306
+msgid "Link color"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:316
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer/class-basepress-customizer.php:328
+msgid "General Layout"
+msgstr ""
+
+#: search.php:23
+msgid "Search Results for: %s"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:21
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:25
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:31
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "BasePress"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://themecountry.com/basepress"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"BasePress is a fast loading WordPress theme which is mainly focused on "
+"clean design & beautiful typography which to make sure your content is "
+"properly served to the reader. Start a Clean design, fast loading & SEO "
+"Optimized WordPress Website now with Basepress. Forget the difficulty of "
+"customizing website by using Basepress’s state-of-the-art theme option that "
+"allows unlimited font & color options as well as very flexible ads "
+"management system & more. See demo: "
+"https://themecountry.com/demo/?theme=BasePress"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "ThemeCountry"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://themecountry.com"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width Page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Homepage"
+msgstr ""
+
+#: comments.php:31
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/base-template-functions.php:1120
+msgctxt "post date"
+msgid "%s"
+msgstr ""
+
+#: inc/base-template-functions.php:1126
+msgctxt "post author"
+msgid "by %s"
+msgstr ""

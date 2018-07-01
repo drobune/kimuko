@@ -1,0 +1,52 @@
+<MTSetVarBlock name="body_class">mt-archive-listing mt-<MTVar name="archive_class"></MTSetVarBlock>
+<MTSetVar name="sidebar" value="1">
+<MTSetVar name="module_about_context" value="1">
+<MTSetVarBlock name="page_title">
+<MTUnless name="datebased_archive">
+<MTIfArchiveType archive_type="Category"><$MTCategoryDescription$></MTIfArchiveType>
+<MTIfArchiveType archive_type="Author">
+<$MTArchiveTitle$>による最近の記事
+</MTIfArchiveType>
+<MTElse>
+<$MTArchiveTitle$>の記事一覧
+</MTUnless>
+</MTSetVarBlock>
+<MTSetVarBlock name="title"><$MTGetVar name="page_title"$> - <$MTBlogName encode_html="1"$></MTSetVarBlock>
+<MTIf name="datebased_archive">
+    <MTSetVarBlock name="html_head">
+        <MTArchivePrevious><link rel="prev" href="<$MTArchiveLink$>" title="<$MTArchiveTitle encode_html="1"$>" /></MTArchivePrevious>
+        <MTArchiveNext><link rel="next" href="<$MTArchiveLink$>" title="<$MTArchiveTitle encode_html="1"$>" /></MTArchiveNext>
+    </MTSetVarBlock>
+</MTIf>
+
+<$MTInclude module="ヘッダー"$>
+
+<h1 class="archive-title">
+<MTUnless name="datebased_archive">
+    <MTIfArchiveType archive_type="Category">
+<em><$MTCategoryDescription$></em>
+    </MTIfArchiveType>
+    <MTIfArchiveType archive_type="Author">
+<em><$MTArchiveTitle$></em>による最近の記事
+    </MTIfArchiveType>
+<MTElse>
+<$MTGetVar name="page_title"$>
+</MTUnless>
+</h1>
+
+<MTIf name="datebased_archive">
+    <MTEntries>
+<$MTEntryTrackbackData$>
+<$MTInclude module="ブログ記事の概要"$>
+    </MTEntries>
+<MTElse>
+        <MTEntries limit="auto">
+<$MTEntryTrackbackData$>
+<$MTInclude module="ブログ記事の概要"$>
+        </MTEntries>
+</MTIf>
+
+<div id="gotop">
+<a href="#top">このページのトップへ</a>
+</div>
+<$MTInclude module="フッター"$>

@@ -1,0 +1,20 @@
+<MTIfCommentsActive>
+<div id="comments" class="comments">
+	<MTIf name="comment_preview_template">
+	<$MTInclude module="コメント入力フォーム"$>
+	</MTIf>
+	<MTComments>
+	<MTCommentsHeader>
+	<h2 class="comments-header">コメント(<$MTEntryCommentCount$>)</h2>
+	<div class="comments-content">
+	</MTCommentsHeader>
+	<$MTInclude module="コメント詳細"$>
+	<MTCommentsFooter>
+	</div>
+	</MTCommentsFooter>
+	</MTComments>
+	<MTUnless name="comment_preview_template">
+	<$MTInclude module="コメント入力フォーム"$>
+	</MTUnless>
+</div>
+</MTIfCommentsActive>

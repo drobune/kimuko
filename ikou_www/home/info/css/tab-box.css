@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+* { margin: 0; padding: 0; }
+body { margin-left: 0px; }
+ 
+/* タブのスタイル */
+.tabs {
+    list-style: none;
+}
+.tabs li {
+    display: inline;
+}
+.tabs li a {
+    color: black;
+    float: left;
+    display: block;
+    padding: 4px 10px;
+    margin-left: -1px;
+    position: relative;
+    left: 1px;
+    background: white;
+    text-decoration: none;
+}
+.tabs li a:hover {
+    background: #ccc;
+}
+ 
+/* 全体の幅とマージン */
+.tabbed-area {
+    width: 700px;
+	height: 323px;
+    margin: 0;
+}
+ 
+/* 配置と高さ */
+.box-wrap {
+    position: relative;
+    min-height: 150px;
+}
+ 
+/* タブコンテンツのスタイル */
+.tabbed-area div div {
+    background: white;
+    padding: 0px;
+    min-height: 150px;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+}
+ 
+/* 選択したタブの配色 */
+.tabbed-area div div, .tabs li a {
+    border: 1px solid #ccc;
+}
+ 
+/* タブエリアの位置 */
+.cur-nav-fix {
+    margin-top: 1px;
+}
+ 
+/* タブの位置 */
+.cur-nav-fix .tabs {
+    position: absolute;
+    bottom: -8%;
+    left: -1px;
+}
+ 
+/* タブの背景(Firefox) */
+.cur-nav-fix .tabs li a {
+    background: -moz-linear-gradient(top, white, #eee);
+}
+ 
+/* クリックしたタブの罫線 */
+.cur-nav-fix .tabs li.cur a {
+    border-top: 1px solid #fff; background: #fff;
+}
+ 
+/* タブをクリックしたときのタブの重なり順序 */
+#box-0:target .tabs, #box-1:target .tabs, #box-2:target .tabs,
+#box-3:target .tabs, #box-4:target .tabs, #box-5:target .tabs,	
+#box-6:target .tabs, #box-7:target .tabs, #box-8:target .tabs,
+#box-hw:target .tabs, #box-9:target .tabs {	
+	
+    z-index: 2;
+}
+ 
+/* タブをクリックしたときの全体の重なり順序 */
+#box-0:target, #box-1:target, #box-2:target,
+#box-3:target, #box-4:target, #box-5:target,	
+#box-6:target, #box-7:target, #box-8:target,
+#box-hw:target, #box-9:target {
+
+    z-index: 1;
+}
+.tabbed-area.cur-nav-fix .box-wrap table {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-collapse:collapse;
+	background-color: #CCC;
+	height: 323px;
+	width: 700px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	margin-bottom: 25px;
+}
+.tabbed-area.cur-nav-fix .box-wrap table tr td {
+	background-color: #FFF;
+	height: 300px;
+	width: 300px;
+}

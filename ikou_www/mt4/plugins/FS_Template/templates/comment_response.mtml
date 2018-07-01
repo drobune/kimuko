@@ -1,0 +1,43 @@
+<MTSetVar name="system_template" value="1">
+<MTSetVar name="sidebar" value="1">
+
+<MTIf name="body_class" eq="mt-comment-confirmation">
+	<MTSetVarBlock name="page_title">投稿されたコメント</MTSetVarBlock>
+	
+	<MTSetVar name="heading" value="確認">
+	
+	<MTSetVarBlock name="message">
+	<p>コメントを投稿しました。</p>
+	</MTSetVarBlock>
+</MTIf>
+
+<MTIf name="body_class" eq="mt-comment-pending">
+	<MTSetVarBlock name="page_title">コメント保留中</MTSetVarBlock>
+	
+	<MTSetVar name="heading" value="コメントありがとうございます。">
+	
+	<MTSetVarBlock name="message">
+	<p>コメントは現在承認されるまで公開を保留されています。</p>
+	</MTSetVarBlock>
+</MTIf>
+
+<MTIf name="body_class" eq="mt-comment-error">
+	<MTSetVarBlock name="page_title">コメント投稿エラー</MTSetVarBlock>
+	<MTSetVar name="heading" value="$page_title">
+	<MTSetVarBlock name="message">
+	<p>コメントの投稿に失敗しました:</p>
+	<blockquote>
+		<$MTErrorMessage$>
+	</blockquote>
+	</MTSetVarBlock>
+</MTIf>
+
+<$MTInclude module="ヘッダー"$>
+
+<h1 class="comment-title"><$MTGetVar name="heading"$></h1>
+<div class="comment-container">
+<$MTGetVar name="message"$>
+<p><a href="<$MTEntryLink$>">元のページ</a>に戻る</p>
+</div>
+
+<$MTInclude module="フッター"$>

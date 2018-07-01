@@ -1,0 +1,120 @@
+<mt:setvarblock name="html_head" prepend="1">
+<MTIf name="main_template">
+<link rel="alternate" type="application/atom+xml" title="Atom" href="<$MTLink template="atom"$>" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="<$MTLink template="rss"$>" />
+<MTUnless name="main_index">
+<link rel="start" href="<$MTBlogURL$>" title="Home" />
+</MTUnless>
+<$MTCCLicenseRDF$>
+</MTIf>
+</mt:setvarblock>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=<$MTPublishCharset$>" />
+	<title><$mt:var name="title"$></title>
+
+	<MTIfArchiveType archive_type="Category">
+	<meta name="keywords" content="<$MTCategoryDescription$>,<$MTWidgetSet name="メタタグ：キーワード"$>" />
+	<meta name="description" content="<$MTWidgetSet name="メタタグ：要約"$>" />
+	<MTElse>
+	<MTIf name="entry_template">
+	<meta name="keywords" content="<MTIfNonEmpty tag="MTEntryKeywords"><$MTEntryKeywords$><MTElse><$MTWidgetSet name="メタタグ：キーワード"$></MTElse></MTIfNonEmpty>" />
+	<meta name="description" content="<$MTEntryBody words="100"$>" />
+	<MTElse>
+	<MTIf name="main_index">
+	<meta name="keywords" content="<$MTWidgetSet name="メタタグ：キーワード"$>" />
+	<meta name="description" content="<$MTWidgetSet name="メタタグ：要約"$>" />
+	<MTElse>
+	<meta name="keywords" content="<$MTWidgetSet name="メタタグ：キーワード"$>" />
+	<meta name="description" content="<$MTWidgetSet name="メタタグ：要約"$>" />
+	</MTIf>
+	</MTIf>
+	</MTIfArchiveType>
+
+	<meta name="generator" content="<$MTProductName version="1"$>" />
+	<link rel="stylesheet" href="<$MTLink template="styles"$>" type="text/css" />
+	<$mt:var name="html_head"$>
+</head>
+
+<body class="<MTIf name="body_class"><$MTGetVar name="body_class"$> </MTIf><$MTGetVar name="page_layout" default="layout-wtt"$>"<MTIf name="body_onload"> onload="<$MTGetVar name="body_onload"$>"</MTIf>>
+<a name="top" id="top"></a>
+<div id="container">
+<div id="container-inner">
+
+<div id="header-module">
+<div id="header-module-inner">
+<MTIf name="main_index">
+<h1 id="header-description"><$MTBlogDescription$></h1>
+<MTElse>
+<div id="header-description"><$MTBlogDescription$></div>
+</MTIf>
+<div id="header-contents">
+<div class="left"><$MTWidgetSet name="ヘッダー左"$></div>
+<div class="right"><$MTWidgetSet name="ヘッダー右"$></div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+
+<div id="head-main">
+<div id="head-main-inner">
+<$MTWidgetSet name="ヘッダーメイン"$>
+</div>
+</div>
+
+<div id="content">
+<div id="content-inner">
+<div id="alpha">
+<div id="alpha-inner">
+
+<MTUnless name="main_index">
+<div class="navi">
+
+<MTIf name="archive_index">
+<a href="<$MTBlogURL$>" title="TOPページ">TOPページ</a> &gt; <$MTGetVar name="page_title"$>
+</MTIf>
+
+<MTIf name="search_results_template">
+<a href="<$MTBlogURL$>" title="TOPページ">TOPページ</a> &gt; <$MTGetVar name="page_title"$>
+</MTIf>
+
+<MTIfArchiveType archive_type="Page">
+<a href="<$MTBlogURL$>" title="TOPページ">TOPページ</a> &gt; <$MTGetVar name="page_title"$>
+</MTIfArchiveType>
+
+<MTIfArchiveType archive_type="Category">
+<a href="<$MTBlogURL$>">TOPページ</a> <MTHasParentCategory> &gt;</MTHasParentCategory>
+<MTParentCategories glue=" &gt; " exclude_current="1">
+<MTIfNonZero tag="MTCategoryCount">
+<a href="<$MTCategoryArchiveLink$>"><$MTCategoryDescription$></a>
+<MTElse>
+<$MTCategoryDescription$>
+</MTElse>
+</MTIfNonZero>
+</MTParentCategories>
+&gt;
+<$MTCategoryDescription$>
+</MTIfArchiveType>
+
+
+<MTIfArchiveType archive_type="Category-Monthly">
+<a href="<$MTBlogURL$>" title="TOPページ">TOPページ</a> &gt; <$MTCategoryDescription$><$MTArchiveDate language="ja" format="%Y年%m月"$>の記事一覧
+</MTIfArchiveType>
+
+<MTIfArchiveType archive_type="Author-Monthly">
+<a href="<$MTBlogURL$>" title="TOPページ">TOPページ</a> &gt; <$MTGetVar name="page_title"$>
+</MTIfArchiveType>
+
+<MTIfArchiveType archive_type="Monthly">
+<a href="<$MTBlogURL$>" title="TOPページ">TOPページ</a> &gt; <$MTGetVar name="page_title"$>
+</MTIfArchiveType>
+
+<MTIfArchiveType archive_type="Individual">
+<a href="<$MTBlogURL$>" title="TOPページ">TOPページ</a> &gt; <MTParentCategories glue=" &gt; "><a href="<$MTCategoryArchiveLink$>"><$MTCategoryDescription$></a></MTParentCategories> &gt; <$MTEntryTitle$>
+</MTIfArchiveType>
+
+
+</div>
+</MTUnless>

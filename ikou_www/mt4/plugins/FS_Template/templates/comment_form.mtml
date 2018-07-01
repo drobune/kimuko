@@ -1,0 +1,61 @@
+<MTEntryIfCommentsOpen>
+<div class="comments-open" id="comments-open">
+	<h2 class="comments-open-header">コメントする</h2>
+	<div class="comments-open-content">
+
+		<MTIfRegistrationAllowed>
+		<div id="comment-form-external-auth">
+		<script type="text/javascript">
+		<!--
+		<MTIf name="comment_preview_template">is_preview = true;</MTIf>
+		writeCommenterGreeting(commenter_name, <$MTEntryID$>, <$MTEntryBlogID$>, commenter_id, commenter_url);
+		//-->
+		</script>
+		</div>
+		</MTIfRegistrationAllowed>
+	
+		<form method="post" action="<$MTCGIPath$><$MTCommentScript$>" name="comments_form" id="comments-form" onsubmit="if (this.bakecookie.checked) rememberMe(this)">
+		<input type="hidden" name="static" value="1" />
+		<input type="hidden" name="entry_id" value="<$MTEntryID$>" />
+		<input type="hidden" name="__lang" value="<$MTBlogLanguage$>" />
+		<div id="comments-open-data">
+			<div id="comment-form-name">
+				<label for="comment-author">名前</label>
+				<input id="comment-author" name="author" size="30" value="<MTIf name="comment_preview_template"><$MTCommentAuthor encode_html="1"$></MTIf>" />
+			</div>
+			<div id="comment-form-email">
+				<label for="comment-email">メールアドレス</label>
+				<input id="comment-email" name="email" size="30" value="<MTIf name="comment_preview_template"><$MTCommentEmail encode_html="1"$></MTIf>" />
+			</div>
+			<div id="comment-form-url">
+				<label for="comment-url">URL</label>
+				<input id="comment-url" name="url" size="30" value="<MTIf name="comment_preview_template"><$MTCommentURL encode_html="1"$></MTIf>" />
+			</div>
+			<div id="comment-form-remember-me">
+				<label for="comment-bake-cookie"><input type="checkbox" id="comment-bake-cookie" name="bakecookie" onclick="if (!this.checked) forgetMe(document.comments_form)" value="1" />
+				ログイン情報を記憶</label>
+			</div>
+		</div>
+	
+		<div id="comments-open-text">
+			<label for="comment-text">コメント <MTIfAllowCommentHTML>(スタイル用のHTMLタグを使うことができます)</MTIfAllowCommentHTML></label>
+			<textarea id="comment-text" name="text" rows="15" cols="50"><MTIf name="comment_preview_template"><$MTCommentBody autolink="0" sanitize="0" convert_breaks="0" encode_html="1"$></MTIf></textarea>
+		</div>
+		<MTIfNonEmpty tag="MTCaptchaFields">
+		<MTIfCommentsAccepted><MTIfRegistrationAllowed><MTElse><$MTCaptchaFields$></MTIfRegistrationAllowed></MTIfCommentsAccepted>
+		<div id="comments-open-captcha">
+		</div>
+		</MTIfNonEmpty>
+	
+		<div id="comments-open-footer">
+			<input type="submit" accesskey="v" name="preview" id="comment-preview" value="確認" />
+			<input type="submit" accesskey="s" name="post" id="comment-submit" value="投稿" />
+			<MTIf name="comment_preview_template">
+			<input type="button" name="cancel" id="comment-cancel" value="キャンセル" onclick="window.location='<$MTEntryPermalink$>'" />
+			</MTIf>
+		</div>
+		</form>
+	
+	</div>
+</div>
+</MTEntryIfCommentsOpen>

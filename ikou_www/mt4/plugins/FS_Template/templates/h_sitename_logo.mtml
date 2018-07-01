@@ -1,0 +1,21 @@
+<MTSetVarBlock name="Assets_logo"><MTAssets tag="ロゴ画像" type="image" lastn="1">ロゴ画像</MTAssets></MTSetVarBlock>
+<MTIf name="main_index">
+	<MTIf name="Assets_logo" eq="ロゴ画像">
+		<MTAssets tag="ロゴ画像" type="image" lastn="1">
+		<h2><a href="<$MTBlogURL$>"><img src="<$MTAssetThumbnailURL$>" class="logo" alt="<$MTBlogName encode_html="1"$>" title="<$MTBlogName encode_html="1"$>" /></a></h2>
+		</MTAssets>
+	<MTElse>
+		<div id="header-name"><h2><a href="<$MTBlogURL$>" accesskey="1"><$MTBlogName encode_html="1"$></a></h2></div>
+	</MTElse>
+	</MTIf>
+<MTElse>
+	<MTIf name="Assets_logo" eq="ロゴ画像">
+		<MTAssets tag="ロゴ画像" type="image" lastn="1">
+		<a href="<$MTBlogURL$>"><img src="<$MTAssetThumbnailURL$>" class="logo" alt="<$MTBlogName encode_html="1"$>" title="<$MTBlogName encode_html="1"$>" /></a>
+		</MTAssets>	
+	<MTElse>
+		<div id="header-name"><a href="<$MTBlogURL$>" accesskey="1"><$MTBlogName encode_html="1"$></a></div>
+	</MTElse>
+	</MTIf>
+</MTElse>
+</MTIf>

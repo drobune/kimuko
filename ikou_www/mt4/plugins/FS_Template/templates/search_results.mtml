@@ -1,0 +1,75 @@
+<MTSetVar name="body_class" value="mt-search-results">
+<MTSetVar name="system_template" value="1">
+<MTSetVar name="search_results_template" value="1">
+<MTSetVar name="sidebar" value="1">
+<MTSetVarBlock name="page_title">検索結果</MTSetVarBlock>
+<MTSetVarBlock name="title"><$MTGetVar name="page_title"$> - <$MTBlogName encode_html="1"$></MTSetVarBlock>
+<MTIfStraightSearch>
+    <MTSetVar name="search_type" value="search">
+<MTElse>
+    <MTSetVar name="search_type" value="tag">
+</MTIfStraightSearch>
+<$MTInclude module="ヘッダー"$>
+
+<h1 class="search-form-header">サイトを検索</h1>
+
+<MTIfStraightSearch>
+<div class="search-form-content">
+	<form method="post" action="<$MTCGIPath$><$MTSearchScript$>" id="search-form">
+		<input type="hidden" name="IncludeBlogs" value="<$MTSearchIncludeBlogs$>" />
+		<div>
+			<input type="text" size="30" name="search" id="search" class="box" value="<$MTSearchString$>" />
+			<input type="submit" value="検索" class="submit" />
+		</div>
+		<div id="search-options">
+			<input type="checkbox" name="CaseSearch" /> 大文字小文字を区別する
+			&#160;
+			<input type="checkbox" name="RegexSearch" /> 正規表現
+		</div>
+	</form>
+</div>
+</MTIfStraightSearch>
+
+<MTSearchResults>
+<MTBlogResultHeader>
+<h2 class="search-results-header2">
+<MTIfStraightSearch>
+<$MTBlogName$>での検索結果
+</MTIfStraightSearch>
+</h2>
+<div class="search-results-container">
+</MTBlogResultHeader>
+
+	<$MTInclude module="ブログ記事の概要"$>
+	<MTBlogResultFooter>
+</div>
+    </MTBlogResultFooter>
+</MTSearchResults>
+
+<MTNoSearchResults>
+<h2 class="search-results-header">
+    <MTIfStraightSearch>
+    &ldquo;<$MTSearchString$>&rdquo;を含む項目
+    </MTIfStraightSearch>
+</h2>
+<p>&ldquo;<$MTSearchString$>&rdquo;を含むページが見つかりませんでした。</p>
+</MTNoSearchResults>
+
+<MTNoSearch>
+<h2 class="search-results-header">例</h2>
+<p>すべての単語が順序に関係なく検索されます。フレーズで検索したいときは引用符で囲んでください。</p>
+<blockquote>
+	<p><code>"movable type"</code></p>
+</blockquote>
+<p>AND、OR、NOTを入れることで論理検索を行うこともできます。</p>
+<blockquote>
+<p><code>個人 OR 出版</code></p>
+<p><code>個人 NOT 出版</code></p>
+</blockquote>
+</MTNoSearch>
+
+<div id="gotop">
+<a href="#top">このページのトップへ</a>
+</div>
+
+<$MTInclude module="フッター"$>

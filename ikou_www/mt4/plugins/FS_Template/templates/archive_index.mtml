@@ -1,0 +1,46 @@
+<MTSetVar name="body_class" value="mt-archive-index">
+<MTSetVar name="main_template" value="1">
+<MTSetVar name="archive_index" value="1">
+<MTSetVar name="sidebar" value="1">
+<MTSetVar name="module_about_context" value="1">
+<MTSetVarBlock name="page_title">サイトマップ</MTSetVarBlock>
+<MTSetVarBlock name="title"><$MTGetVar name="page_title"$> - <$MTBlogName encode_html="1"$></MTSetVarBlock>
+
+<$MTInclude module="ヘッダー"$>
+
+<h1 class="archive-title"><$MTGetVar name="page_title"$></h1>
+
+<MTIfArchiveTypeEnabled archive_type="Category">
+<div class="archive-category archive">
+	<div class="archive-content">
+	<MTTopLevelCategories>
+	<MTSubCatIsFirst>
+	<ul class="archive-list">
+	</MTSubCatIsFirst>
+	<MTIfNonZero tag="MTCategoryCount">
+	<li class="archive-list-item">
+		<div class="category_name"><a href="<$MTCategoryArchiveLink$>" title="<$MTCategoryDescription$>"><$MTCategoryDescription$></a></div>
+		<div id="categories<$MTCategoryID$>">
+		<ul>
+		<MTEntries sort_order="ascend">
+			<li><a href="<$MTEntryPermalink$>" title="<$MTEntryTitle$>"><$MTEntryTitle$></a></li>
+		</MTEntries>
+		</ul>
+		</div>			
+	<MTElse>
+		<li class="archive-list-item"><div class="category_name"><a href="#"><$MTCategoryDescription$></a></div>
+	</MTIfNonZero>
+	<MTSubCatsRecurse>
+		</li>
+	<MTSubCatIsLast>
+	</ul>
+	</MTSubCatIsLast>
+	</MTTopLevelCategories>
+	</div>
+</div>
+</MTIfArchiveTypeEnabled>
+
+<div id="gotop">
+<a href="#top">このページのトップへ</a>
+</div>
+<$MTInclude module="フッター"$>

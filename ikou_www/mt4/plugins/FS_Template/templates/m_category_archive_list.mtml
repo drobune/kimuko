@@ -1,0 +1,24 @@
+<MTCategories>
+<MTSetVarBlock name="cat_top"><$MTCategoryLabel$></MTSetVarBlock>
+
+<MTIf name="cat_top" like="_トップ表示">
+<div id="top-category">
+	<h3 class="title"><$MTCategoryDescription$></h3>
+
+	<MTEntries sort_order="ascend">
+	<div class="top-category-content">
+	<h4 class="name"><a href="<$MTEntryPermalink$>" title="<$MTEntryTitle$>"><$MTEntryTitle$></a></h4>
+		<div class="content">
+		<$MTEntryBody$>
+		<div class="clear"></div>
+		</div>
+		<MTIfNonEmpty tag="EntryMore" convert_breaks="0">
+		<div class="asset-more-link">
+		<a href="<$MTEntryPermalink$>">詳細はこちら</a>
+		</div>
+		</MTIfNonEmpty>
+	</div>
+	</MTEntries>
+</div>
+</MTIf>
+</MTCategories>

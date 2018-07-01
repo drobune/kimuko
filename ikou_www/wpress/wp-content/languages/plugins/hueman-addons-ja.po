@@ -1,0 +1,359 @@
+# Translation of Plugins - Hueman Addons - Stable (latest release) in Japanese
+# This file is distributed under the same license as the Plugins - Hueman Addons - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-11-16 20:32:10+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - Hueman Addons - Stable (latest release)\n"
+
+#: addons/ha-init.php:103
+msgid "Disable"
+msgstr "無効化"
+
+#: addons/ha-init.php:102
+msgid "Enable"
+msgstr "有効化"
+
+#: addons/ha-init.php:98
+msgid "Enabling this option allows you to customize each page as a stand alone website."
+msgstr "この設定を有効化することで、それぞれのページをまるで別のサイトのようにカスタマイズできます。"
+
+#: addons/ha-init.php:97
+msgid "Enable a \"per page\" customization"
+msgstr "「ページごと」カスタマイズを有効化"
+
+#: ha-fire.php:42
+msgid "Deactivate it in the plugins page."
+msgstr "プラグインページからそのプラグインを無効化してください。"
+
+#: addons/admin/ha-hs-doc.php:61
+msgid "There was an error fetching search results."
+msgstr "検索結果の取得中にエラーが発生しました。"
+
+#: addons/admin/ha-hs-doc.php:60
+msgid "Search must be at least {minLength} characters."
+msgstr "検索は{minLength}文字以上である必要があります。"
+
+#: addons/admin/ha-hs-doc.php:59
+msgid "Please enter a search term."
+msgstr "検索語句を入力してください。"
+
+#: addons/admin/ha-hs-doc.php:58
+msgid "No results found&hellip;"
+msgstr "結果が見つかりませんでした。"
+
+#: addons/admin/ha-hs-doc.php:57
+msgid "We found {count} articles that may help:"
+msgstr "{count}個の助けになりそうな記事を見つけました。"
+
+#: addons/admin/ha-hs-doc.php:56
+msgid "We found {count} article that may help:"
+msgstr "{count}個の助けになりそうな記事を見つけました。"
+
+#: ha-fire.php:42
+msgid "The Hueman Addons plugin is already included in Hueman Pro. You can disable it."
+msgstr "Hueman Addons プラグインは Hueman Pro 内に含まれているので、このプラグインを無効化できます。"
+
+#: addons/skop/tmpl/skope-tmpls.php:114
+msgid "Permanently disable this notification."
+msgstr "永久にこの通知を無効化する。"
+
+#: addons/skop/tmpl/skope-tmpls.php:114
+msgid "Permanently disable this notification"
+msgstr "永久にこの通知を無効化する"
+
+#: addons/skop/tmpl/skope-tmpls.php:111
+msgid "Using the customizer in the Hueman theme"
+msgstr "Hueman テーマ内のカスタマイザーで使う"
+
+#: addons/skop/tmpl/skope-tmpls.php:106
+msgid "Close"
+msgstr "閉じる"
+
+#: addons/skop/czr-skop.php:2136
+msgid "When this option is checked, a block of informations about the current customization scope is displayed at the bottom of the preview."
+msgstr "このオプションを有効化すると、表示中のカスタマイズ範囲に関する情報ブロックがプレビューの下部に表示されるようになります。"
+
+#: addons/skop/czr-skop.php:2133
+msgid "Display an informations block at the bottom of the preview"
+msgstr "プレビューの画面下に情報ブロックを表示"
+
+#: addons/czr/ha-czr.php:240
+msgid "Set a custom url"
+msgstr "カスタム URL を設定"
+
+#: addons/skop/czr-skop.php:689
+msgid "Undefined"
+msgstr "未定義"
+
+#: addons/skop/czr-skop.php:684
+msgid "%1$s archive page"
+msgstr "%1$s アーカイブページ"
+
+#: addons/skop/czr-skop.php:2194
+msgid "this page"
+msgstr "このページ"
+
+#: addons/skop/czr-skop.php:2193
+msgid "Visit the documentation"
+msgstr "ドキュメンテーションを表示"
+
+#: addons/skop/czr-skop.php:2190
+msgid "Discover a new way to customize your pages on %1$s."
+msgstr "%1$s であなたのページをカスタマイズする新しい方法を見つけてください。"
+
+#: addons/skop/czr-skop.php:2189
+msgid "Welcome in the new customizer interface !"
+msgstr "あたらしいカスタマイザーインターフェイスへようこそ。"
+
+#: addons/skop/czr-skop.php:2164
+msgid "Pick a content layout in the dropdown list. Note : selecting a \"1 column\" layout won't let you display any sidebar widgets."
+msgstr "ドロップダウンリスト内のコンテンツレイアウトを選択します。 注: 1カラムレイアウトでは、サイドバーウィジェットは表示されません。"
+
+#: addons/skop/czr-skop.php:2163
+msgid "Column Layout for main content and sidebars"
+msgstr "メインコンテンツとサイドバーのカラムレイアウト"
+
+#: addons/skop/czr-skop.php:1258
+msgid "There is %s invalid setting."
+msgid_plural "There are %s invalid settings."
+msgstr[0] "%s 個の無効な設定があります。"
+
+#: addons/skop/czr-skop.php:1114
+msgid "Invalid value."
+msgstr "無効な値です。"
+
+#: addons/skop/czr-skop.php:1091
+msgid "Unauthorized to modify setting due to capability."
+msgstr "ケーパビリティにより設定を変更する権限がありません。"
+
+#: addons/skop/czr-skop.php:1086
+msgid "Setting does not exist or is unrecognized."
+msgstr "設定が存在していないか見つかりません。"
+
+#: addons/skop/czr-skop.php:711
+msgid "Sitewide options"
+msgstr "サイト全体の設定"
+
+#: addons/skop/czr-skop.php:693
+msgid "Options for all"
+msgstr "すべての設定"
+
+#: addons/skop/czr-skop.php:678
+msgid "user"
+msgstr "ユーザー"
+
+#: addons/skop/czr-skop.php:661
+msgid "Options for"
+msgstr "オプション: "
+
+#: addons/skop/czr-skop.php:36
+msgid "No Hueman scopes found in Trash."
+msgstr "ゴミ箱内に Hueman 範囲は見つかりませんでした。"
+
+#: addons/skop/czr-skop.php:35
+msgid "No Hueman scopes found."
+msgstr "Hueman 範囲は見つかりませんでした。"
+
+#: addons/skop/czr-skop.php:34
+msgid "Search Hueman scopes"
+msgstr "Hueman 範囲を検索"
+
+#: addons/skop/czr-skop.php:33
+msgid "All Hueman scopes"
+msgstr "すべての Hueman 範囲"
+
+#: addons/skop/czr-skop.php:32
+msgid "View Hueman scope"
+msgstr "Hueman 範囲を表示"
+
+#: addons/skop/czr-skop.php:31
+msgid "Edit Hueman scope"
+msgstr "Hueman 範囲を編集"
+
+#: addons/skop/czr-skop.php:30
+msgid "New Hueman scope"
+msgstr "新しい Hueman 範囲"
+
+#: addons/skop/czr-skop.php:29
+msgid "Add New Hueman scope"
+msgstr "新しい Hueman 範囲を追加"
+
+#: addons/skop/czr-skop.php:28
+msgctxt "Customize Hueman scope"
+msgid "Add New"
+msgstr "新規追加"
+
+#: addons/skop/czr-skop.php:27
+msgctxt "add new on admin bar"
+msgid "Hueman scope"
+msgstr "Hueman 範囲"
+
+#: addons/skop/czr-skop.php:26
+msgctxt "admin menu"
+msgid "Hueman scopes"
+msgstr "Hueman 範囲"
+
+#: addons/skop/czr-skop.php:25
+msgctxt "post type singular name"
+msgid "Hueman scope"
+msgstr "Hueman 範囲"
+
+#: addons/skop/czr-skop.php:24
+msgctxt "post type general name"
+msgid "Hueman scopes"
+msgstr "Hueman 範囲"
+
+#: addons/ha-init.php:406
+msgid "Customize this page !"
+msgstr "このページをカスタマイズ"
+
+#: addons/ha-init.php:269
+msgid "This version of the <strong>%1$s</strong> plugin requires at least the version %2$s of the Hueman theme."
+msgstr "このバージョンの <strong>%1$s</strong> プラグインは最低でも Hueman テーマバージョン %2$s 以上が必要です。"
+
+#: addons/skop/czr-skop.php:706
+msgid "users"
+msgstr "ユーザー"
+
+#: addons/skop/czr-skop.php:693
+msgid "All"
+msgstr "すべて"
+
+#: addons/czr/czr-content_picker-ajax_actions.php:296
+msgid "No results found."
+msgstr "結果が見つかりませんでした。"
+
+#. translators: %d: ID of a post
+#: addons/czr/czr-content_picker-ajax_actions.php:160
+#: addons/czr/czr-content_picker-ajax_actions.php:362
+msgid "#%d (no title)"
+msgstr "#%d (タイトルなし)"
+
+#: addons/czr/ha-czr.php:90
+msgid "rating. Thanks :) !"
+msgstr "評価を頂けると嬉しいです。"
+
+#: addons/czr/ha-czr.php:88
+msgid "Review the Hueman theme"
+msgstr "Hueman テーマのレビューにて、"
+
+#: addons/czr/ha-czr.php:86
+msgid "we would love to receive a"
+msgstr " "
+
+#: addons/czr/ha-czr.php:85
+msgid "the Hueman theme"
+msgstr "Hueman テーマを気に入って頂けたのであれば"
+
+#: addons/czr/ha-czr.php:84
+msgid "If you like"
+msgstr "もしあなたに"
+
+#: addons/sharrre/ha-sharrre.php:119
+msgid "Since Nov. 2015, Twitter disabled the share counts from its API. If you want to get the display count anyway, you can create an account for free (as of Feb. 2016) on [https://opensharecount.com/]. The Hueman Addons plugin is configured to use opensharecount."
+msgstr "2015年1月から Twitter はシェアカウント取得用の API を停止しました。それでもシェアカウント数を取得したいのであれば、[https://opensharecount.com/] 上で無料 (2016年2月時点) のアカウントを作成すると、Hueman Addons プラグインは opensharecount を使う設定をします。"
+
+#. Author of the plugin/theme
+msgid "Press Customizr"
+msgstr "Press Customizr"
+
+#. Description of the plugin/theme
+msgid "Hueman Theme Addons"
+msgstr "Hueman テーマのアドオン"
+
+#. #-#-#-#-#  hueman-addons-code.pot (Hueman Addons 2.0.15)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  hueman-addons-code.pot (Hueman Addons 2.0.15)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://presscustomizr.com"
+msgstr "http://presscustomizr.com"
+
+#. Plugin Name of the plugin/theme
+msgid "Hueman Addons"
+msgstr "Hueman Addons"
+
+#: addons/sharrre/sharrre-template.php:16
+msgid "Publish on Linked In"
+msgstr "Linked In で公開"
+
+#: addons/sharrre/sharrre-template.php:13
+msgid "Pin It"
+msgstr "ピンする"
+
+#: addons/sharrre/sharrre-template.php:10
+msgid "+1"
+msgstr "+1"
+
+#: addons/sharrre/sharrre-template.php:7
+msgid "Like"
+msgstr "いいね"
+
+#: addons/sharrre/sharrre-template.php:4
+msgid "Tweet"
+msgstr "ツイート"
+
+#: addons/sharrre/sharrre-template.php:2
+msgid "Share"
+msgstr "シェアする"
+
+#: addons/ha-init.php:274
+msgid "The <strong>%1$s</strong> plugin %2$s."
+msgstr "<strong>%1$s</strong> プラグイン %2$s。"
+
+#: addons/ha-init.php:276
+msgid "works only with the Hueman theme"
+msgstr "Hueman テーマでのみ動作します"
+
+#: addons/sharrre/ha-sharrre.php:164
+msgid "Enable LinkedIn Button"
+msgstr "LinkedIn ボタンを有効化"
+
+#: addons/sharrre/ha-sharrre.php:155
+msgid "Enable Pinterest Button"
+msgstr "Pinterest ボタンを有効化"
+
+#: addons/sharrre/ha-sharrre.php:146
+msgid "Enable Google Plus Button"
+msgstr "Google Plus ボタンを有効化"
+
+#: addons/sharrre/ha-sharrre.php:137
+msgid "Enable Facebook Button"
+msgstr "Facebook ボタンを有効化"
+
+#: addons/sharrre/ha-sharrre.php:127
+msgid "Simply enter your username without the \"@\" prefix. Your username will be added to share-tweets of your posts (optional)."
+msgstr "\"@\" を除いたユーザーネームを入力してください。ユーザーネームは投稿のシェアツイート内に追加されます。"
+
+#: addons/sharrre/ha-sharrre.php:126
+msgid "Twitter Username (without \"@\")"
+msgstr "Twitter 名 (\"@\"は入力しないでください)"
+
+#: addons/sharrre/ha-sharrre.php:116
+msgid "Enable Twitter Button"
+msgstr "Twitter ボタンを有効化"
+
+#: addons/sharrre/ha-sharrre.php:107
+msgid "Make the social share bar stick to the browser window when scrolling down a post."
+msgstr "スクロールダウンした時に SNS シェバーをブラウザーに追従させるようにします。"
+
+#: addons/sharrre/ha-sharrre.php:106
+msgid "Make the Share Bar \"sticky\""
+msgstr "シェアバーを追従させる"
+
+#: addons/sharrre/ha-sharrre.php:97
+msgid "Display social sharing buttons in each single articles."
+msgstr "SNS シェアボタンをそれぞれの投稿記事に表示します。"
+
+#: addons/sharrre/ha-sharrre.php:96
+msgid "Social Sharring Bar Settings"
+msgstr "SNS シェアバー設定"
+
+#: addons/sharrre/ha-sharrre.php:95
+msgid "Display social sharing buttons in your single posts"
+msgstr "SNS シェアボタンを投稿ページに表示"
