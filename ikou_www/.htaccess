@@ -1,4 +1,3 @@
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^www.kimuko.co.jp [NC]
 RewriteRule ^(.*)$ http://www.kimuko.net/$1 [L,R=301,NC]
 Header always append X-Frame-Options SAMEORIGIN
