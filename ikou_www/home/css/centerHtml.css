@@ -35,31 +35,31 @@ ul#navigation {
 }
 
 ul#navigation li {
-    float:left; 
-    list-style:none; 
+    float:left;
+    list-style:none;
 }
 ul#navigation li a {
-    display:block; 
-    height:71px; 
-    width:153px; 
+    display:block;
+    height:71px;
+    width:153px;
 	font-size:5px;
-    text-align:center; 
-    letter-spacing:1px; 
-    text-indent:-9999px; 
-    background-image:url(../img/top-icon_n3.png); 
-    background-repeat:no-repeat; 
+    text-align:center;
+    letter-spacing:1px;
+    text-indent:-9999px;
+    background-image:url(../img/top-icon_n3.png);
+    background-repeat:no-repeat;
 }
 
 
 ul#navigation a.iedukuri {background-position:-20px -70px;width:153px;}
 ul#navigation li a.iedukuri:hover {background-position:-20px 0px;}
- 
+
 ul#navigation a.voice {background-position:-173px -70px;}
 ul#navigation li a.voice:hover {background-position:-173px 0px;}
- 
+
 ul#navigation li a.publish {background-position:-336px -70px;}
 ul#navigation li a.publish:hover {background-position:-336px 0px;}
- 
+
 ul#navigation li a.genba {background-position:-489px -70px;}
 
 body center h3 {
@@ -100,13 +100,13 @@ body center div.life {
 }
 
 ul#navigation li a.genba:hover {background-position:-489px 0px;}
- 
+
 ul#navigation li a.syacyo {background-position:-652px -70px;}
 ul#navigation li a.syacyo:hover {background-position:-652px 0px;}
- 
+
 ul#navigation li a.about {background-position:-809px -70px;}
 ul#navigation li a.about:hover {background-position:-809px 0px;}
- 
+
 
 
 table tr .m-ico img{
@@ -126,7 +126,7 @@ table tr .m-ico:hover img{
      width: 960px;
 	 margin-left:auto;
 	 margin-right: auto;
-	 margin-top:50px;
+	 margin-top:10px;
 }
 
 #footMenu .footSub {
@@ -135,7 +135,7 @@ table tr .m-ico:hover img{
 	text-align: left;
 	float:left;
 	margin-right: 20px;
-	margin-bottom: 50px;
+	margin-bottom: 0px;
 }
 
 #footMenu .footSub ul li {
