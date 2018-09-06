@@ -14,7 +14,7 @@ a { text-decoration: none; }
 } 
 #banner {display: none;  font-family: Georgia, Times, serif; color: #333333; background-color: #FFFFFF; text-align: left; padding: 15px; }
 a#banner-img { display: block;
-background-image: url("http://www.kimuko.net/kim_image/voice-kimura.gif"); 
+background-image: url("https://www.kimuko.net/kim_image/voice-kimura.gif"); 
 background-repeat: no-repeat;
 background-position: center;
                height: 60px;}
