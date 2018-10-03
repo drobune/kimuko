@@ -5,3 +5,7 @@ logs/
 *.png
 *.gif
 ikou_www/hasegawa
+*.lbi
+*.dwt
+*.bmp
+
