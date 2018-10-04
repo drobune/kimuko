@@ -1,0 +1,698 @@
+#!/usr/local/bin/perl
+##############################################################################
+# WWWBoard Admin                Version 2.0 ALPHA 2                          #
+# Copyright 1996 Matt Wright    mattw@worldwidemart.com                      #
+# Created 10/21/95              Last Modified 11/25/95                       #
+# Scripts Archive at:           http://www.worldwidemart.com/scripts/        #
+##############################################################################
+# COPYRIGHT NOTICE                                                           #
+# Copyright 1996 Matthew M. Wright  All Rights Reserved.                     #
+#                                                                            #
+# WWWBoard may be used and modified free of charge by anyone so long as      #
+# this copyright notice and the comments above remain intact.  By using this #
+# code you agree to indemnify Matthew M. Wright from any liability that      #  
+# might arise from it's use.                                                 #  
+#                                                                            #
+# Selling the code for this program without prior written consent is         #
+# expressly forbidden.  In other words, please ask first before you try and  #
+# make money off of my program.                                              #
+#                                                                            #
+# Obtain permission before redistributing this software over the Internet or #
+# in any other medium.  In all cases copyright and header must remain intact.#
+###########################################################################
+# WWWBoard Admin                バージョン 2.0 アルファ 2                    #
+# Copyright 1996 Matt Wright    mattw@worldwidemart.com                      #
+# 製作 95/10/21                 最終改正 95/11/25                            #
+# スクリプトアーカイブの所在:   http://www.worldwidemart.com/scripts/        #
+##############################################################################
+# 著作権の告知                                                               #
+# Copyright 1996 Matthew M. Wright  All Rights Reserved.                     #
+#                                                                            #
+# この著作権の告知および上記のコメントに手を加えない限り、何人も無償で       #
+# WWWBoard を使用し改変することができます。当コードを使用することにより、使  #
+# 用者は Matthew M. Wright に対して、使用によって生じる可能性のあるいかなる  #
+# 責務に関しても免責を保証したものとします。                                 #
+#                                                                            #
+# 事前の書面による同意を得ることなしに当プログラムのコードを販売することは、 #
+# 明確に禁止します。換言すれば、私のプログラムから金銭を得ようとする前に、ま #
+# ず問い合わせてください。                                                   #
+#                                                                            #
+# インターネットもしくは何らかの媒体を介して当ソフトウェアを再配布する前に、 #
+# 許可を得てください。いかなる場合も、著作権およびヘッダに手を加えることは禁 #
+# 止します。                                                                 #
+###########################################################################
+
+require 'jcode.pl';
+
+# 変数を定義
+
+$basedir = "/path/to/wwwboard";
+$baseurl = "http://your.host.xxx/wwwboard";
+$cgi_url = "http://your.host.xxx/cgi-bin/wwwadmin.pl";
+
+$mesgdir = "messages";
+$datafile = "data.txt";
+$mesgfile = "wwwboard.html";
+$passwd_file = "passwd.txt";
+
+$ext = "html";
+
+$title = "WWWBoard バージョン 2.0 テスト";
+$use_time = 1;		# 1 = YES; 0 = NO
+
+# 完了
+###########################################################################
+
+if ($ENV{'QUERY_STRING'} ne '') {
+   $command = "$ENV{'QUERY_STRING'}";
+}
+else {
+   &parse_form;
+}
+
+print "Content-type: text/html\n\n";
+
+###########################################################################
+# 削除                                                                    #
+#       このオプションは、wwwboard.html の文書中でスレッドがどのように表  #
+#   示されるのかを確認するのに便利です。スレッド全体を削除するか、一部だ  #
+#   けを削除するかの判断がしやすくなります。                              #
+###########################################################################
+
+if ($command eq 'remove') {
+   print "<html><head><title>WWWBoard からメッセージを削除</title></head>\n";
+   print "<body><center><h1>WWWBoard からメッセージを削除</h1></center>\n";
+   print "削除しようとする投稿を下から選んでください。\n";
+   print "左の入力ボックスをチェックするとスレッド全体が削除され、\n";
+   print "右の入力ボックスをチェックすると該当投稿のみが削除されます。<p>\n";
+   print "これらのメッセージは並べ替えられていないままなので、$mesgfile ページに\n";
+   print "表\示される並び方で見ることができます。このことでスレッドの外観が\n";
+   print "どのようになるかわかるので、多くの場合、並べ替える方法よりも便利です。\n";
+   print "<p>\n";
+   print "<hr size=7 width=75%><center><font size=-1>\n";
+   print "[ <a href=\"$cgi_url\?remove\">削除</a> ] [ <a href=\"$cgi_url\?remove_by_date\">日付で削除</a> ] [ <a href=\"$cgi_url\?remove_by_author\">著者で削除</a> ] [ <a href=\"$cgi_url\?remove_by_num\">メッセージ番号で削除</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]\n";
+   print "</font></center><hr size=7 width=75%><p>\n";
+   print "<form method=POST action=\"$cgi_url\">\n";
+   print "<input type=hidden name=\"action\" value=\"remove\">\n";
+   print "<table border>\n";
+   print "<tr>\n";
+   print "<th colspan=6>ユーザ名: <input type=text name=\"username\"> -- パスワード: <input type=password name=\"password\"></th>\n";
+   print "</tr><tr>\n";
+   print "<th>投稿番号 </th><th>スレッド </th><th>単独 </th><th>件名 </th><th> 著者</th><th> 日時</th></tr>\n";
+
+   open(MSGS,"$basedir/$mesgfile");
+   @lines = <MSGS>;
+   close(MSGS);
+
+   foreach $line (@lines) {
+      if ($line =~ /<!--top: (.*)--><li><a href="$mesgdir\/\1\.$ext">(.*)<\/a> - <b>(.*)<\/b>\s+<i>(.*)<\/i>/) {
+         push(@ENTRIES,$1);
+         $SUBJECT{$1} = $2;
+         $AUTHOR{$1} = $3;
+         $DATE{$1} = $4;
+      }
+   }
+
+   @SORTED_ENTRIES = (sort { $a <=> $b } @ENTRIES);
+   $max = pop(@SORTED_ENTRIES);
+   $min = shift(@SORTED_ENTRIES);
+
+   print "<input type=hidden name=\"min\" value=\"$min\">\n";
+   print "<input type=hidden name=\"max\" value=\"$max\">\n";
+   print "<input type=hidden name=\"type\" value=\"remove\">\n";
+
+   foreach (@ENTRIES) {
+      print "<tr>\n";
+      print "<th><b>$_</b> </th><td><input type=radio name=\"$_\" value=\"all\"> </td><td><input type=radio name=\"$_\" value=\"single\"> </td><td><a href=\"$baseurl/$mesgdir/$_\.$ext\">$SUBJECT{$_} </a></td><td>$AUTHOR{$_} </td><td>$DATE{$_}<br></td>\n";
+
+      print "</tr>\n";
+   }
+   print "</table>\n";
+   print "<center><p>\n";
+   print "<input type=submit value=\"メッセージを削除\"> <input type=reset value=\"リセット\">\n";
+   print "</form>\n";
+   print "</body></html>\n";
+}
+
+###########################################################################
+# 番号で削除                                                              #
+#       この方法は、メッセージがどのような順で wwwboard.html の文書に     #
+#   記入されたのかを知るのに便利です。                                    #
+###########################################################################
+
+elsif ($command eq 'remove_by_num') {
+   print "<html><head><title>WWWBoard から番号でメッセージを削除</title></head>\n";
+   print "<body><center><h1>WWWBoard から番号でメッセージを削除</h1></center>\n";
+   print "削除しようとする投稿を下から選んでください。\n";
+   print "左の入力ボックスをチェックするとスレッド全体が削除され、\n";
+   print "右の入力ボックスをチェックすると該当投稿のみが削除されます。\n";
+   print "<p>\n";
+   print "<hr size=7 width=75%><center><font size=-1>\n";
+   print "[ <a href=\"$cgi_url\?remove\">削除</a> ] [ <a href=\"$cgi_url\?remove_by_date\">日付で削除</a> ] [ <a href=\"$cgi_url\?remove_by_author\">著者で削除</a> ] [ <a href=\"$cgi_url\?remove_by_num\">メッセージ番号で削除</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]\n";
+   print "</font></center><hr size=7 width=75%><p>\n";
+   print "<form method=POST action=\"$cgi_url\">\n";
+   print "<input type=hidden name=\"action\" value=\"remove\">\n";
+   print "<table border>\n";
+   print "<tr>\n";
+   print "<th colspan=6>ユーザ名: <input type=text name=\"username\"> -- パスワード: <input type=password name=\"password\"><br></th>\n";
+   print "</tr>\n";
+   print "<tr>\n";
+   print "<th>投稿番号 </th><th>スレッド </th><th>単独 </th><th>件名 </th><th> 著者</th><th> 日時</th></tr>\n";
+
+   open(MSGS,"$basedir/$mesgfile");
+   @lines = <MSGS>;
+   close(MSGS);
+
+   foreach $line (@lines) {
+      if ($line =~ /<!--top: (.*)--><li><a href="$mesgdir\/\1\.$ext">(.*)<\/a> - <b>(.*)<\/b>\s+<i>(.*)<\/i>/) {
+         push(@ENTRIES,$1);
+         $SUBJECT{$1} = $2;
+         $AUTHOR{$1} = $3;
+         $DATE{$1} = $4;
+      }
+   }
+
+   @SORTED_ENTRIES = (sort { $a <=> $b } @ENTRIES);
+   $max = pop(@SORTED_ENTRIES);
+   $min = shift(@SORTED_ENTRIES);
+   push(@SORTED_ENTRIES,$max);
+   unshift(@SORTED_ENTRIES,$min);
+
+   print "<input type=hidden name=\"min\" value=\"$min\">\n";
+   print "<input type=hidden name=\"max\" value=\"$max\">\n";
+   print "<input type=hidden name=\"type\" value=\"remove\">\n";
+
+   foreach (@SORTED_ENTRIES) {
+      print "<tr>\n";
+      print "<th><b>$_</b> </th><td><input type=radio name=\"$_\" value=\"all\"> </td><td><input type=radio name=\"$_\" value=\"single\"> </td><td><a href=\"$baseurl/$mesgdir/$_\.$ext\">$SUBJECT{$_} </a></td><td>$AUTHOR{$_} </td><td>$DATE{$_}<br></td>\n";
+
+      print "</tr>\n";
+   }
+   print "</table>\n";
+   print "<center><p>\n";
+   print "<input type=submit value=\"メッセージを削除\"> <input type=reset value=\"リセット\">\n";
+   print "</form>\n";
+   print "</body></html>\n";
+}
+
+###########################################################################
+# 日付で削除                                                              #
+#       この方法を用いると、特定の日付以前に投稿された全メッセージを削除  #
+#   することができます。                                                  #
+###########################################################################
+
+elsif ($command eq 'remove_by_date') {
+   print "<html><head><title>WWWBoard から日付でメッセージを削除</title></head>\n";
+   print "<body><center><h1>WWWBoard から日付でメッセージを削除</h1></center>\n";
+   print "削除しようとする投稿を下から選んでください。\n";
+   print "日付横の入力ボックスをチェックすると、該当日になされた全投稿が\n";
+   print "削除されます。\n";
+   print "<p>\n";
+   print "<hr size=7 width=75%><center><font size=-1>\n";
+   print "[ <a href=\"$cgi_url\?remove\">削除</a> ] [ <a href=\"$cgi_url\?remove_by_date\">日付で削除</a> ] [ <a href=\"$cgi_url\?remove_by_author\">著者で削除</a> ] [ <a href=\"$cgi_url\?remove_by_num\">メッセージ番号で削除</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]\n";
+   print "</font></center><hr size=7 width=75%>\n";
+   print "<p>\n";
+   print "<form method=POST action=\"$cgi_url\">\n";
+   print "<input type=hidden name=\"action\" value=\"remove_by_date_or_author\">\n";
+   print "<input type=hidden name=\"type\" value=\"remove_by_date\">\n";
+   print "<center>\n";
+   print "<table border>\n";
+   print "<tr>\n";
+   print "<th colspan=4>ユーザ名: <input type=text name=\"username\"> -- パスワード: <input type=password name=\"password\"><br></th>\n";
+   print "</tr>\n";
+   print "<tr>\n";
+   print "<th>X </th><th>日付 </th><th>メッセージ数 </th><th>メッセージ番号<br></th></tr>\n";
+
+   open(MSGS,"$basedir/$mesgfile");
+   @lines = <MSGS>;
+   close(MSGS);
+
+   foreach $line (@lines) {
+      if ($line =~ /<!--top: (.*)--><li><a href="$mesgdir\/\1\.$ext">.*<\/a> - <b>.*<\/b>\s+<i>(.*)<\/i>/) {
+         $date = $2;
+         if ($use_time == 1) {
+            ($day,$time) = split(/\s+/,$date);
+         }
+         else {
+            $day = $date;
+         }
+         $DATE{$1} = $day;
+      }
+   }
+
+   undef(@used_values);
+   foreach $value (sort (values %DATE)) {
+      $match = '0';
+      $value_number = 0;
+      foreach $used_value (@used_values) {
+         if ($value eq $used_value) {
+            $match = '1';
+            last;
+         }
+      }
+      if ($match == '0') {
+         undef(@values); undef(@short_values);
+         foreach $key (keys %DATE) {
+            if ($value eq $DATE{$key}) {
+               $key_url = "<a href=\"$baseurl/$mesgdir/$key\.$ext\">$key</a>";
+               push(@values,$key_url);
+	       push(@short_values,$key);
+               $value_number++;
+            }
+         }
+         $form_value = $value;
+         $form_value =~ s/\//_/g;
+         print "<tr>\n";
+         print "<td><input type=checkbox name=\"$form_value\" value=\"@short_values\"> </td><th>$value </th><td>$value_number </td><td>@values<br></td>\n";
+         print "</tr>\n";
+         push(@used_values,$value);
+         push(@used_form_values,$form_value);
+      }
+   }
+   print "</table><p>\n";
+   print "<input type=hidden name=\"used_values\" value=\"@used_form_values\">\n";
+   print "<input type=submit value=\"メッセージを削除\"> <input type=reset value=\"リセット\">\n";
+   print "</form></center>\n";
+   print "</body></html>\n";
+}
+
+###########################################################################
+# 著者で削除                                                              #
+#       このオプションでは、既知の全著者の一覧が作成されて投稿とともに    #
+#    グループ化されるので、それらをすべて同時に削除することができます。   #
+###########################################################################
+
+elsif ($command eq 'remove_by_author') {
+   print "<html><head><title>WWWBoard から著者でメッセージを削除</title></head>\n";
+   print "<body><center><h1>WWWBoard から著者でメッセージを削除</h1></center>\n";
+   print "著者名横のチェックボックスをチェックすると、該当著者が作成した\n";
+   print "全投稿が削除されます。\n";
+   print "<p>\n";
+   print "<hr size=7 width=75%><center><font size=-1>\n";
+   print "[ <a href=\"$cgi_url\?remove\">削除</a> ] [ <a href=\"$cgi_url\?remove_by_date\">日付で削除</a> ] [ <a href=\"$cgi_url\?remove_by_author\">著者で削除</a> ] [ <a href=\"$cgi_url\?remove_by_num\">メッセージ番号で削除</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]\n";
+   print "</font></center><hr size=7 width=75%>\n";
+   print "<p>\n";
+   print "<form method=POST action=\"$cgi_url\">\n";
+   print "<input type=hidden name=\"action\" value=\"remove_by_date_or_author\">\n";
+   print "<input type=hidden name=\"type\" value=\"remove_by_author\">\n";
+   print "<center>\n";
+   print "<table border>\n";
+   print "<tr>\n";
+   print "<th colspan=4>ユーザ名: <input type=text name=\"username\"> -- パスワード: <input type=password name=\"password\"><br></th>\n";
+   print "</tr>\n";
+   print "<tr>\n";
+   print "<th>X </th><th>著者 </th><th>メッセージ数 </th><th>メッセージ番号<br></th></tr>\n";
+
+   open(MSGS,"$basedir/$mesgfile");
+   @lines = <MSGS>;
+   close(MSGS);
+
+   foreach $line (@lines) {
+      if ($line =~ /<!--top: (.*)--><li><a href="$mesgdir\/\1\.$ext">.*<\/a> - <b>(.*)<\/b>\s+<i>.*<\/i>/) {
+         $AUTHOR{$1} = $2;
+      }
+   }
+
+   undef(@used_values);
+   foreach $value (sort (values %AUTHOR)) {
+      $match = '0';
+      $value_number = 0;
+      foreach $used_value (@used_values) {
+         if ($value eq $used_value) {
+            $match = '1';
+            last;
+         }
+      }
+      if ($match == '0') {
+         undef(@values); undef(@short_values);
+         foreach $key (keys %AUTHOR) {
+            if ($value eq $AUTHOR{$key}) {
+               $key_url = "<a href=\"$baseurl/$mesgdir/$key\.$ext\">$key</a>";
+               push(@values,$key_url);
+               push(@short_values,$key);
+               $value_number++;
+            }
+         }
+         $form_value = $value;
+         $form_value =~ s/ /_/g;
+         print "<tr>\n";
+         print "<td><input type=checkbox name=\"$form_value\" value=\"@short_values\"> </td><th align=left>$value </th><td>$value_number </td><td>@values<br></td>\n";
+         print "</tr>\n";
+         push(@used_values,$value);
+         push(@used_form_values,$form_value);
+      }
+   }
+   print "</table><p>\n";
+   print "<input type=hidden name=\"used_values\" value=\"@used_form_values\">\n";
+   print "<input type=submit value=\"メッセージを削除\"> <input type=reset value=\"リセット\">\n";
+   print "</form></center>\n";
+   print "</body></html>\n";
+
+}
+
+###########################################################################
+# パスワードの変更                                                        #
+#       スクリプトのこのセクションを呼び出すと、admin でパスワードを変更  #
+#   することができます。                                                  #
+###########################################################################
+
+elsif ($command eq 'change_passwd') {
+
+   print "<html><head><title>WWWBoard Admin のパスワードを変更</title></head>\n";
+   print "<body><center><h1>WWWBoard Admin のパスワードを変更</h1></center>\n";
+   print "下のフォームすべてに記入して、パスワードおよびユーザ名を変更してください。\n";
+   print "新ユーザ名が空白の場合、旧ユーザ名がそのまま使われます。<p><hr size=7 width=75%><p>\n";
+   print "<form method=POST action=\"$cgi_url\">\n";
+   print "<input type=hidden name=\"action\" value=\"change_passwd\">\n";
+   print "<center><table border=0>\n";
+   print "<tr>\n";
+   print "<th align=left>ユーザ名: </th><td><input type=text name=\"username\"><br></td>\n";
+   print "</tr><tr>\n";
+   print "<th align=left>パスワード: </th><td><input type=password name=\"password\"><br></td>\n";
+   print "</tr><tr> </tr><tr>\n";
+   print "<th align=left>新ユーザ名: </th><td><input type=text name=\"new_username\"><br></td>\n";
+   print "</tr><tr>\n";
+   print "<th align=left>新パスワード: </th><td><input type=password name=\"passwd_1\"><br></td>\n";
+   print "</tr><tr>\n";
+   print "<th align=left>新パスワードを再入力: </th><td><input type=password name=\"passwd_2\"><br></td>\n";
+   print "</tr><tr>\n";
+   print "<td align=center><input type=submit value=\"パスワードを変更\"> </td><td align=center><input type=reset value=\"リセット\"></td>\n";
+   print "</tr></table></center>\n";
+   print "</form></body></html>\n";
+
+}
+
+###########################################################################
+# 削除アクション                                                          #
+#       この部分は remove と remove_by_num のオプションに使用されます。   #
+###########################################################################
+
+elsif ($FORM{'action'} eq 'remove') {
+
+   &check_passwd;
+
+   for ($i = $FORM{'min'}; $i <= $FORM{'max'}; $i++) {
+      if ($FORM{$i} eq 'all') {
+         push(@ALL,$i);
+      }
+      elsif ($FORM{$i} eq 'single') {
+         push(@SINGLE,$i);
+      }
+   }
+
+   open(MSGS,"$basedir/$mesgfile");
+   @lines = <MSGS>;
+   close(MSGS);
+
+   foreach $single (@SINGLE) {
+      foreach ($j = 0;$j <= @lines;$j++) {
+         if ($lines[$j] =~ /<!--top: $single-->/) {
+            splice(@lines, $j, 3);
+            $j -= 3;
+         }
+         elsif ($lines[$j] =~ /<!--end: $single-->/) {
+            splice(@lines, $j, 1);
+            $j--;
+         }
+      }
+      $filename = "$basedir/$mesgdir/$single\.$ext";
+      if (-e $filename) {
+         unlink("$filename") || push(@NOT_REMOVED,$single);
+      }
+      else {
+         push(@NO_FILE,$single);
+      }
+      push(@ATTEMPTED,$single);
+   }
+
+   foreach $all (@ALL) {
+      undef($top); undef($bottom);
+      foreach ($j = 0;$j <= @lines;$j++) {
+         if ($lines[$j] =~ /<!--top: $all-->/) {
+            $top = $j;
+         }
+         elsif ($lines[$j] =~ /<!--end: $all-->/) {
+            $bottom = $j;
+         }
+      }
+      if ($top && $bottom) {
+         $diff = ($bottom - $top);
+         $diff++;
+         for ($k = $top;$k <= $bottom;$k++) {
+            if ($lines[$k] =~ /<!--top: (.*)-->/) {
+               push(@DELETE,$1);
+            }
+         }
+         splice(@lines, $top, $diff);
+         foreach $delete (@DELETE) {
+            $filename = "$basedir/$mesgdir/$delete\.$ext";
+            if (-e $filename) {
+               unlink($filename) || push(@NOT_REMOVED,$delete);
+            }
+            else {
+               push(@NO_FILE,$delete);
+            }
+            push(@ATTEMPTED,$delete);
+         }
+      }
+      else {
+         push(@TOP_BOT,$all);
+      }
+   }
+
+   open(WWWBOARD,">$basedir/$mesgfile");
+   print WWWBOARD @lines;
+   close(WWWBOARD);      
+
+   &return_html($FORM{'type'});
+
+}
+
+###########################################################################
+# 日付または著者による削除アクション                                      #
+#       この部分は remove_by_date または remove_by_author の方法に        #
+#   使用されます。                                                        #
+###########################################################################
+
+elsif ($FORM{'action'} eq 'remove_by_date_or_author') {
+
+   &check_passwd;
+
+   @used_values = split(/\s/,$FORM{'used_values'});
+   foreach $used_value (@used_values) {
+      @misc_values = split(/\s/,$FORM{$used_value});
+      foreach $misc_value (@misc_values) {
+         push(@SINGLE,$misc_value);
+      }
+   }
+
+   open(MSGS,"$basedir/$mesgfile");
+   @lines = <MSGS>;
+   close(MSGS);
+
+   foreach $single (@SINGLE) {
+      foreach ($j = 0;$j <= @lines;$j++) {
+         if ($lines[$j] =~ /<!--top: $single-->/) {
+            splice(@lines, $j, 3);
+            $j -= 3;
+         }
+         elsif ($lines[$j] =~ /<!--end: $single-->/) {
+            splice(@lines, $j, 1);
+            $j--;
+         }
+      }
+      $filename = "$basedir/$mesgdir/$single\.$ext";
+      if (-e $filename) {
+         unlink("$filename") || push(@NOT_REMOVED,$single);
+      }
+      else {
+         push(@NO_FILE,$single);
+      }
+      push(@ATTEMPTED,$single);
+   }
+
+   open(WWWBOARD,">$basedir/$mesgfile");
+   print WWWBOARD @lines;
+   close(WWWBOARD);
+
+   &return_html($FORM{'type'});
+
+}
+
+elsif ($FORM{'action'} eq 'change_passwd') {
+
+   open(PASSWD,"$basedir/$passwd_file") || &error(passwd_file);
+   $passwd_line = <PASSWD>;
+   chop($passwd_line) if $passwd_line =~ /\n$/;
+   close(PASSWD);
+
+   ($username,$passwd) = split(/:/,$passwd_line);
+
+   if (!($FORM{'passwd_1'} eq $FORM{'passwd_2'})) {
+      &error(not_same);
+   }
+
+   $test_passwd = crypt($FORM{'password'}, substr($passwd, 0, 2));
+   if ($test_passwd eq $passwd && $FORM{'username'} eq $username) {
+      open(PASSWD,">$basedir/$passwd_file") || &error(no_change);
+      $new_password = crypt($FORM{'passwd_1'}, substr($passwd, 0, 2));
+      if ($FORM{'new_username'}) {
+         $new_username = $FORM{'new_username'};
+      }
+      else {
+         $new_username = $username;
+      }
+      print PASSWD "$new_username:$new_password";
+      close(PASSWD);
+   }
+   else {
+      &error(bad_combo);
+   }
+
+   &return_html(change_passwd);
+}
+
+else {
+   print "<html><head><title>WWWBoard 用 WWWAdmin</title></head>\n";
+   print "<body><center><h1>WWWBoard 用 WWWAdmin</h1></center>\n";
+   print "下で WWWBoard の変更方法を選んでください:<p>\n";
+   print "<hr size=7 width=75%><br>\n";
+   print "<ul>\n";
+   print "<li>ファイルを削除\n";
+   print "<ul>\n";
+   print "<li><a href=\"$cgi_url\?remove\">ファイルを削除</a>\n";
+   print "<li><a href=\"$cgi_url\?remove_by_num\">メッセージ番号でファイルを削除</a>\n";
+   print "<li><a href=\"$cgi_url\?remove_by_date\">日付でファイルを削除</a>\n";
+   print "<li><a href=\"$cgi_url\?remove_by_author\">著者でファイルを削除</a>\n";
+   print "</ul><br>\n";
+   print "<li>パスワード\n";
+   print "<ul>\n";
+   print "<li><a href=\"$cgi_url\?change_passwd\">Admin のパスワードを変更</a>\n";
+   print "</ul>\n";
+   print "</ul>\n";
+}
+
+#######################
+# フォーム解析のサブルーチン
+
+sub parse_form {
+
+   # 入力を取得
+   read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
+
+   # name-value ペアを分離
+   @pairs = split(/&/, $buffer);
+
+   foreach $pair (@pairs) {
+      ($name, $value) = split(/=/, $pair);
+
+      # プラス記号と % エンコーディングを非ウェブ化
+      $name =~ tr/+/ /;
+      $name =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+      &jcode'convert(*name, 'sjis');
+      $value =~ tr/+/ /;
+      $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+      &jcode'convert(*value, 'sjis');
+
+      $FORM{$name} = $value;
+   }
+}
+
+sub return_html {
+   $type = $_[0];
+   if ($type eq 'remove') {
+      print "<html><head><title>伝言板削除の結果</title></head>\n";
+      print "<body><center><h1>伝言板削除の結果</h1></center>\n";
+   }
+   elsif ($type eq 'remove_by_num') {
+      print "<html><head><title>番号による伝言板削除の結果</title></head>\n";
+      print "<body><center><h1>番号による伝言板削除の結果</h1></center>\n";
+   }
+   elsif ($type eq 'remove_by_date') {
+      print "<html><head><title>日付による伝言板削除の結果</title></head>\n";
+      print "<body><center><h1>日付による伝言板削除の結果</h1></center>\n";
+   }
+   elsif ($type eq 'remove_by_author') {
+      print "<html><head><title>著者による伝言板削除の結果</title></head>\n";
+      print "<body><center><h1>著者による伝言板削除の結果</h1></center>\n";
+   }
+   elsif ($type eq 'change_passwd') {
+      print "<html><head><title>WWWBoard WWWAdmin のパスワードが変更されました</title></head>\n";
+      print "<body><center><h1>WWWBoard WWWAdmin のパスワードが変更されました</h1></center>\n";
+      print "WWWBoard WWWAdmin のパスワードが変更されました !  結果は以下の通りです:<p><hr size=7 width=75%><p>\n";
+      print "<b>新ユーザ名: $new_username<p>\n";
+      print "新パスワード: $FORM{'passwd_1'}</b><p>\n";
+      print "<hr size=7 width=75%><p>\n";
+      print "これらは忘れないようにしてください。ファイルにエンコードされるので、読み出し不能\になります !。\n";
+      print "</body></html>\n";
+   }
+   if ($type =~ /^remove/) {
+      print "以下は、$mesgfile および $mesgdir ディレクトリからどのようなファイルが削除されたかの\n";
+      print "簡単な概要です。エラーメッセージの表\示がない限り、スクリプトが削除を試みたファイルは\n";
+      print "すべて削除されました。<p><hr size=7 width=75%><p>\n";
+ 
+      print "<b>削除を試みたファイル:</b> @ATTEMPTED<p>\n";
+      if (@NOT_REMOVED) {
+         print "<b>削除できなかったファイル:</b> @NOT_REMOVED<p>\n";
+      }
+      if (@NO_FILE) {
+         print "<b>見つからなかったファイル:</b> @NO_FILE<p>\n";
+      }
+      print "<hr size=7 width=75%><center><font size=-1>\n";
+      print "[ <a href=\"$cgi_url\?remove\">削除</a> ] [ <a href=\"$cgi_url\?remove_by_date\">日付で削除</a> ] [ <a href=\"$cgi_url\?remove_by_author\">著者で削除</a> ] [ <a href=\"$cgi_url\?remove_by_num\">メッセージ番号で削除</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]\n";
+      print "</font></center><hr size=7 width=75%>\n";
+      print "</body></html>\n";
+   }
+}
+
+sub error {
+   $error = $_[0];
+   if ($error eq 'bad_combo') {
+      print "<html><head><title>不正なユーザ名 - パスワードの組み合わせです</title></head>\n";
+      print "<body><center><h1>不正なユーザ名 - パスワードの組み合わせです</h1></center>\n";
+      print "無効なユーザ名・パスワードの組み合わせです。やり直してみてください。<p>\n";
+      &passwd_trailer
+   }
+   elsif ($error eq 'passwd_file') {
+      print "<html><head><title>パスワードファイルを開いて読み出せません</title></head>\n";
+      print "<body><center><h1>パスワードファイルを開いて読み出せません</h1></center>\n";
+      print "パスワードファイルを開いて読み出せませんでした !  パーミションを確認してやり直してみてください。<p>\n";
+      &passwd_trailer
+   }
+   elsif ($error eq 'not_same') {
+      print "<html><head><title>不正なパスワードの入力</title></head>\n";
+      print "<body><center><h1>不正なパスワードの入力</h1></center>\n";
+      print "入力した新パスワードは間違っています。\n";
+      print "入力ミスの可能性があります。やり直してみてください。<p>\n";
+      &passwd_trailer
+   }
+   elsif ($error eq 'no_change') {
+      print "<html><head><title>パスワードファイルを開いて書き込めません</title></head>\n";
+      print "<body><center><h1>パスワードファイルを開いて書き込めません</h1></center>\n";
+      print "パスワードファイルを開いて書き込めませんでした !  パスワードは変更されませんでした !<p>\n";
+      &passwd_trailer
+   }
+
+   exit;
+}
+
+sub passwd_trailer {
+   print "<hr size=7 width=75%><center><font size=-1>\n";
+   print "[ <a href=\"$cgi_url\">WWWAdmin</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]\n";
+   print "</font></center><hr size=7 width=75%>\n";
+   print "</body></html>\n";
+}
+
+sub check_passwd {
+   open(PASSWD,"$basedir/$passwd_file") || &error(passwd_file);
+   $passwd_line = <PASSWD>;
+   chop($passwd_line) if $passwd_line =~ /\n$/;
+   close(PASSWD);
+
+   ($username,$passwd) = split(/:/,$passwd_line);
+
+   $test_passwd = crypt($FORM{'password'}, substr($passwd, 0, 2));
+   if (!($test_passwd eq $passwd && $FORM{'username'} eq $username)) {
+      &error(bad_combo);
+   }
+}

@@ -1,0 +1,576 @@
+#!/usr/local/bin/perl
+##############################################################################
+# WWWBoard                      Version 2.0 ALPHA 2                          #
+# Copyright 1996 Matt Wright    mattw@worldwidemart.com                      #
+# Created 10/21/95              Last Modified 11/25/95                       #
+# Scripts Archive at:           http://www.worldwidemart.com/scripts/        #
+##############################################################################
+# COPYRIGHT NOTICE                                                           #
+# Copyright 1996 Matthew M. Wright  All Rights Reserved.                     #
+#                                                                            #
+# WWWBoard may be used and modified free of charge by anyone so long as      #
+# this copyright notice and the comments above remain intact.  By using this #
+# code you agree to indemnify Matthew M. Wright from any liability that      #  
+# might arise from it's use.                                                 #  
+#                                                                            #
+# Selling the code for this program without prior written consent is         #
+# expressly forbidden.  In other words, please ask first before you try and  #
+# make money off of my program.                                              #
+#                                                                            #
+# Obtain permission before redistributing this software over the Internet or #
+# in any other medium.  In all cases copyright and header must remain intact.#
+##############################################################################
+# WWWBoard                      バージョン 2.0 アルファ 2                    #
+# Copyright 1996 Matt Wright    mattw@worldwidemart.com                      #
+# 製作 95/10/21                 最終改正 95/11/25                            #
+# スクリプトアーカイブの所在:   http://www.worldwidemart.com/scripts/        #
+##############################################################################
+# 著作権の告知                                                               #
+# Copyright 1996 Matthew M. Wright  All Rights Reserved.                     #
+#                                                                            #
+# この著作権の告知および上記のコメントに手を加えない限り、何人も無償で       #
+# WWWBoard を使用し改変することができます。当コードを使用することにより、使  #
+# 用者は Matthew M. Wright に対して、使用によって生じる可能性のあるいかなる  #
+# 責務に関しても免責を保証したものとします。                                 #
+#                                                                            #
+# 事前の書面による同意を得ることなしに当プログラムのコードを販売することは、 #
+# 明確に禁止します。換言すれば、私のプログラムから金銭を得ようとする前に、ま #
+# ず問い合わせてください。                                                   #
+#                                                                            #
+# インターネットもしくは何らかの媒体を介して当ソフトウェアを再配布する前に、 #
+# 許可を得てください。いかなる場合も、著作権およびヘッダに手を加えることは禁 #
+# 止します。                                                                 #
+##############################################################################
+
+require 'jcode.pl';
+
+# 変数を定義
+
+$basedir = "/path/to/wwwboard";
+$baseurl = "http://your.host.xxx/wwwboard";
+$cgi_url = "http://your.host.xxx/cgi-bin/wwwboard.pl";
+
+$mesgdir = "messages";
+$datafile = "data.txt";
+$mesgfile = "wwwboard.html";
+$faqfile = "faq.html";
+
+$ext = "html";
+
+$title = "WWWBoard バージョン 2.0 テスト";
+
+# 完了
+###########################################################################
+
+###########################################################################
+# オプションを設定
+
+$show_faq = 1;		# 1 - YES; 0 = NO
+$allow_html = 1;	# 1 = YES; 0 = NO
+$quote_text = 1;	# 1 = YES; 0 = NO
+$subject_line = 0;	# 0 = 件名を引用する (編集可能); 1 = 件名を引用する
+			#   (編集不可); 2 = 件名を引用せず、編集可能。
+$use_time = 1;		# 1 = YES; 0 = NO
+
+# 完了
+###########################################################################
+
+# データ番号を取得
+&get_number;
+
+# フォーム情報を取得
+&parse_form;
+
+# 項目を適切な変数に格納
+&get_variables;
+
+# 新規ファイルを開き、情報を記述。
+&new_file;
+
+# メイン WWWBoard のファイルを開き、リンクを追加
+&main_page;
+
+# ここで各ページにスレッドを追加
+if ($num_followups >= 1) {
+   &thread_pages;
+}
+
+# ユーザに HTML を返信
+&return_html;
+
+# 番号をインクリメント
+&increment_num;
+
+############################
+# データ番号取得のサブルーチン
+
+sub get_number {
+   open(NUMBER,"$basedir/$datafile");
+   $num = <NUMBER>;
+   close(NUMBER);
+   if ($num == 99999)  {
+      $num = "1";
+   }
+   else {
+      $num++;
+   }
+}
+
+#######################
+# フォーム解析のサブルーチン
+
+sub parse_form {
+
+   # 入力を取得
+   read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
+
+   # name-value ペアを分離
+   @pairs = split(/&/, $buffer);
+
+   foreach $pair (@pairs) {
+      ($name, $value) = split(/=/, $pair);
+
+      # プラス記号と % エンコーディングを非ウェブ化
+      $value =~ tr/+/ /;
+      $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+      &jcode'convert(*value, 'sjis');
+      $value =~ s/<!--(.|\n)*-->//g;
+
+      if ($allow_html != 1) {
+         $value =~ s/<([^>]|\n)*>//g;
+      }
+      else {
+         unless ($name eq 'body') {
+	    $value =~ s/<([^>]|\n)*>//g;
+         }
+      }
+
+      $FORM{$name} = $value;
+   }
+
+}
+
+###############
+# 変数を取得
+
+sub get_variables {
+
+   if ($FORM{'followup'}) {
+      $followup = "1";
+      @followup_num = split(/,/,$FORM{'followup'});
+      $num_followups = @followups = @followup_num;
+      $last_message = pop(@followups);
+      $origdate = "$FORM{'origdate'}";
+      $origname = "$FORM{'origname'}";
+      $origemail = "$FORM{'origemail'}";
+      $origsubject = "$FORM{'origsubject'}";
+   }
+   else {
+      $followup = "0";
+   }
+
+   if ($FORM{'name'}) {
+      $name = "$FORM{'name'}";
+      $name =~ s/"//g;
+      $name =~ s/<//g;
+      $name =~ s/>//g;
+      $name =~ s/\&//g;
+   }
+   else {
+      &error(no_name);
+   }
+
+   if ($FORM{'email'} =~ /.*\@.*\..*/) {
+      $email = "$FORM{'email'}";
+   }
+
+   if ($FORM{'subject'}) {
+      $subject = "$FORM{'subject'}";
+      $subject =~ s/\&/\&amp\;/g;
+      $subject =~ s/"/\&quot\;/g;
+   }
+   else {
+      &error(no_subject);
+   }
+
+   if ($FORM{'url'} =~ /.*\:.*\..*/ && $FORM{'url_title'}) {
+      $message_url = "$FORM{'url'}";
+      $message_url_title = "$FORM{'url_title'}";
+   }
+
+   if ($FORM{'img'} =~ /.*tp:\/\/.*\..*/) {
+      $message_img = "$FORM{'img'}";
+   }
+
+   if ($FORM{'body'}) {
+      $body = "$FORM{'body'}";
+      $body =~ s/\cM//g;
+      $body =~ s/\n\n/<p>/g;
+      $body =~ s/\n/<br>/g;
+
+      $body =~ s/&lt;/</g; 
+      $body =~ s/&gt;/>/g; 
+      $body =~ s/&quot;/"/g;
+   }
+   else {
+      &error(no_body);
+   }
+
+   if ($quote_text == 1) {
+      $hidden_body = "$body";
+      $hidden_body =~ s/</&lt;/g;
+      $hidden_body =~ s/>/&gt;/g;
+      $hidden_body =~ s/"/&quot;/g;
+   }
+
+   ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
+
+   if ($sec < 10) {
+      $sec = "0$sec";
+   }
+   if ($min < 10) {
+      $min = "0$min";
+   }
+   if ($hour < 10) {
+      $hour = "0$hour";
+   }
+   if ($mon < 10) {
+      $mon = "0$mon";
+   }
+   if ($mday < 10) {
+      $mday = "0$mday";
+   }
+
+   $month = ($mon + 1);
+
+   @months = ("January","February","March","April","May","June","July","August","September","October","November","December");
+
+   if ($use_time == 1) {
+      $date = "$year/$month/$mday $hour\:$min\:$sec";
+   }
+   else {
+      $date = "$year/$month/$mday";
+   }
+   chop($date) if ($date =~ /\n$/);
+
+   $long_date = "19$year 年 $month 月 $mday 日 $hour\:$min\:$sec";
+}      
+
+#####################
+# 新規ファイルのサブルーチン
+
+sub new_file {
+
+   open(NEWFILE,">$basedir/$mesgdir/$num\.$ext") || die $!;
+   print NEWFILE "<html>\n";
+   print NEWFILE "  <head>\n";
+   print NEWFILE "    <title>$subject</title>\n";
+   print NEWFILE "  </head>\n";
+   print NEWFILE "  <body>\n";
+   print NEWFILE "    <center>\n";
+   print NEWFILE "      <h1>$subject</h1>\n";
+   print NEWFILE "    </center>\n";
+   print NEWFILE "<hr size=7 width=75%>\n";
+   if ($show_faq == 1) {
+      print NEWFILE "<center>[ <a href=\"#followups\">フォローアップ</a> ] [ <a href=\"#postfp\">フォローアップを投稿</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ] [ <a href=\"$baseurl/$faqfile\">FAQ</a> ]</center>\n";
+   }
+   else {
+      print NEWFILE "<center>[ <a href=\"#followups\">フォローアップ</a> ] [ <a href=\"#postfp\">フォローアップを投稿</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]</center>\n";
+   }
+   print NEWFILE "<hr size=7 width=75%><p>\n";
+
+   print NEWFILE "投稿者 ";
+
+   if ($email) {
+      print NEWFILE "<a href=\"mailto:$email\">$name</a> 日時 $long_date:<p>\n";
+   }
+   else {
+      print NEWFILE "$name 日時 $long_date:<p>\n";
+   }
+
+   if ($followup == 1) {
+      print NEWFILE "回答先: <a href=\"$last_message\.$ext\">$origsubject</a> 投稿者 ";
+
+      if ($origemail) {
+         print NEWFILE "<a href=\"mailto:$origemail\">$origname</a> 日時 $origdate:<p>\n";
+      }
+      else {
+         print NEWFILE "$origname 日時 $origdate:<p>\n";
+      }
+   }
+
+   if ($message_img) {
+      print NEWFILE "<center><img src=\"$message_img\"></center><p>\n";
+   }
+   print NEWFILE "$body\n";
+   print NEWFILE "<br>\n";
+   if ($message_url) {
+      print NEWFILE "<ul><li><a href=\"$message_url\">$message_url_title</a></ul>\n";
+   }
+   print NEWFILE "<br><hr size=7 width=75%><p>\n";
+   print NEWFILE "<a name=\"followups\">フォローアップ:</a><br>\n";
+   print NEWFILE "<ul><!--insert: $num-->\n";
+   print NEWFILE "</ul><!--end: $num-->\n";
+   print NEWFILE "<br><hr size=7 width=75%><p>\n";
+   print NEWFILE "<a name=\"postfp\">フォローアップを投稿</a><p>\n";
+   print NEWFILE "<form method=POST action=\"$cgi_url\">\n";
+   print NEWFILE "<input type=hidden name=\"followup\" value=\"";
+   if ($followup == 1) {
+      foreach $followup_num (@followup_num) {
+         print NEWFILE "$followup_num,";
+      }
+   }
+   print NEWFILE "$num\">\n";
+   print NEWFILE "<input type=hidden name=\"origname\" value=\"$name\">\n";
+   if ($email) {
+      print NEWFILE "<input type=hidden name=\"origemail\" value=\"$email\">\n";
+   }
+   print NEWFILE "<input type=hidden name=\"origsubject\" value=\"$subject\">\n";
+   print NEWFILE "<input type=hidden name=\"origdate\" value=\"$long_date\">\n";
+   print NEWFILE "氏名: <input type=text name=\"name\" size=50><br>\n";
+   print NEWFILE "E メール: <input type=text name=\"email\" size=50><p>\n";
+   if ($subject_line == 1) {
+      if ($subject =~ /^Re:/) {
+         print NEWFILE "<input type=hidden name=\"subject\" value=\"$subject\">\n";
+         print NEWFILE "件名: <b>$subject</b><p>\n";
+      }
+      else {
+         print NEWFILE "<input type=hidden name=\"subject\" value=\"Re: $subject\">\n";
+         print NEWFILE "件名: <b>Re: $subject</b><p>\n";
+      }
+   } 
+   elsif ($subject_line == 2) {
+      print NEWFILE "件名: <input type=text name=\"subject\" size=50><p>\n";
+   }
+   else {
+      if ($subject =~ /^Re:/) {
+         print NEWFILE "件名: <input type=text name=\"subject\"value=\"$subject\" size=50><p>\n";
+      }
+      else {
+         print NEWFILE "件名: <input type=text name=\"subject\" value=\"Re: $subject\" size=50><p>\n";
+      }
+   }
+   print NEWFILE "コメント:<br>\n";
+   print NEWFILE "<textarea name=\"body\" COLS=50 ROWS=10>\n";
+   if ($quote_text == 1) {
+      @chunks_of_body = split(/\&lt\;p\&gt\;/,$hidden_body);
+      foreach $chunk_of_body (@chunks_of_body) {
+         @lines_of_body = split(/\&lt\;br\&gt\;/,$chunk_of_body);
+         foreach $line_of_body (@lines_of_body) {
+            print NEWFILE ": $line_of_body\n";
+         }
+         print NEWFILE "\n";
+      }
+   }
+   print NEWFILE "</textarea>\n";
+   print NEWFILE "<p>\n";
+   print NEWFILE "リンクの URL (任意): <input type=text name=\"url\" size=50><br>\n";
+   print NEWFILE "リンクの題名: <input type=text name=\"url_title\" size=48><br>\n";
+   print NEWFILE "画像の URL (任意): <input type=text name=\"img\" size=49><p>\n";
+   print NEWFILE "<input type=submit value=\"フォローアップを送信\"> <input type=reset value=\"リセット\">\n";
+   print NEWFILE "</form>\n";
+   print NEWFILE "<p><hr size=7 width=75%>\n";
+   if ($show_faq == 1) {
+      print NEWFILE "<center>[ <a href=\"#followups\">フォローアップ</a> ] [ <a href=\"#postfp\">フォローアップを投稿</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ] [ <a href=\"$baseurl/$faqfile\">FAQ</a> ]</center>\n";
+   }
+   else {
+      print NEWFILE "<center>[ <a href=\"#followups\">フォローアップ</a> ] [ <a href=\"#postfp\">フォローアップを投稿</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]</center>\n";
+   }
+   print NEWFILE "</body></html>\n";
+   close(NEWFILE);
+}
+
+###############################
+# メイン WWWBoard ページのサブルーチン
+
+sub main_page {
+   open(MAIN,"$basedir/$mesgfile") || die $!;
+   @main = <MAIN>;
+   close(MAIN);
+
+   open(MAIN,">$basedir/$mesgfile") || die $!;
+   if ($followup == 0) {
+      foreach $main_line (@main) {
+         if ($main_line =~ /<!--begin-->/) {
+            print MAIN "<!--begin-->\n";
+	    print MAIN "<!--top: $num--><li><a href=\"$mesgdir/$num\.$ext\">$subject</a> - <b>$name</b> <i>$date</i>\n";
+            print MAIN "(<!--responses: $num-->0)\n";
+            print MAIN "<ul><!--insert: $num-->\n";
+            print MAIN "</ul><!--end: $num-->\n";
+         }
+         else {
+            print MAIN "$main_line";
+         }
+      }
+   }
+   else {
+      foreach $main_line (@main) {
+	 $work = 0;
+         if ($main_line =~ /<ul><!--insert: $last_message-->/) {
+            print MAIN "<ul><!--insert: $last_message-->\n";
+            print MAIN "<!--top: $num--><li><a href=\"$mesgdir/$num\.$ext\">$subject</a> - <b>$name</b> <i>$date</i>\n";
+            print MAIN "(<!--responses: $num-->0)\n";
+            print MAIN "<ul><!--insert: $num-->\n";
+            print MAIN "</ul><!--end: $num-->\n";
+         }
+         elsif ($main_line =~ /\(<!--responses: (.*)-->(.*)\)/) {
+            $response_num = $1;
+            $num_responses = $2;
+            $num_responses++;
+            foreach $followup_num (@followup_num) {
+               if ($followup_num == $response_num) {
+                  print MAIN "(<!--responses: $followup_num-->$num_responses)\n";
+		  $work = 1;
+               }
+            }
+            if ($work != 1) {
+               print MAIN "$main_line";
+            }
+         }
+         else {
+            print MAIN "$main_line";
+         }
+      }
+   }
+   close(MAIN);
+}
+
+############################################
+# 各ページにフォローアップのスレッドを追加
+sub thread_pages {
+
+   foreach $followup_num (@followup_num) {
+      open(FOLLOWUP,"$basedir/$mesgdir/$followup_num\.$ext");
+      @followup_lines = <FOLLOWUP>;
+      close(FOLLOWUP);
+
+      open(FOLLOWUP,">$basedir/$mesgdir/$followup_num\.$ext");
+      foreach $followup_line (@followup_lines) {
+         $work = 0;
+         if ($followup_line =~ /<ul><!--insert: $last_message-->/) {
+	    print FOLLOWUP "<ul><!--insert: $last_message-->\n";
+            print FOLLOWUP "<!--top: $num--><li><a href=\"$num\.$ext\">$subject</a> <b>$name</b> <i>$date</i>\n";
+            print FOLLOWUP "(<!--responses: $num-->0)\n";
+            print FOLLOWUP "<ul><!--insert: $num-->\n";
+            print FOLLOWUP "</ul><!--end: $num-->\n";
+         }
+         elsif ($followup_line =~ /\(<!--responses: (.*)-->(.*)\)/) {
+            $response_num = $1;
+            $num_responses = $2;
+            $num_responses++;
+            foreach $followup_num (@followup_num) {
+               if ($followup_num == $response_num) {
+                  print FOLLOWUP "(<!--responses: $followup_num-->$num_responses)\n";
+                  $work = 1;
+               }
+            }
+            if ($work != 1) {
+               print FOLLOWUP "$followup_line";
+            }
+         }
+         else {
+            print FOLLOWUP "$followup_line";
+         }
+      }
+      close(FOLLOWUP);
+   }
+}
+
+sub return_html {
+   print "Content-type: text/html\n\n";
+   print "<html><head><title>記入メッセージ: $subject</title></head>\n";
+   print "<body><center><h1>記入メッセージ: $subject</h1></center>\n";
+   print "以下の情報が伝言板に記入されました:<p><hr size=7 width=75%><p>\n";
+   print "<b>氏名:</b> $name<br>\n";
+   print "<b>E メール:</b> $email<br>\n";
+   print "<b>件名:</b> $subject<br>\n";
+   print "<b>メッセージ本体:</b><p>\n";
+   print "$body<p>\n";
+   if ($message_url) {
+      print "<b>リンク:</b> <a href=\"$message_url\">$message_url_title</a><br>\n";
+   }
+   if ($message_img) {
+      print "<b>画像:</b> <img src=\"$message_img\"><br>\n";
+   }
+   print "<b>記入日時:</b> $date<p>\n";
+   print "<hr size=7 width=75%>\n";
+   print "<center>[ <a href=\"$baseurl/$mesgdir/$num\.$ext\">自分のメッセージへ</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]</center>\n";
+   print "</body></html>\n";
+}
+
+sub increment_num {
+   open(NUM,">$basedir/$datafile") || die $!;
+   print NUM "$num";
+   close(NUM);
+}
+
+sub error {
+   $error = $_[0];
+
+   print "Content-type: text/html\n\n";
+
+   if ($error eq 'no_name') {
+      print "<html><head><title>$title エラー: 氏名が未記入です</title></head>\n";
+      print "<body><center><h1>エラー: 氏名が未記入です</h1></center>\n";
+      print "投稿の際「氏名」欄に記入漏れがありました。下で訂正して再送信してください。必要な記入事項は、氏名、件名、およびメッセージです。<p><hr size=7 width=75%><p>\n";
+      &rest_of_form;
+   }
+   elsif ($error eq 'no_subject') {
+      print "<html><head><title>$title エラー: 件名が未記入です</title></head>\n";
+      print "<body><center><h1>エラー: 件名が未記入です</h1></center>\n";
+      print "投稿の際「件名」欄に記入漏れがありました。下で訂正して再送信してください。必要な記入事項は、氏名、件名、およびメッセージです。<p><hr size=7 width=75%><p>\n";
+      &rest_of_form;
+   }
+   elsif ($error eq 'no_body') {
+      print "<html><head><title>$title エラー: メッセージが未記入です</title></head>\n";
+      print "<body><center><h1>エラー: メッセージが未記入です</h1></center>\n";
+      print "投稿の際「メッセージ」欄に記入漏れがありました。下で訂正して再送信してください。必要な記入事項は、氏名、件名、およびメッセージです。<p><hr size=7 width=75%><p>\n";
+      &rest_of_form;
+   }
+   else {
+      print "エラー !  不明です。\n";
+   }
+   exit;
+}
+
+sub rest_of_form {
+
+   print "<form method=POST action=\"$cgi_url\">\n";
+
+   if ($followup == 1) {
+      print "<input type=hidden name=\"origsubject\" value=\"$FORM{'origsubject'}\">\n";
+      print "<input type=hidden name=\"origname\" value=\"$FORM{'origname'}\">\n";
+      print "<input type=hidden name=\"origemail\" value=\"$FORM{'origemail'}\">\n";
+      print "<input type=hidden name=\"origdate\" value=\"$FORM{'origdate'}\">\n";
+      print "<input type=hidden name=\"followup\" value=\"$FORM{'followup'}\">\n";
+   }
+   print "氏名: <input type=text name=\"name\" value=\"$FORM{'name'}\" size=50><br>\n";
+   print "E メール: <input type=text name=\"email\" value=\"$FORM{'email'}\" size=50><p>\n";
+   if ($subject_line == 1) {
+      print "<input type=hidden name=\"subject\" value=\"$FORM{'subject'}\">\n";
+      print "件名: <b>$FORM{'subject'}</b><p>\n";
+   } 
+   else {
+      print "件名: <input type=text name=\"subject\" value=\"$FORM{'subject'}\" size=50><p>\n";
+   }
+   print "メッセージ:<br>\n";
+   print "<textarea COLS=50 ROWS=10 name=\"body\">\n";
+   $FORM{'body'} =~ s/</&lt;/g;
+   $FORM{'body'} =~ s/>/&gt;/g;
+   $FORM{'body'} =~ s/"/&quot;/g;
+   print "$FORM{'body'}\n";
+   print "</textarea><p>\n";
+   print "リンクの URL (任意): <input type=text name=\"url\" value=\"$FORM{'url'}\" size=45><br>\n";
+   print "リンクの題名: <input type=text name=\"url_title\" value=\"$FORM{'url_title'}\" size=50><br>\n";
+   print "画像の URL (任意): <input type=text name=\"img\" value=\"$FORM{'img'}\" size=45><p>\n";
+   print "<input type=submit value=\"メッセージを投稿\"> <input type=reset value=\"リセット\">\n";
+   print "</form>\n";
+   print "<br><hr size=7 width=75%>\n";
+   if ($show_faq == 1) {
+      print "<center>[ <a href=\"#followups\">フォローアップ</a> ] [ <a href=\"#postfp\">フォローアップを投稿</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ] [ <a href=\"$baseurl/$faqfile\">FAQ</a> ]</center>\n";
+   }
+   else {
+      print "<center>[ <a href=\"#followups\">フォローアップ</a> ] [ <a href=\"#postfp\">フォローアップを投稿</a> ] [ <a href=\"$baseurl/$mesgfile\">$title</a> ]</center>\n";
+   }
+   print "</body></html>\n";
+}
